@@ -1,0 +1,255 @@
+Session 4
+
+Tasks
+
+
+
+
+Question:
+Create an array called favApps with the names of 5 apps you use daily (like Instagram, Zomato, Paytm, etc.) and use a for loop to print each app name in the console.
+
+Answer:
+
+let favApps = ["Instagram", "WhatsApp", "YouTube", "Spotify", "Chrome"];
+
+for (let i = 0; i < favApps.length; i++) {
+console.log(favApps[i]);
+}
+
+
+
+
+Question:
+Create an array called favApps with the names of 5 apps you use daily (like Instagram, Zomato, Paytm, etc.) and use a for loop to print each app name in the console.
+
+Answer:
+
+let favApps = ["Instagram", "WhatsApp", "YouTube", "Spotify", "Chrome"];
+
+for (let i = 0; i < favApps.length; i++) {
+console.log(favApps[i]);
+}
+
+
+
+
+Question:
+Create an array called playlist containing 5 of your favorite song names and use a for loop to print each song name in the console.
+
+Answer:
+
+let playlist = ["Perfect", "Kesariya", "Tum Hi Ho", "Love Story", "Believer"];
+
+for (let i = 0; i < playlist.length; i++) {
+console.log(playlist[i]);
+}
+
+
+
+
+Question:
+Given an array of cricket team names for IPL, use a while loop to print each team name in uppercase.
+
+Answer:
+
+let teams = ["MI", "CSK", "RCB", "GT", "KKR"];
+
+let i = 0;
+
+while (i < teams.length) {
+console.log(teams[i].toUpperCase());
+i++;
+}
+
+
+
+
+Question:
+Given an array of cricket team names for IPL, use a while loop to print each team name in uppercase.
+
+Answer:
+
+let teams = ["MI", "CSK", "RCB", "GT", "KKR"];
+
+let i = 0;
+
+while (i < teams.length) {
+console.log(teams[i].toUpperCase());
+i++;
+}
+
+
+
+
+Question:
+Given an array of Instagram usernames, use a while loop to print each username in uppercase.
+
+Answer:
+
+let usernames = ["zuber123", "rahul20", "priya15", "aisha22", "john45"];
+
+let i = 0;
+
+while (i < usernames.length) {
+console.log(usernames[i].toUpperCase());
+i++;
+}
+
+
+
+
+Question:
+Create an array called playlist with 4 song names (strings). Use a do-while loop to print each song name along with its index (e.g., '0: Kesariya') in the console.
+
+Answer:
+
+let playlist = ["Kesariya", "Perfect", "Believer", "Love Story"];
+
+let i = 0;
+
+do {
+console.log(i + ": " + playlist[i]);
+i++;
+} while (i < playlist.length);
+
+
+
+
+Question:
+Create an array called playlist with 4 song names (strings). Use a do-while loop to print each song name along with its index (e.g., '0: Kesariya') in the console.
+
+Answer:
+
+let playlist = ["Kesariya", "Perfect", "Believer", "Love Story"];
+
+let i = 0;
+
+do {
+console.log(i + ": " + playlist[i]);
+i++;
+} while (i < playlist.length);
+
+
+
+
+Question:
+Use a do-while loop to simulate a Zomato order tracker that prints 'Order status: Preparing', 'Order status: Out for delivery', and 'Order status: Delivered' in sequence, stopping after the last status.
+
+Answer:
+
+let orderStatus = [
+"Preparing",
+"Out for delivery",
+"Delivered"
+];
+
+let i = 0;
+
+do {
+console.log("Order status: " + orderStatus[i]);
+i++;
+} while (i < orderStatus.length);
+
+
+
+
+Question:
+Given an array of objects representing Flipkart products (each with name and price), use a for-of loop to print only the product names.
+
+Answer:
+
+let products = [
+{ name: "Headphones", price: 1500 },
+{ name: "Keyboard", price: 1200 },
+{ name: "Mouse", price: 700 },
+{ name: "Smart Watch", price: 2500 }
+];
+
+for (let product of products) {
+console.log(product.name);
+}
+
+
+
+
+Question:
+Given an array of objects representing Flipkart products (each with name and price), use a for-of loop to print only the product names.
+
+Answer:
+
+let products = [
+{ name: "Headphones", price: 1500 },
+{ name: "Keyboard", price: 1200 },
+{ name: "Mouse", price: 700 },
+{ name: "Smart Watch", price: 2500 }
+];
+
+for (let product of products) {
+console.log(product.name);
+}
+
+
+
+
+Question:
+Given an array of Flipkart product prices, use a for-of loop to calculate and print the total price of all products.
+
+Answer:
+
+let prices = [1500, 1200, 700, 2500];
+
+let totalPrice = 0;
+
+for (let price of prices) {
+totalPrice += price;
+}
+
+console.log(totalPrice);
+
+
+
+
+Question:
+Create an array of your 5 most-used WhatsApp contacts (just names as strings). Use the forEach method to print a message for each: 'Sending hi to [name] on WhatsApp!'.
+
+Hint: Use an arrow function as the callback for forEach.
+
+Answer:
+
+let contacts = ["Rahul", "Aisha", "Priya", "Aman", "Riya"];
+
+contacts.forEach((name) => {
+console.log("Sending hi to " + name + " on WhatsApp!");
+});
+
+
+
+
+Question:
+Create an array of your 5 most-used WhatsApp contacts (just names as strings). Use the forEach method to print a message for each: 'Sending hi to [name] on WhatsApp!'.
+
+Hint: Use an arrow function as the callback for forEach.
+
+Answer:
+
+let contacts = ["Rahul", "Aisha", "Priya", "Aman", "Riya"];
+
+contacts.forEach((name) => {
+console.log("Sending hi to " + name + " on WhatsApp!");
+});
+
+
+
+
+Question:
+Use the forEach method to loop through an array of cricket team names (e.g., 'MI', 'CSK', 'RCB', 'GT') and print 'Go [team]!' for each.
+
+Hint: forEach takes a callback function with the current element as a parameter.
+
+Answer:
+
+let teams = ["MI", "CSK", "RCB", "GT"];
+
+teams.forEach((team) => {
+console.log("Go " + team + "!");
+});

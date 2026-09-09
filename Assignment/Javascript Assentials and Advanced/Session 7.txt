@@ -1,0 +1,467 @@
+Session 7
+
+Tasks
+
+
+1.
+
+Question:
+Create an HTML file with a button labeled 'Add to Playlist' and use the onclick event to display an alert saying 'Song added!' when the button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add to Playlist</title>
+</head>
+<body>
+
+    <button onclick="alert('Song added!')">Add to Playlist</button>
+
+</body>
+</html>
+2.
+
+Question:
+Create an HTML file with a button labeled 'Add to Playlist' and use the onclick event to display an alert saying 'Song added!' when the button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add to Playlist</title>
+</head>
+<body>
+
+    <button onclick="alert('Song added!')">Add to Playlist</button>
+
+</body>
+</html>
+3.
+
+Question:
+Create an HTML page with a button labeled 'Add Song' — when the button is clicked, use onclick to instantly add a new card below showing a random song title from your favorite playlist.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Playlist</title>
+</head>
+<body>
+
+    <button onclick="addSong()">Add Song</button>
+
+    <div id="playlist"></div>
+
+    <script>
+        let songs = [
+            "Love Story",
+            "Perfect",
+            "Believer",
+            "Shape of You",
+            "Night Changes"
+        ];
+
+        function addSong() {
+            let randomIndex = Math.floor(Math.random() * songs.length);
+
+            let card = document.createElement("div");
+
+            card.innerHTML = songs[randomIndex];
+
+            card.style.border = "1px solid black";
+            card.style.padding = "10px";
+            card.style.marginTop = "10px";
+            card.style.width = "200px";
+
+            document.getElementById("playlist").appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
+4.
+
+Question:
+Build a mini form with an input for 'Username' and use the onchange event to log the entered username to the console every time the input changes.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Form</title>
+</head>
+<body>
+
+    <label>Username:</label>
+    <input type="text" onchange="showUsername(this.value)">
+
+    <script>
+        function showUsername(username) {
+            console.log(username);
+        }
+    </script>
+
+</body>
+</html>
+5.
+
+Question:
+Build a mini form with an input for 'Username' and use the onchange event to log the entered username to the console every time the input changes.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Form</title>
+</head>
+<body>
+
+    <label>Username:</label>
+    <input type="text" onchange="showUsername(this.value)">
+
+    <script>
+        function showUsername(username) {
+            console.log(username);
+        }
+    </script>
+
+</body>
+</html>
+6.
+
+Question:
+Build a simple Zomato-style food order form with a dropdown for cuisine and an input for quantity — use the onchange event on the dropdown to display a message showing which cuisine was selected.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Order</title>
+</head>
+<body>
+
+    <h2>Food Order</h2>
+
+    <label>Cuisine:</label>
+
+    <select onchange="showCuisine(this.value)">
+        <option value="">Select Cuisine</option>
+        <option value="Indian">Indian</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Italian">Italian</option>
+        <option value="Mexican">Mexican</option>
+    </select>
+
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="number">
+
+    <p id="message"></p>
+
+    <script>
+        function showCuisine(cuisine) {
+            document.getElementById("message").innerHTML =
+                "You selected " + cuisine + " cuisine.";
+        }
+    </script>
+
+</body>
+</html>
+7.
+
+Question:
+Create a 'Like' button similar to Instagram's and use addEventListener to increment and display the like count each time the button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Like Button</title>
+</head>
+<body>
+
+    <button id="likeButton">Like 0</button>
+
+    <script>
+        let likes = 0;
+
+        let button = document.getElementById("likeButton");
+
+        button.addEventListener("click", function() {
+            likes++;
+
+            button.innerHTML = "Like " + likes;
+        });
+    </script>
+
+</body>
+</html>
+8.
+
+Question:
+Create a 'Like' button similar to Instagram's and use addEventListener to increment and display the like count each time the button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Like Button</title>
+</head>
+<body>
+
+    <button id="likeButton">Like 0</button>
+
+    <script>
+        let likes = 0;
+
+        let button = document.getElementById("likeButton");
+
+        button.addEventListener("click", function() {
+            likes++;
+
+            button.innerHTML = "Like " + likes;
+        });
+    </script>
+
+</body>
+</html>
+9.
+
+Question:
+Write a function addToCart that adds a product name to a visible cart section when a 'Add to Cart' button is clicked, but attach the click event using addEventListener instead of the onclick attribute.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+    <h2>Product</h2>
+
+    <p>Wireless Headphones</p>
+
+    <button id="cartButton">Add to Cart</button>
+
+    <h3>Cart</h3>
+
+    <div id="cart"></div>
+
+    <script>
+        function addToCart() {
+            let product = document.createElement("p");
+
+            product.innerHTML = "Wireless Headphones";
+
+            document.getElementById("cart").appendChild(product);
+        }
+
+        let button = document.querySelector("#cartButton");
+
+        button.addEventListener("click", addToCart);
+    </script>
+
+</body>
+</html>
+10.
+
+Question:
+Display a list of 3 movies (hardcoded) and add a 'Remove' button next to each. Use addEventListener to remove the movie card from the DOM when its button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
+
+    <div class="movie">
+        <span>Avengers: Endgame</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <div class="movie">
+        <span>3 Idiots</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <div class="movie">
+        <span>Interstellar</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <script>
+        let buttons = document.querySelectorAll(".remove");
+
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                button.parentElement.remove();
+            });
+        });
+    </script>
+
+</body>
+</html>
+11.
+
+Question:
+Display a list of 3 movies (hardcoded) and add a 'Remove' button next to each. Use addEventListener to remove the movie card from the DOM when its button is clicked.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
+
+    <div class="movie">
+        <span>Avengers: Endgame</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <div class="movie">
+        <span>3 Idiots</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <div class="movie">
+        <span>Interstellar</span>
+        <button class="remove">Remove</button>
+    </div>
+
+    <script>
+        let buttons = document.querySelectorAll(".remove");
+
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                button.parentElement.remove();
+            });
+        });
+    </script>
+
+</body>
+</html>
+12.
+
+Question:
+Display the X and Y coordinates of the mouse when you click anywhere inside a div by using the event object in your click event handler.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Coordinates</title>
+</head>
+<body>
+
+    <div id="box" style="width:400px; height:200px; border:1px solid black;">
+        Click anywhere inside this box
+    </div>
+
+    <p id="coordinates"></p>
+
+    <script>
+        let box = document.getElementById("box");
+
+        box.addEventListener("click", function(event) {
+            document.getElementById("coordinates").innerHTML =
+                "X: " + event.clientX + " Y: " + event.clientY;
+        });
+    </script>
+
+</body>
+</html>
+13.
+
+Question:
+Log the type and coordinates (clientX, clientY) of any mouse event (click, mouseover, etc.) when the user interacts with a Flipkart-style 'Add to Cart' button, using the event object.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add to Cart</title>
+</head>
+<body>
+
+    <button id="cartButton">Add to Cart</button>
+
+    <script>
+        let button = document.getElementById("cartButton");
+
+        button.addEventListener("click", function(event) {
+            console.log("Event Type: " + event.type);
+            console.log("X: " + event.clientX);
+            console.log("Y: " + event.clientY);
+        });
+
+        button.addEventListener("mouseover", function(event) {
+            console.log("Event Type: " + event.type);
+            console.log("X: " + event.clientX);
+            console.log("Y: " + event.clientY);
+        });
+    </script>
+
+</body>
+</html>
+14.
+
+Question:
+Log the type and coordinates (clientX, clientY) of any mouse event (click, mouseover, etc.) when the user interacts with a Flipkart-style 'Add to Cart' button, using the event object.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add to Cart</title>
+</head>
+<body>
+
+    <button id="cartButton">Add to Cart</button>
+
+    <script>
+        let button = document.getElementById("cartButton");
+
+        button.addEventListener("click", function(event) {
+            console.log("Event Type: " + event.type);
+            console.log("X: " + event.clientX);
+            console.log("Y: " + event.clientY);
+        });
+
+        button.addEventListener("mouseover", function(event) {
+            console.log("Event Type: " + event.type);
+            console.log("X: " + event.clientX);
+            console.log("Y: " + event.clientY);
+        });
+    </script>
+
+</body>
+</html>
+15.
+
+Question:
+Briefly explain (in 2-3 sentences) what event flow is in the DOM, and give one example of how event bubbling could affect a shopping cart app like Flipkart.
+
+Answer:
+
+Event flow is the way an event moves through the DOM, from the parent elements to the target element and then back through the parent elements. Event bubbling can affect a shopping cart app if a button is inside a product card and clicking the button also triggers a click event on the product card, which may open the product details or perform another action.

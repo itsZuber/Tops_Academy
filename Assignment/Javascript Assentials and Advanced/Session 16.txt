@@ -1,0 +1,424 @@
+Session 16
+
+Tasks
+
+
+1.
+
+Question:
+Given an array of Flipkart product objects with properties name, price, and isInStock, use the filter() method to create a new array containing only the products that are in stock.
+
+Answer:
+
+let products = [
+    {
+        name: "Laptop",
+        price: 50000,
+        isInStock: true
+    },
+    {
+        name: "Mouse",
+        price: 800,
+        isInStock: false
+    },
+    {
+        name: "Keyboard",
+        price: 1500,
+        isInStock: true
+    },
+    {
+        name: "Headphones",
+        price: 2000,
+        isInStock: false
+    }
+];
+
+let inStockProducts = products.filter(function(product) {
+    return product.isInStock == true;
+});
+
+console.log(inStockProducts);
+2.
+
+Question:
+Given an array of Flipkart product objects with properties name, price, and isInStock, use the filter() method to create a new array containing only the products that are in stock.
+
+Answer:
+
+let products = [
+    {
+        name: "Smart Watch",
+        price: 2500,
+        isInStock: true
+    },
+    {
+        name: "Mobile Phone",
+        price: 20000,
+        isInStock: false
+    },
+    {
+        name: "Power Bank",
+        price: 1200,
+        isInStock: true
+    },
+    {
+        name: "Bluetooth Speaker",
+        price: 1800,
+        isInStock: false
+    }
+];
+
+let inStockProducts = products.filter(function(product) {
+    return product.isInStock == true;
+});
+
+console.log(inStockProducts);
+3.
+
+Question:
+Given an array of playlists from a music app like Spotify, each with a name and isPublic property, use filter() to create a new array containing only the public playlists.
+
+Answer:
+
+let playlists = [
+    {
+        name: "My Favorites",
+        isPublic: true
+    },
+    {
+        name: "Private Songs",
+        isPublic: false
+    },
+    {
+        name: "Workout Songs",
+        isPublic: true
+    },
+    {
+        name: "Personal Playlist",
+        isPublic: false
+    }
+];
+
+let publicPlaylists = playlists.filter(function(playlist) {
+    return playlist.isPublic == true;
+});
+
+console.log(publicPlaylists);
+4.
+
+Question:
+Use the map() method to transform an array of Instagram post objects (each with a likes property) into a new array of just the like counts.
+
+Answer:
+
+let posts = [
+    {
+        likes: 120
+    },
+    {
+        likes: 250
+    },
+    {
+        likes: 500
+    },
+    {
+        likes: 350
+    }
+];
+
+let likeCounts = posts.map(function(post) {
+    return post.likes;
+});
+
+console.log(likeCounts);
+5.
+
+Question:
+Use the map() method to transform an array of Instagram post objects (each with a likes property) into a new array of just the like counts.
+
+Answer:
+
+let posts = [
+    {
+        likes: 100
+    },
+    {
+        likes: 450
+    },
+    {
+        likes: 700
+    },
+    {
+        likes: 320
+    }
+];
+
+let likeCounts = posts.map(function(post) {
+    return post.likes;
+});
+
+console.log(likeCounts);
+6.
+
+Question:
+Use map() to transform an array of Flipkart product objects (each with name and price) into an array of strings formatted as 'Product: [name], Price: ₹[price]'.
+
+Answer:
+
+let products = [
+    {
+        name: "Laptop",
+        price: 50000
+    },
+    {
+        name: "Mouse",
+        price: 800
+    },
+    {
+        name: "Keyboard",
+        price: 1500
+    }
+];
+
+let productDetails = products.map(function(product) {
+    return "Product: " + product.name + ", Price: ₹" + product.price;
+});
+
+console.log(productDetails);
+7.
+
+Question:
+Given an array of Zomato order objects with a clicks property, use reduce() to calculate the total number of clicks across all orders.
+
+Answer:
+
+let orders = [
+    {
+        clicks: 100
+    },
+    {
+        clicks: 250
+    },
+    {
+        clicks: 150
+    },
+    {
+        clicks: 300
+    }
+];
+
+let totalClicks = orders.reduce(function(total, order) {
+    return total + order.clicks;
+}, 0);
+
+console.log(totalClicks);
+8.
+
+Question:
+Given an array of Zomato order objects with a clicks property, use reduce() to calculate the total number of clicks across all orders.
+
+Answer:
+
+let orders = [
+    {
+        clicks: 120
+    },
+    {
+        clicks: 180
+    },
+    {
+        clicks: 220
+    },
+    {
+        clicks: 150
+    }
+];
+
+let totalClicks = orders.reduce(function(total, order) {
+    return total + order.clicks;
+}, 0);
+
+console.log(totalClicks);
+9.
+
+Question:
+Given an array of Instagram post objects with a likes property, use reduce() to calculate the total number of likes across all posts.
+
+Answer:
+
+let posts = [
+    {
+        likes: 200
+    },
+    {
+        likes: 350
+    },
+    {
+        likes: 500
+    },
+    {
+        likes: 450
+    }
+];
+
+let totalLikes = posts.reduce(function(total, post) {
+    return total + post.likes;
+}, 0);
+
+console.log(totalLikes);
+10.
+
+Question:
+Given an array of YouTube video objects with a views property, use the find() method to get the first video that has more than 1 million views.
+
+Answer:
+
+let videos = [
+    {
+        title: "JavaScript Tutorial",
+        views: 500000
+    },
+    {
+        title: "HTML Tutorial",
+        views: 1500000
+    },
+    {
+        title: "CSS Tutorial",
+        views: 2000000
+    }
+];
+
+let video = videos.find(function(video) {
+    return video.views > 1000000;
+});
+
+console.log(video);
+11.
+
+Question:
+Given an array of YouTube video objects with a views property, use the find() method to get the first video that has more than 1 million views.
+
+Answer:
+
+let videos = [
+    {
+        title: "Gaming Video",
+        views: 700000
+    },
+    {
+        title: "Music Video",
+        views: 2500000
+    },
+    {
+        title: "Travel Video",
+        views: 3000000
+    }
+];
+
+let video = videos.find(function(video) {
+    return video.views > 1000000;
+});
+
+console.log(video);
+12.
+
+Question:
+Given an array of Zomato restaurant objects, each with a cuisine property, use find() to get the first restaurant that serves 'Chinese' cuisine.
+
+Answer:
+
+let restaurants = [
+    {
+        name: "Spice Garden",
+        cuisine: "Indian"
+    },
+    {
+        name: "Dragon House",
+        cuisine: "Chinese"
+    },
+    {
+        name: "Pizza Corner",
+        cuisine: "Italian"
+    }
+];
+
+let restaurant = restaurants.find(function(restaurant) {
+    return restaurant.cuisine == "Chinese";
+});
+
+console.log(restaurant);
+13.
+
+Question:
+Ask ChatGPT to suggest a one-liner using map() and reduce() that calculates the sum of all prices in an array of Myntra cart items, and then implement the suggested code in your editor.
+
+Answer:
+
+let cart = [
+    {
+        name: "T-Shirt",
+        price: 700
+    },
+    {
+        name: "Jeans",
+        price: 1200
+    },
+    {
+        name: "Shoes",
+        price: 1800
+    }
+];
+
+let total = cart.map(item => item.price).reduce((sum, price) => sum + price, 0);
+
+console.log(total);
+14.
+
+Question:
+Ask ChatGPT to suggest a one-liner using map() and reduce() that calculates the sum of all prices in an array of Myntra cart items, and then implement the suggested code in your editor.
+
+Answer:
+
+let cart = [
+    {
+        name: "Shirt",
+        price: 900
+    },
+    {
+        name: "Watch",
+        price: 1500
+    },
+    {
+        name: "Shoes",
+        price: 2000
+    }
+];
+
+let total = cart.map(item => item.price).reduce((sum, price) => sum + price, 0);
+
+console.log(total);
+15.
+
+Question:
+Use ChatGPT to suggest a one-liner alternative using map() and reduce() for calculating the total amount spent from an array of transactions (each with amount property), and then implement that one-liner in your code.
+
+Answer:
+
+let transactions = [
+    {
+        amount: 500
+    },
+    {
+        amount: 1200
+    },
+    {
+        amount: 800
+    },
+    {
+        amount: 1500
+    }
+];
+
+let totalSpent = transactions.map(transaction => transaction.amount).reduce((total, amount) => total + amount, 0);
+
+console.log(totalSpent);

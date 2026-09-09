@@ -1,0 +1,653 @@
+Session 17
+
+Tasks
+
+
+1.
+
+Question:
+Create a list of song cards (each with a title and an 'X' icon) using plain JavaScript and HTML. When you click the 'X' on any card, remove only that card from the DOM using event delegation (attach the click listener to the parent container, not each card).
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song List</title>
+</head>
+<body>
+
+    <h2>My Songs</h2>
+
+    <div id="songList"></div>
+
+    <script>
+        let songs = [
+            "Love Story",
+            "Perfect",
+            "Believer",
+            "Night Changes"
+        ];
+
+        let songList = document.getElementById("songList");
+
+        for (let song of songs) {
+            let card = document.createElement("div");
+
+            card.innerHTML = song + " <button class='remove'>X</button>";
+
+            card.style.margin = "10px";
+
+            songList.appendChild(card);
+        }
+
+        songList.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+2.
+
+Question:
+Create a list of song cards (each with a title and an 'X' icon) using plain JavaScript and HTML. When you click the 'X' on any card, remove only that card from the DOM using event delegation (attach the click listener to the parent container, not each card).
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song List</title>
+</head>
+<body>
+
+    <h2>My Playlist</h2>
+
+    <div id="songList"></div>
+
+    <script>
+        let songs = [
+            "Shape of You",
+            "Faded",
+            "Havana",
+            "Dusk Till Dawn"
+        ];
+
+        let songList = document.getElementById("songList");
+
+        for (let song of songs) {
+            let card = document.createElement("div");
+
+            card.innerHTML = song + " <button class='remove'>X</button>";
+
+            card.style.margin = "10px";
+
+            songList.appendChild(card);
+        }
+
+        songList.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+3.
+
+Question:
+Create an HTML list of favorite songs where each item has a 'Remove' button. Use event delegation to handle all remove actions by attaching a single click event listener to the parent list element.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Songs</title>
+</head>
+<body>
+
+    <h2>Favorite Songs</h2>
+
+    <ul id="songList">
+        <li>Love Story <button class="remove">Remove</button></li>
+        <li>Perfect <button class="remove">Remove</button></li>
+        <li>Believer <button class="remove">Remove</button></li>
+        <li>Night Changes <button class="remove">Remove</button></li>
+    </ul>
+
+    <script>
+        let songList = document.getElementById("songList");
+
+        songList.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+4.
+
+Question:
+Build a Flipkart-style wishlist where each product card has a 'Remove' button. Add a new product card dynamically when the user clicks 'Add Product'. Ensure that the 'Remove' button works for both existing and newly added cards without attaching new listeners to each card.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+
+    <h2>My Wishlist</h2>
+
+    <button id="addProduct">Add Product</button>
+
+    <div id="wishlist">
+
+        <div class="product">
+            <span>Laptop</span>
+            <button class="remove">Remove</button>
+        </div>
+
+        <div class="product">
+            <span>Headphones</span>
+            <button class="remove">Remove</button>
+        </div>
+
+    </div>
+
+    <script>
+        let wishlist = document.getElementById("wishlist");
+
+        document.getElementById("addProduct").addEventListener("click", function() {
+            let product = document.createElement("div");
+
+            product.className = "product";
+
+            product.innerHTML =
+                "<span>Smart Watch</span> <button class='remove'>Remove</button>";
+
+            wishlist.appendChild(product);
+        });
+
+        wishlist.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+5.
+
+Question:
+Build a Flipkart-style wishlist where each product card has a 'Remove' button. Add a new product card dynamically when the user clicks 'Add Product'. Ensure that the 'Remove' button works for both existing and newly added cards without attaching new listeners to each card.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+
+    <h2>My Wishlist</h2>
+
+    <button id="addProduct">Add Product</button>
+
+    <div id="wishlist">
+
+        <div class="product">
+            <span>Mobile Phone</span>
+            <button class="remove">Remove</button>
+        </div>
+
+        <div class="product">
+            <span>Keyboard</span>
+            <button class="remove">Remove</button>
+        </div>
+
+    </div>
+
+    <script>
+        let wishlist = document.getElementById("wishlist");
+
+        document.getElementById("addProduct").addEventListener("click", function() {
+            let product = document.createElement("div");
+
+            product.className = "product";
+
+            product.innerHTML =
+                "<span>Wireless Mouse</span> <button class='remove'>Remove</button>";
+
+            wishlist.appendChild(product);
+        });
+
+        wishlist.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+6.
+
+Question:
+Build a Flipkart-style shopping cart UI with cards for each product and an 'X' icon to remove a product. Use event bubbling to ensure clicking the 'X' removes only the correct card without adding separate event listeners to each card.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+    <h2>Shopping Cart</h2>
+
+    <div id="cart">
+
+        <div class="product">
+            <span>Laptop - ₹50000</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="product">
+            <span>Headphones - ₹2000</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="product">
+            <span>Smart Watch - ₹2500</span>
+            <button class="remove">X</button>
+        </div>
+
+    </div>
+
+    <script>
+        let cart = document.getElementById("cart");
+
+        cart.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+7.
+
+Question:
+Given a code snippet where individual event listeners are added to each Instagram story card for removal, refactor the code to use a single event listener on the parent container (event delegation) for better efficiency.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Stories</title>
+</head>
+<body>
+
+    <h2>Stories</h2>
+
+    <div id="stories">
+
+        <div class="story">
+            <span>Zuber</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="story">
+            <span>Rahul</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="story">
+            <span>Arjun</span>
+            <button class="remove">X</button>
+        </div>
+
+    </div>
+
+    <script>
+        let stories = document.getElementById("stories");
+
+        stories.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+8.
+
+Question:
+Given a code snippet where individual event listeners are added to each Instagram story card for removal, refactor the code to use a single event listener on the parent container (event delegation) for better efficiency.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Stories</title>
+</head>
+<body>
+
+    <h2>Instagram Stories</h2>
+
+    <div id="stories">
+
+        <div class="story">
+            <span>Story 1</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="story">
+            <span>Story 2</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="story">
+            <span>Story 3</span>
+            <button class="remove">X</button>
+        </div>
+
+    </div>
+
+    <script>
+        let stories = document.getElementById("stories");
+
+        stories.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+9.
+
+Question:
+Add a feature to your cart UI so that when a new product card is added dynamically (for example, by clicking an 'Add Random Product' button), the 'X' remove functionality still works without adding any new event listeners.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+    <h2>Shopping Cart</h2>
+
+    <button id="addProduct">Add Random Product</button>
+
+    <div id="cart">
+
+        <div class="product">
+            <span>Laptop - ₹50000</span>
+            <button class="remove">X</button>
+        </div>
+
+        <div class="product">
+            <span>Headphones - ₹2000</span>
+            <button class="remove">X</button>
+        </div>
+
+    </div>
+
+    <script>
+        let products = [
+            "Smart Watch - ₹2500",
+            "Keyboard - ₹1500",
+            "Wireless Mouse - ₹800",
+            "Mobile Phone - ₹20000"
+        ];
+
+        let cart = document.getElementById("cart");
+
+        document.getElementById("addProduct").addEventListener("click", function() {
+            let randomIndex = Math.floor(Math.random() * products.length);
+
+            let product = document.createElement("div");
+
+            product.className = "product";
+
+            product.innerHTML =
+                "<span>" + products[randomIndex] + "</span> " +
+                "<button class='remove'>X</button>";
+
+            cart.appendChild(product);
+        });
+
+        cart.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
+10.
+
+Question:
+Simulate a notification feed like YouTube, where each notification card has a 'Dismiss' button. When you click 'Dismiss', fade out and remove the card. Make sure the event delegation works for dynamically loaded notifications as well as those present at page load.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifications</title>
+
+    <style>
+        .notification {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            transition: opacity 0.5s;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>YouTube Notifications</h2>
+
+    <button id="addNotification">Add Notification</button>
+
+    <div id="notifications">
+
+        <div class="notification">
+            <span>New video uploaded!</span>
+            <button class="dismiss">Dismiss</button>
+        </div>
+
+        <div class="notification">
+            <span>Your channel has a new subscriber.</span>
+            <button class="dismiss">Dismiss</button>
+        </div>
+
+    </div>
+
+    <script>
+        let notifications = document.getElementById("notifications");
+
+        document.getElementById("addNotification").addEventListener("click", function() {
+            let notification = document.createElement("div");
+
+            notification.className = "notification";
+
+            notification.innerHTML =
+                "<span>New notification received!</span> " +
+                "<button class='dismiss'>Dismiss</button>";
+
+            notifications.appendChild(notification);
+        });
+
+        notifications.addEventListener("click", function(event) {
+            if (event.target.classList.contains("dismiss")) {
+                let card = event.target.parentElement;
+
+                card.classList.add("hide");
+
+                setTimeout(function() {
+                    card.remove();
+                }, 500);
+            }
+        });
+    </script>
+
+</body>
+</html>
+11.
+
+Question:
+Simulate a notification feed like YouTube, where each notification card has a 'Dismiss' button. When you click 'Dismiss', fade out and remove the card. Make sure the event delegation works for dynamically loaded notifications as well as those present at page load.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifications</title>
+
+    <style>
+        .notification {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            transition: opacity 0.5s;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>YouTube Notifications</h2>
+
+    <button id="addNotification">Add Notification</button>
+
+    <div id="notifications">
+
+        <div class="notification">
+            <span>New video uploaded!</span>
+            <button class="dismiss">Dismiss</button>
+        </div>
+
+        <div class="notification">
+            <span>You have a new comment.</span>
+            <button class="dismiss">Dismiss</button>
+        </div>
+
+    </div>
+
+    <script>
+        let notifications = document.getElementById("notifications");
+
+        document.getElementById("addNotification").addEventListener("click", function() {
+            let notification = document.createElement("div");
+
+            notification.className = "notification";
+
+            notification.innerHTML =
+                "<span>New notification received!</span> " +
+                "<button class='dismiss'>Dismiss</button>";
+
+            notifications.appendChild(notification);
+        });
+
+        notifications.addEventListener("click", function(event) {
+            if (event.target.classList.contains("dismiss")) {
+                let card = event.target.parentElement;
+
+                card.classList.add("hide");
+
+                setTimeout(function() {
+                    card.remove();
+                }, 500);
+            }
+        });
+    </script>
+
+</body>
+</html>
+12.
+
+Question:
+Given the following code snippet, fix the bug so that clicking the 'X' icon on any card removes only that card, even if cards are added dynamically:
+
+document.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.parentElement.remove();
+    });
+});
+
+Answer:
+
+The problem is that the event listeners are added only to the buttons that exist when the page loads. For dynamically added cards, the new buttons will not have a listener, so event delegation can be used by attaching one listener to the parent container.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Cards</title>
+</head>
+<body>
+
+    <div id="cards">
+
+        <div class="card">
+            <span>Song 1</span>
+            <button class="remove-btn">X</button>
+        </div>
+
+        <div class="card">
+            <span>Song 2</span>
+            <button class="remove-btn">X</button>
+        </div>
+
+        <div class="card">
+            <span>Song 3</span>
+            <button class="remove-btn">X</button>
+        </div>
+
+    </div>
+
+    <script>
+        let cards = document.getElementById("cards");
+
+        cards.addEventListener("click", function(event) {
+            if (event.target.classList.contains("remove-btn")) {
+                event.target.parentElement.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>

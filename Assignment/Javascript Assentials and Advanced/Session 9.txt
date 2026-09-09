@@ -1,0 +1,517 @@
+Session 9
+
+Tasks
+
+Question:
+Create a JavaScript object representing a Flipkart-style product with name, price, and rating fields, then convert it to a JSON string using JSON.stringify() and log the result.
+
+Answer:
+
+let product = {
+    name: "Wireless Headphones",
+    price: 1999,
+    rating: 4.5
+};
+
+let jsonProduct = JSON.stringify(product);
+
+console.log(jsonProduct);
+2.
+
+Question:
+Create a JavaScript object representing a Flipkart-style product with name, price, and rating fields, then convert it to a JSON string using JSON.stringify() and log the result.
+
+Answer:
+
+let product = {
+    name: "Smart Watch",
+    price: 2499,
+    rating: 4.3
+};
+
+let jsonProduct = JSON.stringify(product);
+
+console.log(jsonProduct);
+3.
+
+Question:
+Create an array of your top 3 favorite food delivery apps (like Zomato, Swiggy, Domino's), convert it to a JSON string using JSON.stringify(), and log the result to the console.
+
+Answer:
+
+let foodApps = [
+    "Zomato",
+    "Swiggy",
+    "Domino's"
+];
+
+let jsonApps = JSON.stringify(foodApps);
+
+console.log(jsonApps);
+4.
+
+Question:
+Write a function that takes a JSON string representing a list of favorite YouTube channels and returns an array of channel names using JSON.parse().
+
+Answer:
+
+function getChannelNames(jsonString) {
+    let channels = JSON.parse(jsonString);
+
+    let names = [];
+
+    for (let channel of channels) {
+        names.push(channel.name);
+    }
+
+    return names;
+}
+
+let data = '[{"name":"Tech Channel"},{"name":"Music Channel"},{"name":"Gaming Channel"}]';
+
+console.log(getChannelNames(data));
+5.
+
+Question:
+Write a function that takes a JSON string representing a list of favorite YouTube channels and returns an array of channel names using JSON.parse().
+
+Answer:
+
+function getChannelNames(jsonString) {
+    let channels = JSON.parse(jsonString);
+
+    let names = [];
+
+    for (let channel of channels) {
+        names.push(channel.name);
+    }
+
+    return names;
+}
+
+let data = '[{"name":"CarryMinati"},{"name":"Technical Guruji"},{"name":"MrBeast"}]';
+
+console.log(getChannelNames(data));
+6.
+
+Question:
+Build a function saveRecentSearch(query) that takes a search term (like 'Biryani' or 'Sneakers'), adds it to an array, converts the array to JSON, and saves it in localStorage under the key 'recentSearches'.
+
+Answer:
+
+function saveRecentSearch(query) {
+    let searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+
+    searches.push(query);
+
+    localStorage.setItem("recentSearches", JSON.stringify(searches));
+}
+
+saveRecentSearch("Biryani");
+saveRecentSearch("Sneakers");
+7.
+
+Question:
+Build a simple web page where users can add their top 3 favorite Zomato restaurants to a list and save it to localStorage using localStorage.setItem(). When the page reloads, the list should automatically load from localStorage and display.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Restaurants</title>
+</head>
+<body>
+
+    <h2>My Favorite Restaurants</h2>
+
+    <input type="text" id="restaurantName" placeholder="Enter restaurant name">
+
+    <button id="addButton">Add Restaurant</button>
+
+    <ul id="restaurantList"></ul>
+
+    <script>
+        let restaurants = JSON.parse(localStorage.getItem("restaurants")) || [];
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            for (let restaurant of restaurants) {
+                let li = document.createElement("li");
+
+                li.innerHTML = restaurant;
+
+                list.appendChild(li);
+            }
+        }
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let restaurant = document.getElementById("restaurantName").value;
+
+            if (restaurant != "") {
+                if (restaurants.length < 3) {
+                    restaurants.push(restaurant);
+
+                    localStorage.setItem("restaurants", JSON.stringify(restaurants));
+
+                    document.getElementById("restaurantName").value = "";
+
+                    displayRestaurants();
+                }
+            }
+        });
+
+        displayRestaurants();
+    </script>
+
+</body>
+</html>
+8.
+
+Question:
+Build a simple web page where users can add their top 3 favorite Zomato restaurants to a list and save it to localStorage using localStorage.setItem(). When the page reloads, the list should automatically load from localStorage and display.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Restaurants</title>
+</head>
+<body>
+
+    <h2>My Favorite Restaurants</h2>
+
+    <input type="text" id="restaurantName" placeholder="Enter restaurant name">
+
+    <button id="addButton">Add Restaurant</button>
+
+    <ul id="restaurantList"></ul>
+
+    <script>
+        let restaurants = JSON.parse(localStorage.getItem("restaurants")) || [];
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            for (let restaurant of restaurants) {
+                let li = document.createElement("li");
+
+                li.innerHTML = restaurant;
+
+                list.appendChild(li);
+            }
+        }
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let restaurant = document.getElementById("restaurantName").value;
+
+            if (restaurant != "") {
+                if (restaurants.length < 3) {
+                    restaurants.push(restaurant);
+
+                    localStorage.setItem("restaurants", JSON.stringify(restaurants));
+
+                    document.getElementById("restaurantName").value = "";
+
+                    displayRestaurants();
+                }
+            }
+        });
+
+        displayRestaurants();
+    </script>
+
+</body>
+</html>
+9.
+
+Question:
+Write a function getRecentSearches() that reads the 'recentSearches' item from localStorage, parses it from JSON, and returns the array. If nothing is saved yet, return an empty array.
+
+Answer:
+
+function getRecentSearches() {
+    let saved = localStorage.getItem("recentSearches");
+
+    if (saved == null) {
+        return [];
+    }
+
+    return JSON.parse(saved);
+}
+
+console.log(getRecentSearches());
+10.
+
+Question:
+Implement a 'Clear Favorites' button on your restaurant list page that removes the saved data from localStorage using localStorage.removeItem() and updates the UI accordingly.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Restaurants</title>
+</head>
+<body>
+
+    <h2>My Favorite Restaurants</h2>
+
+    <ul id="restaurantList"></ul>
+
+    <button id="clearButton">Clear Favorites</button>
+
+    <script>
+        let restaurants = JSON.parse(localStorage.getItem("restaurants")) || [];
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            for (let restaurant of restaurants) {
+                let li = document.createElement("li");
+
+                li.innerHTML = restaurant;
+
+                list.appendChild(li);
+            }
+        }
+
+        document.getElementById("clearButton").addEventListener("click", function() {
+            localStorage.removeItem("restaurants");
+
+            restaurants = [];
+
+            displayRestaurants();
+        });
+
+        displayRestaurants();
+    </script>
+
+</body>
+</html>
+11.
+
+Question:
+Implement a 'Clear Favorites' button on your restaurant list page that removes the saved data from localStorage using localStorage.removeItem() and updates the UI accordingly.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Restaurants</title>
+</head>
+<body>
+
+    <h2>My Favorite Restaurants</h2>
+
+    <ul id="restaurantList"></ul>
+
+    <button id="clearButton">Clear Favorites</button>
+
+    <script>
+        let restaurants = JSON.parse(localStorage.getItem("restaurants")) || [];
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            for (let restaurant of restaurants) {
+                let li = document.createElement("li");
+
+                li.innerHTML = restaurant;
+
+                list.appendChild(li);
+            }
+        }
+
+        document.getElementById("clearButton").addEventListener("click", function() {
+            localStorage.removeItem("restaurants");
+
+            restaurants = [];
+
+            displayRestaurants();
+        });
+
+        displayRestaurants();
+    </script>
+
+</body>
+</html>
+12.
+
+Question:
+Simulate a Flipkart-style wishlist: create an array of 3 products (each with name and price), save it in localStorage as 'wishlist', then reload the page and display the wishlist items by reading and parsing the data from localStorage.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+
+    <h2>My Wishlist</h2>
+
+    <div id="wishlist"></div>
+
+    <script>
+        let products = [
+            {
+                name: "Laptop",
+                price: 50000
+            },
+            {
+                name: "Smart Watch",
+                price: 2500
+            },
+            {
+                name: "Headphones",
+                price: 2000
+            }
+        ];
+
+        localStorage.setItem("wishlist", JSON.stringify(products));
+
+        let saved = localStorage.getItem("wishlist");
+
+        let wishlist = JSON.parse(saved);
+
+        for (let product of wishlist) {
+            let item = document.createElement("p");
+
+            item.innerHTML = product.name + " - ₹" + product.price;
+
+            document.getElementById("wishlist").appendChild(item);
+        }
+    </script>
+
+</body>
+</html>
+13.
+
+Question:
+Debug this code: It tries to save an array of movie names to localStorage, but after reloading, the list doesn't display correctly.
+
+let movies = ['Jawan', 'Pathaan', 'Dunki'];
+localStorage.setItem('movies', movies);
+let saved = localStorage.getItem('movies');
+let arr = JSON.parse(saved);
+console.log(arr);
+
+Answer:
+
+The problem is that localStorage stores data as a string. The array should first be converted into a JSON string using JSON.stringify() before saving.
+
+let movies = ['Jawan', 'Pathaan', 'Dunki'];
+
+localStorage.setItem('movies', JSON.stringify(movies));
+
+let saved = localStorage.getItem('movies');
+
+let arr = JSON.parse(saved);
+
+console.log(arr);
+14.
+
+Question:
+Debug this code: It tries to save an array of movie names to localStorage, but after reloading, the list doesn't display correctly.
+
+let movies = ['Jawan', 'Pathaan', 'Dunki'];
+localStorage.setItem('movies', movies);
+let saved = localStorage.getItem('movies');
+let arr = JSON.parse(saved);
+console.log(arr);
+
+Answer:
+
+The problem is that the array is being stored directly in localStorage. We need to use JSON.stringify() while saving and JSON.parse() while reading.
+
+let movies = ['Jawan', 'Pathaan', 'Dunki'];
+
+localStorage.setItem('movies', JSON.stringify(movies));
+
+let saved = localStorage.getItem('movies');
+
+let arr = JSON.parse(saved);
+
+console.log(arr);
+15.
+
+Question:
+Add a 'Clear Wishlist' button to your wishlist code that removes the 'wishlist' key from localStorage and updates the display immediately.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+
+    <h2>My Wishlist</h2>
+
+    <div id="wishlist"></div>
+
+    <button id="clearWishlist">Clear Wishlist</button>
+
+    <script>
+        let products = [
+            {
+                name: "Laptop",
+                price: 50000
+            },
+            {
+                name: "Smart Watch",
+                price: 2500
+            },
+            {
+                name: "Headphones",
+                price: 2000
+            }
+        ];
+
+        localStorage.setItem("wishlist", JSON.stringify(products));
+
+        function displayWishlist() {
+            let wishlist = document.getElementById("wishlist");
+
+            wishlist.innerHTML = "";
+
+            let saved = localStorage.getItem("wishlist");
+
+            if (saved != null) {
+                let products = JSON.parse(saved);
+
+                for (let product of products) {
+                    let item = document.createElement("p");
+
+                    item.innerHTML = product.name + " - ₹" + product.price;
+
+                    wishlist.appendChild(item);
+                }
+            }
+        }
+
+        document.getElementById("clearWishlist").addEventListener("click", function() {
+            localStorage.removeItem("wishlist");
+
+            displayWishlist();
+        });
+
+        displayWishlist();
+    </script>
+
+</body>
+</html>

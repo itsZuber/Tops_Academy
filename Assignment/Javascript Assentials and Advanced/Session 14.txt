@@ -1,0 +1,475 @@
+Session 14
+
+Tasks
+
+
+1.
+
+Question:
+Create a file called utils.js and write a function generateOrderId() that returns a random 8-character order ID string. Export this function using a named export, then import and use it in a separate file order.js to log a new order ID.
+
+Answer:
+
+utils.js
+
+export function generateOrderId() {
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let orderId = "";
+
+    for (let i = 0; i < 8; i++) {
+        let randomIndex = Math.floor(Math.random() * characters.length);
+        orderId = orderId + characters[randomIndex];
+    }
+
+    return orderId;
+}
+
+order.js
+
+import { generateOrderId } from "./utils.js";
+
+let orderId = generateOrderId();
+
+console.log("New Order ID: " + orderId);
+2.
+
+Question:
+Create a file called utils.js and write a function generateOrderId() that returns a random 8-character order ID string. Export this function using a named export, then import and use it in a separate file order.js to log a new order ID.
+
+Answer:
+
+utils.js
+
+export function generateOrderId() {
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let orderId = "";
+
+    for (let i = 0; i < 8; i++) {
+        let randomIndex = Math.floor(Math.random() * characters.length);
+        orderId = orderId + characters[randomIndex];
+    }
+
+    return orderId;
+}
+
+order.js
+
+import { generateOrderId } from "./utils.js";
+
+let orderId = generateOrderId();
+
+console.log("New Order ID: " + orderId);
+3.
+
+Question:
+Create a file called utils.js and write two functions: formatPrice(price) that returns a string like '₹199.00', and getDiscountedPrice(price, discount) that returns the price after applying the discount percentage. Export both functions as named exports.
+
+Answer:
+
+utils.js
+
+export function formatPrice(price) {
+    return "₹" + price.toFixed(2);
+}
+
+export function getDiscountedPrice(price, discount) {
+    return price - (price * discount / 100);
+}
+4.
+
+Question:
+Write two functions in a file called spotifyUtils.js: formatSongTitle(title) that capitalizes every word, and getSongDurationInMinutes(seconds) that converts seconds to 'mm' format. Export both as named exports and import them into a main.js file to format and display the details of a sample song.
+
+Answer:
+
+spotifyUtils.js
+
+export function formatSongTitle(title) {
+    let words = title.split(" ");
+    let result = "";
+
+    for (let word of words) {
+        result = result + word.charAt(0).toUpperCase() + word.slice(1) + " ";
+    }
+
+    return result.trim();
+}
+
+export function getSongDurationInMinutes(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
+
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+
+    return minutes + ":" + remainingSeconds;
+}
+
+main.js
+
+import { formatSongTitle, getSongDurationInMinutes } from "./spotifyUtils.js";
+
+let song = "shape of you";
+let duration = 233;
+
+console.log("Song: " + formatSongTitle(song));
+console.log("Duration: " + getSongDurationInMinutes(duration));
+5.
+
+Question:
+Write two functions in a file called spotifyUtils.js: formatSongTitle(title) that capitalizes every word, and getSongDurationInMinutes(seconds) that converts seconds to 'mm' format. Export both as named exports and import them into a main.js file to format and display the details of a sample song.
+
+Answer:
+
+spotifyUtils.js
+
+export function formatSongTitle(title) {
+    let words = title.split(" ");
+    let result = "";
+
+    for (let word of words) {
+        result = result + word.charAt(0).toUpperCase() + word.slice(1) + " ";
+    }
+
+    return result.trim();
+}
+
+export function getSongDurationInMinutes(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
+
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+
+    return minutes + ":" + remainingSeconds;
+}
+
+main.js
+
+import { formatSongTitle, getSongDurationInMinutes } from "./spotifyUtils.js";
+
+let song = "perfect";
+let duration = 263;
+
+console.log("Song: " + formatSongTitle(song));
+console.log("Duration: " + getSongDurationInMinutes(duration));
+6.
+
+Question:
+In a new file called cart.js, import the formatPrice and getDiscountedPrice functions from utils.js and use them to display the original and discounted prices for three items as console output.
+
+Answer:
+
+utils.js
+
+export function formatPrice(price) {
+    return "₹" + price.toFixed(2);
+}
+
+export function getDiscountedPrice(price, discount) {
+    return price - (price * discount / 100);
+}
+
+cart.js
+
+import { formatPrice, getDiscountedPrice } from "./utils.js";
+
+let item1 = 1000;
+let item2 = 2000;
+let item3 = 1500;
+
+console.log("Original Price: " + formatPrice(item1));
+console.log("Discounted Price: " + formatPrice(getDiscountedPrice(item1, 10)));
+
+console.log("Original Price: " + formatPrice(item2));
+console.log("Discounted Price: " + formatPrice(getDiscountedPrice(item2, 15)));
+
+console.log("Original Price: " + formatPrice(item3));
+console.log("Discounted Price: " + formatPrice(getDiscountedPrice(item3, 20)));
+7.
+
+Question:
+In a file called instaHelpers.js, declare a default export function formatFollowers(count) that returns '1.2K' for 1200, '2.5M' for 2500000, etc. Import this default export in profile.js and use it to display the formatted follower count for three different users.
+
+Answer:
+
+instaHelpers.js
+
+export default function formatFollowers(count) {
+    if (count >= 1000000) {
+        return (count / 1000000).toFixed(1) + "M";
+    }
+    else if (count >= 1000) {
+        return (count / 1000).toFixed(1) + "K";
+    }
+    else {
+        return count;
+    }
+}
+
+profile.js
+
+import formatFollowers from "./instaHelpers.js";
+
+console.log("Zuber: " + formatFollowers(1200));
+console.log("Rahul: " + formatFollowers(2500000));
+console.log("Arijit: " + formatFollowers(8500));
+8.
+
+Question:
+In a file called instaHelpers.js, declare a default export function formatFollowers(count) that returns '1.2K' for 1200, '2.5M' for 2500000, etc. Import this default export in profile.js and use it to display the formatted follower count for three different users.
+
+Answer:
+
+instaHelpers.js
+
+export default function formatFollowers(count) {
+    if (count >= 1000000) {
+        return (count / 1000000).toFixed(1) + "M";
+    }
+    else if (count >= 1000) {
+        return (count / 1000).toFixed(1) + "K";
+    }
+    else {
+        return count;
+    }
+}
+
+profile.js
+
+import formatFollowers from "./instaHelpers.js";
+
+console.log("Zuber: " + formatFollowers(1200));
+console.log("Aman: " + formatFollowers(2500000));
+console.log("Rahul: " + formatFollowers(8500));
+9.
+
+Question:
+Refactor your cart.js so that getDiscountedPrice is imported as a default export from utils.js, while formatPrice remains a named export.
+
+Answer:
+
+utils.js
+
+export function formatPrice(price) {
+    return "₹" + price.toFixed(2);
+}
+
+export default function getDiscountedPrice(price, discount) {
+    return price - (price * discount / 100);
+}
+
+cart.js
+
+import getDiscountedPrice, { formatPrice } from "./utils.js";
+
+let price = 2000;
+let discount = 10;
+
+console.log("Original Price: " + formatPrice(price));
+console.log("Discounted Price: " + formatPrice(getDiscountedPrice(price, discount)));
+10.
+
+Question:
+Refactor an existing file where you have three functions: addToCart, removeFromCart, and calculateTotal (all related to a Flipkart-style shopping cart) into a separate file cartUtils.js. Use named exports and update your main.js to import and use these functions.
+
+Answer:
+
+cartUtils.js
+
+export function addToCart(cart, product) {
+    cart.push(product);
+
+    return cart;
+}
+
+export function removeFromCart(cart, productName) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name == productName) {
+            cart.splice(i, 1);
+            break;
+        }
+    }
+
+    return cart;
+}
+
+export function calculateTotal(cart) {
+    let total = 0;
+
+    for (let product of cart) {
+        total = total + product.price;
+    }
+
+    return total;
+}
+
+main.js
+
+import { addToCart, removeFromCart, calculateTotal } from "./cartUtils.js";
+
+let cart = [];
+
+addToCart(cart, {
+    name: "Laptop",
+    price: 50000
+});
+
+addToCart(cart, {
+    name: "Mouse",
+    price: 1000
+});
+
+console.log(cart);
+
+console.log("Total: ₹" + calculateTotal(cart));
+
+removeFromCart(cart, "Mouse");
+
+console.log(cart);
+console.log("Total: ₹" + calculateTotal(cart));
+11.
+
+Question:
+Refactor an existing file where you have three functions: addToCart, removeFromCart, and calculateTotal (all related to a Flipkart-style shopping cart) into a separate file cartUtils.js. Use named exports and update your main.js to import and use these functions.
+
+Answer:
+
+cartUtils.js
+
+export function addToCart(cart, product) {
+    cart.push(product);
+
+    return cart;
+}
+
+export function removeFromCart(cart, productName) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name == productName) {
+            cart.splice(i, 1);
+            break;
+        }
+    }
+
+    return cart;
+}
+
+export function calculateTotal(cart) {
+    let total = 0;
+
+    for (let product of cart) {
+        total = total + product.price;
+    }
+
+    return total;
+}
+
+main.js
+
+import { addToCart, removeFromCart, calculateTotal } from "./cartUtils.js";
+
+let cart = [];
+
+addToCart(cart, {
+    name: "Keyboard",
+    price: 1500
+});
+
+addToCart(cart, {
+    name: "Headphones",
+    price: 2000
+});
+
+console.log(cart);
+
+console.log("Total: ₹" + calculateTotal(cart));
+
+removeFromCart(cart, "Keyboard");
+
+console.log(cart);
+console.log("Total: ₹" + calculateTotal(cart));
+12.
+
+Question:
+Imagine you are building a Flipkart-style wishlist feature. Move all functions related to adding, removing, and listing wishlist items from wishlist.js into a new file wishlistUtils.js, and import them back into wishlist.js using named imports.
+
+Answer:
+
+wishlistUtils.js
+
+export function addToWishlist(wishlist, product) {
+    wishlist.push(product);
+
+    return wishlist;
+}
+
+export function removeFromWishlist(wishlist, productName) {
+    for (let i = 0; i < wishlist.length; i++) {
+        if (wishlist[i].name == productName) {
+            wishlist.splice(i, 1);
+            break;
+        }
+    }
+
+    return wishlist;
+}
+
+export function listWishlist(wishlist) {
+    for (let product of wishlist) {
+        console.log(product.name + " - ₹" + product.price);
+    }
+}
+
+wishlist.js
+
+import {
+    addToWishlist,
+    removeFromWishlist,
+    listWishlist
+} from "./wishlistUtils.js";
+
+let wishlist = [];
+
+addToWishlist(wishlist, {
+    name: "Laptop",
+    price: 50000
+});
+
+addToWishlist(wishlist, {
+    name: "Smart Watch",
+    price: 2500
+});
+
+addToWishlist(wishlist, {
+    name: "Headphones",
+    price: 2000
+});
+
+console.log("My Wishlist:");
+
+listWishlist(wishlist);
+
+removeFromWishlist(wishlist, "Smart Watch");
+
+console.log("After Removing:");
+
+listWishlist(wishlist);
+13.
+
+Question:
+Explain in your own words (3-4 sentences) how splitting utility functions into separate files using imports and exports would help you scale a Zomato-like app as it grows from 2 to 20 features. Give one concrete example.
+
+Answer:
+
+Splitting utility functions into separate files keeps the code organized and makes large projects easier to manage. The same function can be reused in different features without writing it again. For example, a formatPrice() function can be kept in a utility file and used in the food menu, cart, checkout, and order history. This makes the Zomato-like app easier to update and maintain as new features are added.
+
+14.
+
+Question:
+Explain in your own words (3-4 sentences) how splitting utility functions into separate files using imports and exports would help you scale a Zomato-like app as it grows from 2 to 20 features. Give one concrete example.
+
+Answer:
+
+Using separate files for utility functions makes the project cleaner when the number of features increases. Functions can be written once and imported wherever they are needed. For example, a calculateDeliveryFee() function can be stored in a utility file and used by the cart, checkout, and order pages. If the delivery fee rules change, we only need to update that function in one place.

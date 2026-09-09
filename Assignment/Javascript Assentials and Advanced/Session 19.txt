@@ -1,0 +1,787 @@
+Session 19
+
+Tasks
+
+
+1.
+
+Question:
+Create an HTML file with a simple form that lets a user add a new playlist (name, description) like Spotify's 'Create Playlist' feature, and use JavaScript to store the playlist data in an array.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Playlist</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Create Playlist</button>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            let playlist = {
+                name: name,
+                description: description
+            };
+
+            playlists.push(playlist);
+
+            console.log(playlists);
+        });
+    </script>
+
+</body>
+</html>
+2.
+
+Question:
+Create an HTML file with a simple form that lets a user add a new playlist (name, description) like Spotify's 'Create Playlist' feature, and use JavaScript to store the playlist data in an array.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Playlist</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Create Playlist</button>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            let playlist = {
+                name: name,
+                description: description
+            };
+
+            playlists.push(playlist);
+
+            console.log(playlists);
+        });
+    </script>
+
+</body>
+</html>
+3.
+
+Question:
+Sketch the architecture for a Flipkart-style Wishlist Manager app on paper or a whiteboard — show how data flows from the Add Item form, to storage (array or localStorage), to the display list, and how edit/delete actions update the data and UI.
+
+Answer:
+
+        Add Item Form
+              |
+              | Form Submit
+              v
+       JavaScript Code
+              |
+              v
+       Wishlist Array
+              |
+              | Update Display
+              v
+        Wishlist List
+              |
+        +-----+-----+
+        |           |
+        v           v
+      Edit        Delete
+        |           |
+        v           v
+ Update Array    Remove Item
+        |           |
+        +-----+-----+
+              |
+              v
+        Update UI
+4.
+
+Question:
+Display the list of playlists below the form, showing each playlist's name and description, and update the display every time a new playlist is added.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist Manager</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Add Playlist</button>
+
+    <h2>My Playlists</h2>
+
+    <div id="playlistList"></div>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            playlists.push({
+                name: name,
+                description: description
+            });
+
+            displayPlaylists();
+        });
+
+        function displayPlaylists() {
+            let list = document.getElementById("playlistList");
+
+            list.innerHTML = "";
+
+            for (let playlist of playlists) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + playlist.name + "</h3>" +
+                    "<p>" + playlist.description + "</p>";
+
+                list.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+</html>
+5.
+
+Question:
+Display the list of playlists below the form, showing each playlist's name and description, and update the display every time a new playlist is added.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist Manager</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Add Playlist</button>
+
+    <h2>My Playlists</h2>
+
+    <div id="playlistList"></div>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            playlists.push({
+                name: name,
+                description: description
+            });
+
+            displayPlaylists();
+        });
+
+        function displayPlaylists() {
+            let list = document.getElementById("playlistList");
+
+            list.innerHTML = "";
+
+            for (let playlist of playlists) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + playlist.name + "</h3>" +
+                    "<p>" + playlist.description + "</p>";
+
+                list.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+</html>
+6.
+
+Question:
+Create an HTML file with a Zomato-style 'Add Restaurant' form (name, cuisine, rating), and use JavaScript to collect the form data and store each entry in an array.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Restaurant</title>
+</head>
+<body>
+
+    <h2>Add Restaurant</h2>
+
+    <input type="text" id="restaurantName" placeholder="Restaurant Name">
+    <br><br>
+
+    <input type="text" id="cuisine" placeholder="Cuisine">
+    <br><br>
+
+    <input type="number" id="rating" placeholder="Rating">
+    <br><br>
+
+    <button id="addRestaurant">Add Restaurant</button>
+
+    <script>
+        let restaurants = [];
+
+        document.getElementById("addRestaurant").addEventListener("click", function() {
+            let name = document.getElementById("restaurantName").value;
+            let cuisine = document.getElementById("cuisine").value;
+            let rating = document.getElementById("rating").value;
+
+            let restaurant = {
+                name: name,
+                cuisine: cuisine,
+                rating: rating
+            };
+
+            restaurants.push(restaurant);
+
+            console.log(restaurants);
+        });
+    </script>
+
+</body>
+</html>
+7.
+
+Question:
+Add 'Edit' and 'Delete' buttons next to each playlist in the displayed list, and implement the JavaScript functions so users can update or remove a playlist from the array and see the changes instantly.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist Manager</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Add Playlist</button>
+
+    <h2>My Playlists</h2>
+
+    <div id="playlistList"></div>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            playlists.push({
+                name: name,
+                description: description
+            });
+
+            displayPlaylists();
+        });
+
+        function displayPlaylists() {
+            let list = document.getElementById("playlistList");
+
+            list.innerHTML = "";
+
+            playlists.forEach(function(playlist, index) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + playlist.name + "</h3>" +
+                    "<p>" + playlist.description + "</p>" +
+                    "<button onclick='editPlaylist(" + index + ")'>Edit</button> " +
+                    "<button onclick='deletePlaylist(" + index + ")'>Delete</button>" +
+                    "<hr>";
+
+                list.appendChild(div);
+            });
+        }
+
+        function editPlaylist(index) {
+            let newName = prompt("Enter new playlist name:", playlists[index].name);
+            let newDescription = prompt("Enter new description:", playlists[index].description);
+
+            if (newName != null && newDescription != null) {
+                playlists[index].name = newName;
+                playlists[index].description = newDescription;
+
+                displayPlaylists();
+            }
+        }
+
+        function deletePlaylist(index) {
+            playlists.splice(index, 1);
+
+            displayPlaylists();
+        }
+    </script>
+
+</body>
+</html>
+8.
+
+Question:
+Add 'Edit' and 'Delete' buttons next to each playlist in the displayed list, and implement the JavaScript functions so users can update or remove a playlist from the array and see the changes instantly.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist Manager</title>
+</head>
+<body>
+
+    <h2>Create Playlist</h2>
+
+    <input type="text" id="playlistName" placeholder="Playlist Name">
+    <br><br>
+
+    <input type="text" id="playlistDescription" placeholder="Description">
+    <br><br>
+
+    <button id="addButton">Add Playlist</button>
+
+    <h2>My Playlists</h2>
+
+    <div id="playlistList"></div>
+
+    <script>
+        let playlists = [];
+
+        document.getElementById("addButton").addEventListener("click", function() {
+            let name = document.getElementById("playlistName").value;
+            let description = document.getElementById("playlistDescription").value;
+
+            playlists.push({
+                name: name,
+                description: description
+            });
+
+            displayPlaylists();
+        });
+
+        function displayPlaylists() {
+            let list = document.getElementById("playlistList");
+
+            list.innerHTML = "";
+
+            playlists.forEach(function(playlist, index) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + playlist.name + "</h3>" +
+                    "<p>" + playlist.description + "</p>" +
+                    "<button onclick='editPlaylist(" + index + ")'>Edit</button> " +
+                    "<button onclick='deletePlaylist(" + index + ")'>Delete</button>" +
+                    "<hr>";
+
+                list.appendChild(div);
+            });
+        }
+
+        function editPlaylist(index) {
+            let newName = prompt("Enter new playlist name:", playlists[index].name);
+            let newDescription = prompt("Enter new description:", playlists[index].description);
+
+            if (newName != null && newDescription != null) {
+                playlists[index].name = newName;
+                playlists[index].description = newDescription;
+
+                displayPlaylists();
+            }
+        }
+
+        function deletePlaylist(index) {
+            playlists.splice(index, 1);
+
+            displayPlaylists();
+        }
+    </script>
+
+</body>
+</html>
+9.
+
+Question:
+Display the list of added restaurants below the form, showing name, cuisine, and rating for each, with Edit and Delete buttons next to each entry.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Manager</title>
+</head>
+<body>
+
+    <h2>Add Restaurant</h2>
+
+    <input type="text" id="restaurantName" placeholder="Restaurant Name">
+    <br><br>
+
+    <input type="text" id="cuisine" placeholder="Cuisine">
+    <br><br>
+
+    <input type="number" id="rating" placeholder="Rating">
+    <br><br>
+
+    <button id="addRestaurant">Add Restaurant</button>
+
+    <h2>Restaurants</h2>
+
+    <div id="restaurantList"></div>
+
+    <script>
+        let restaurants = [];
+
+        document.getElementById("addRestaurant").addEventListener("click", function() {
+            let name = document.getElementById("restaurantName").value;
+            let cuisine = document.getElementById("cuisine").value;
+            let rating = document.getElementById("rating").value;
+
+            restaurants.push({
+                name: name,
+                cuisine: cuisine,
+                rating: rating
+            });
+
+            displayRestaurants();
+        });
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            restaurants.forEach(function(restaurant, index) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + restaurant.name + "</h3>" +
+                    "<p>Cuisine: " + restaurant.cuisine + "</p>" +
+                    "<p>Rating: " + restaurant.rating + "</p>" +
+                    "<button>Edit</button> " +
+                    "<button>Delete</button>" +
+                    "<hr>";
+
+                list.appendChild(div);
+            });
+        }
+    </script>
+
+</body>
+</html>
+10.
+
+Question:
+Draw a diagram (on paper or using an online tool) that shows how data flows between your form, the JavaScript array, and the display area when adding, editing, or deleting a playlist.
+
+Answer:
+
+                 PLAYLIST MANAGER
+
+                  Form
+                   |
+                   | Form Submit
+                   v
+             JavaScript Code
+                   |
+                   | Add
+                   v
+             Playlist Array
+              /          \
+             /            \
+          Edit            Delete
+           |                |
+           v                v
+      Update Array      Remove from Array
+           |                |
+           +-------+--------+
+                   |
+                   v
+             Update Display
+                   |
+                   v
+            Playlist List
+11.
+
+Question:
+Draw a diagram (on paper or using an online tool) that shows how data flows between your form, the JavaScript array, and the display area when adding, editing, or deleting a playlist.
+
+Answer:
+
+                Playlist Form
+                     |
+                     | Submit
+                     v
+              JavaScript Array
+                     |
+          +----------+----------+
+          |                     |
+         Add                  Edit
+          |                     |
+          v                     v
+       Add Item             Update Item
+          |                     |
+          +----------+----------+
+                     |
+                   Delete
+                     |
+                     v
+                Remove Item
+                     |
+                     v
+               Update Display
+                     |
+                     v
+              Playlist List
+12.
+
+Question:
+Implement the Delete feature so that when the user clicks the Delete button for any restaurant, it is removed from both the array and the displayed list instantly.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Manager</title>
+</head>
+<body>
+
+    <h2>Add Restaurant</h2>
+
+    <input type="text" id="restaurantName" placeholder="Restaurant Name">
+    <br><br>
+
+    <input type="text" id="cuisine" placeholder="Cuisine">
+    <br><br>
+
+    <input type="number" id="rating" placeholder="Rating">
+    <br><br>
+
+    <button id="addRestaurant">Add Restaurant</button>
+
+    <h2>Restaurants</h2>
+
+    <div id="restaurantList"></div>
+
+    <script>
+        let restaurants = [];
+
+        document.getElementById("addRestaurant").addEventListener("click", function() {
+            let name = document.getElementById("restaurantName").value;
+            let cuisine = document.getElementById("cuisine").value;
+            let rating = document.getElementById("rating").value;
+
+            restaurants.push({
+                name: name,
+                cuisine: cuisine,
+                rating: rating
+            });
+
+            displayRestaurants();
+        });
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            restaurants.forEach(function(restaurant, index) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + restaurant.name + "</h3>" +
+                    "<p>Cuisine: " + restaurant.cuisine + "</p>" +
+                    "<p>Rating: " + restaurant.rating + "</p>";
+
+                let deleteButton = document.createElement("button");
+
+                deleteButton.innerHTML = "Delete";
+
+                deleteButton.addEventListener("click", function() {
+                    restaurants.splice(index, 1);
+
+                    displayRestaurants();
+                });
+
+                div.appendChild(deleteButton);
+                list.appendChild(div);
+            });
+        }
+    </script>
+
+</body>
+</html>
+13.
+
+Question:
+Add an Edit feature: when the Edit button is clicked for a restaurant, pre-fill the form with that restaurant's details, allow the user to update them, and save the changes back to the array and UI.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Manager</title>
+</head>
+<body>
+
+    <h2>Add Restaurant</h2>
+
+    <input type="text" id="restaurantName" placeholder="Restaurant Name">
+    <br><br>
+
+    <input type="text" id="cuisine" placeholder="Cuisine">
+    <br><br>
+
+    <input type="number" id="rating" placeholder="Rating">
+    <br><br>
+
+    <button id="addRestaurant">Add Restaurant</button>
+
+    <h2>Restaurants</h2>
+
+    <div id="restaurantList"></div>
+
+    <script>
+        let restaurants = [];
+        let editIndex = -1;
+
+        document.getElementById("addRestaurant").addEventListener("click", function() {
+            let name = document.getElementById("restaurantName").value;
+            let cuisine = document.getElementById("cuisine").value;
+            let rating = document.getElementById("rating").value;
+
+            if (editIndex == -1) {
+                restaurants.push({
+                    name: name,
+                    cuisine: cuisine,
+                    rating: rating
+                });
+            } else {
+                restaurants[editIndex].name = name;
+                restaurants[editIndex].cuisine = cuisine;
+                restaurants[editIndex].rating = rating;
+
+                editIndex = -1;
+                document.getElementById("addRestaurant").innerHTML = "Add Restaurant";
+            }
+
+            document.getElementById("restaurantName").value = "";
+            document.getElementById("cuisine").value = "";
+            document.getElementById("rating").value = "";
+
+            displayRestaurants();
+        });
+
+        function displayRestaurants() {
+            let list = document.getElementById("restaurantList");
+
+            list.innerHTML = "";
+
+            restaurants.forEach(function(restaurant, index) {
+                let div = document.createElement("div");
+
+                div.innerHTML =
+                    "<h3>" + restaurant.name + "</h3>" +
+                    "<p>Cuisine: " + restaurant.cuisine + "</p>" +
+                    "<p>Rating: " + restaurant.rating + "</p>";
+
+                let editButton = document.createElement("button");
+
+                editButton.innerHTML = "Edit";
+
+                editButton.addEventListener("click", function() {
+                    document.getElementById("restaurantName").value = restaurant.name;
+                    document.getElementById("cuisine").value = restaurant.cuisine;
+                    document.getElementById("rating").value = restaurant.rating;
+
+                    editIndex = index;
+
+                    document.getElementById("addRestaurant").innerHTML = "Update Restaurant";
+                });
+
+                let deleteButton = document.createElement("button");
+
+                deleteButton.innerHTML = "Delete";
+
+                deleteButton.addEventListener("click", function() {
+                    restaurants.splice(index, 1);
+
+                    displayRestaurants();
+                });
+
+                div.appendChild(editButton);
+                div.appendChild(deleteButton);
+
+                list.appendChild(div);
+            });
+        }
+    </script>
+
+</body>
+</html>

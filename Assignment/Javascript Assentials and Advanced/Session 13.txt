@@ -1,0 +1,334 @@
+Session 13
+
+Tasks
+
+1.
+
+Question:
+Create a function validateSpotifyURL(url) that takes a string and checks if it starts with 'https://open.spotify.com/'. If not, throw a custom Error with the message 'Invalid Spotify URL'.
+
+Answer:
+
+function validateSpotifyURL(url) {
+    if (!url.startsWith("https://open.spotify.com/")) {
+        throw new Error("Invalid Spotify URL");
+    }
+
+    return "Valid Spotify URL";
+}
+
+console.log(validateSpotifyURL("https://open.spotify.com/playlist/123"));
+2.
+
+Question:
+Create a function validateSpotifyURL(url) that takes a string and checks if it starts with 'https://open.spotify.com/'. If not, throw a custom Error with the message 'Invalid Spotify URL'.
+
+Answer:
+
+function validateSpotifyURL(url) {
+    if (!url.startsWith("https://open.spotify.com/")) {
+        throw new Error("Invalid Spotify URL");
+    }
+
+    return "Valid Spotify URL";
+}
+
+console.log(validateSpotifyURL("https://example.com/playlist"));
+3.
+
+Question:
+Create a function validateUsername(username) that checks if the username contains only letters and numbers; if not, use throw to raise a custom Error with the message 'Invalid Username'. Wrap the function call in try...catch and display the error message in the console.
+
+Answer:
+
+function validateUsername(username) {
+    if (!/^[a-zA-Z0-9]+$/.test(username)) {
+        throw new Error("Invalid Username");
+    }
+
+    return "Valid Username";
+}
+
+try {
+    console.log(validateUsername("Zuber123"));
+} catch (e) {
+    console.log(e.message);
+}
+4.
+
+Question:
+Write a try…catch…finally block that tries to parse a JSON string representing a Flipkart product (e.g., '{"name":"Shoes","price":999}'). If parsing fails, catch the error and log 'Invalid product data', and in the finally block, log 'Parsing attempt finished'.
+
+Answer:
+
+let product = '{"name":"Shoes","price":999}';
+
+try {
+    let data = JSON.parse(product);
+
+    console.log(data);
+} catch (e) {
+    console.log("Invalid product data");
+} finally {
+    console.log("Parsing attempt finished");
+}
+5.
+
+Question:
+Write a try…catch…finally block that tries to parse a JSON string representing a Flipkart product (e.g., '{"name":"Shoes","price":999}'). If parsing fails, catch the error and log 'Invalid product data', and in the finally block, log 'Parsing attempt finished'.
+
+Answer:
+
+let product = '{"name":"Shoes", "price":999';
+
+try {
+    let data = JSON.parse(product);
+
+    console.log(data);
+} catch (e) {
+    console.log("Invalid product data");
+} finally {
+    console.log("Parsing attempt finished");
+}
+6.
+
+Question:
+Build a function checkPlaylistURL(url) for a Spotify-style app that validates if the URL starts with 'https://open.spotify.com/'. If not, throw a custom Error('Invalid Spotify URL'). Use try...catch...finally to handle the error, log the error message, and in the finally block, log 'Validation complete'.
+
+Answer:
+
+function checkPlaylistURL(url) {
+    if (!url.startsWith("https://open.spotify.com/")) {
+        throw new Error("Invalid Spotify URL");
+    }
+
+    return "Valid Spotify URL";
+}
+
+try {
+    console.log(checkPlaylistURL("https://example.com/playlist"));
+} catch (e) {
+    console.log(e.message);
+} finally {
+    console.log("Validation complete");
+}
+7.
+
+Question:
+Build a function checkPaymentAmount(amount) for a Paytm-style app that throws a custom Error 'Amount must be positive' if the amount is less than or equal to zero, and returns 'Payment accepted' otherwise.
+
+Answer:
+
+function checkPaymentAmount(amount) {
+    if (amount <= 0) {
+        throw new Error("Amount must be positive");
+    }
+
+    return "Payment accepted";
+}
+
+try {
+    console.log(checkPaymentAmount(500));
+} catch (e) {
+    console.log(e.message);
+}
+8.
+
+Question:
+Build a function checkPaymentAmount(amount) for a Paytm-style app that throws a custom Error 'Amount must be positive' if the amount is less than or equal to zero, and returns 'Payment accepted' otherwise.
+
+Answer:
+
+function checkPaymentAmount(amount) {
+    if (amount <= 0) {
+        throw new Error("Amount must be positive");
+    }
+
+    return "Payment accepted";
+}
+
+try {
+    console.log(checkPaymentAmount(-100));
+} catch (e) {
+    console.log(e.message);
+}
+9.
+
+Question:
+Write a function getOrderTotal(items) for a Zomato-style food order, where items is an array of objects with name and price. If any price is negative, throw a custom Error('Invalid item price'). Use try...catch to handle the error and display a friendly message.
+
+Answer:
+
+function getOrderTotal(items) {
+    let total = 0;
+
+    for (let item of items) {
+        if (item.price < 0) {
+            throw new Error("Invalid item price");
+        }
+
+        total = total + item.price;
+    }
+
+    return total;
+}
+
+let items = [
+    {
+        name: "Pizza",
+        price: 300
+    },
+    {
+        name: "Burger",
+        price: -100
+    },
+    {
+        name: "Cold Drink",
+        price: 80
+    }
+];
+
+try {
+    console.log("Total Price: " + getOrderTotal(items));
+} catch (e) {
+    console.log("Sorry, there was a problem with your order.");
+    console.log(e.message);
+}
+10.
+
+Question:
+Given this buggy code, debug it so that it properly handles errors when trying to access a property of an undefined object:
+
+let user;
+try {
+ console.log(user.name);
+} catch (e) {
+ // handle error
+}
+
+Answer:
+
+let user;
+
+try {
+    console.log(user.name);
+} catch (e) {
+    console.log("User data not found");
+}
+11.
+
+Question:
+Given this buggy code, debug it so that it properly handles errors when trying to access a property of an undefined object:
+
+let user;
+try {
+ console.log(user.name);
+} catch (e) {
+ // handle error
+}
+
+Answer:
+
+let user;
+
+try {
+    console.log(user.name);
+} catch (e) {
+    console.log("User data not found");
+}
+12.
+
+Question:
+You are given this buggy code:
+
+function formatFollowers(count) {
+ try {
+   if(count < 0) throw 'Negative count';
+   return count + ' followers';
+ } catch(e) {
+   return e.message;
+ }
+}
+
+It should return the error message if count is negative, but it returns undefined. Fix the code so it properly throws and catches an Error object.
+
+Answer:
+
+function formatFollowers(count) {
+    try {
+        if (count < 0) {
+            throw new Error("Negative count");
+        }
+
+        return count + " followers";
+    } catch (e) {
+        return e.message;
+    }
+}
+
+console.log(formatFollowers(-10));
+console.log(formatFollowers(500));
+13.
+
+Question:
+Copy an error stack trace from your browser's console when a thrown error occurs (for example, from a failed JSON.parse or invalid URL check), and paste it into ChatGPT. Ask ChatGPT to explain what the stack trace means and summarize the explanation in your own words.
+
+Answer:
+
+function validateSpotifyURL(url) {
+    if (!url.startsWith("https://open.spotify.com/")) {
+        throw new Error("Invalid Spotify URL");
+    }
+}
+
+try {
+    validateSpotifyURL("https://example.com");
+} catch (e) {
+    console.log(e.stack);
+}
+
+Example summary in my own words:
+The stack trace shows that an error occurred because the Spotify URL was invalid. It also shows the function and line where the error was created, which helps in finding and fixing the problem.
+
+14.
+
+Question:
+Copy an error stack trace from your browser's console when a thrown error occurs (for example, from a failed JSON.parse or invalid URL check), and paste it into ChatGPT. Ask ChatGPT to explain what the stack trace means and summarize the explanation in your own words.
+
+Answer:
+
+let product = '{"name":"Shoes", "price":999';
+
+try {
+    let data = JSON.parse(product);
+    console.log(data);
+} catch (e) {
+    console.log(e.stack);
+}
+
+Example summary in my own words:
+The stack trace shows that the JSON could not be parsed because the JSON data was incomplete or invalid. It also shows the line where the error happened, which helps identify the problem in the code.
+
+15.
+
+Question:
+Copy a stack trace from a JavaScript error you encounter (for example, by calling a function that throws a custom Error), and paste it into ChatGPT. Ask ChatGPT to explain what the error means and which line caused the problem. Summarize ChatGPT's explanation in your own words in a comment above the code.
+
+Answer:
+
+// The error means that the payment amount is not valid.
+// The problem occurs on the line where the custom Error is thrown.
+
+function checkPaymentAmount(amount) {
+    if (amount <= 0) {
+        throw new Error("Amount must be positive");
+    }
+
+    return "Payment accepted";
+}
+
+try {
+    console.log(checkPaymentAmount(0));
+} catch (e) {
+    console.log(e.stack);
+}

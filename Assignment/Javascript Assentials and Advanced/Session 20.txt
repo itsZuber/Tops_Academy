@@ -1,0 +1,479 @@
+Session 20
+
+Tasks
+
+
+1.
+
+Question:
+Manually test a Flipkart-style Add to Cart button in your React app: click it multiple times and check if the item is added only once, then write down any bug you notice and how you fixed it.
+
+Answer:
+
+Bug:
+When I clicked the Add to Cart button multiple times, the same product was added more than once.
+
+Fix:
+I added a check before adding the product to the cart. If the product already exists in the cart, it will not be added again.
+
+function addToCart(product) {
+    let alreadyAdded = cart.some(function(item) {
+        return item.id === product.id;
+    });
+
+    if (!alreadyAdded) {
+        setCart([...cart, product]);
+    }
+}
+2.
+
+Question:
+Manually test a Flipkart-style Add to Cart button in your React app: click it multiple times and check if the item is added only once, then write down any bug you notice and how you fixed it.
+
+Answer:
+
+Bug:
+The same product was getting added multiple times when I clicked the button repeatedly.
+
+Fix:
+I checked whether the product was already present in the cart before adding it.
+
+function addToCart(product) {
+    if (!cart.some(function(item) {
+        return item.id === product.id;
+    })) {
+        setCart([...cart, product]);
+    }
+}
+3.
+
+Question:
+Manually test a Flipkart-style Add to Cart button in your React app: click the button multiple times and verify that the item is only added once and the cart count updates correctly.
+
+Answer:
+
+Test Result:
+
+Clicked Add to Cart once → Item added and cart count became 1.
+Clicked Add to Cart multiple times → Item remained only once.
+Cart count did not increase for duplicate clicks.
+
+Fix:
+
+function addToCart(product) {
+    let alreadyAdded = cart.some(function(item) {
+        return item.id === product.id;
+    });
+
+    if (!alreadyAdded) {
+        setCart([...cart, product]);
+    }
+}
+
+The cart count can be displayed using:
+
+<p>Cart: {cart.length}</p>
+4.
+
+Question:
+Create a login form with email and password fields and add basic UI validation: show an error message if either field is left empty when the user clicks the Login button.
+
+Answer:
+
+import { useState } from "react";
+
+function Login() {
+    let [email, setEmail] = useState("");
+    let [password, setPassword] = useState("");
+    let [emailError, setEmailError] = useState("");
+    let [passwordError, setPasswordError] = useState("");
+
+    function handleLogin(event) {
+        event.preventDefault();
+
+        setEmailError("");
+        setPasswordError("");
+
+        if (email === "") {
+            setEmailError("Email is required");
+        }
+
+        if (password === "") {
+            setPasswordError("Password is required");
+        }
+
+        if (email !== "" && password !== "") {
+            alert("Login successful");
+        }
+    }
+
+    return (
+        <form onSubmit={handleLogin}>
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+            />
+
+            {emailError && <p>{emailError}</p>}
+
+            <br />
+
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+            />
+
+            {passwordError && <p>{passwordError}</p>}
+
+            <br />
+
+            <button type="submit">Login</button>
+        </form>
+    );
+}
+
+export default Login;
+5.
+
+Question:
+Create a login form with email and password fields and add basic UI validation: show an error message if either field is left empty when the user clicks the Login button.
+
+Answer:
+
+import { useState } from "react";
+
+function Login() {
+    let [email, setEmail] = useState("");
+    let [password, setPassword] = useState("");
+    let [error, setError] = useState("");
+
+    function handleLogin(event) {
+        event.preventDefault();
+
+        if (email === "" || password === "") {
+            setError("Please fill in all fields");
+        } else {
+            setError("");
+            alert("Login successful");
+        }
+    }
+
+    return (
+        <form onSubmit={handleLogin}>
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+            />
+
+            <br /><br />
+
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+            />
+
+            {error && <p>{error}</p>}
+
+            <br />
+
+            <button type="submit">Login</button>
+        </form>
+    );
+}
+
+export default Login;
+6.
+
+Question:
+Create a simple form for adding a new playlist (name, description) like in Spotify. Test each field by leaving it empty and submitting, then add basic UI validation to show an error message if any field is left blank.
+
+Answer:
+
+import { useState } from "react";
+
+function PlaylistForm() {
+    let [name, setName] = useState("");
+    let [description, setDescription] = useState("");
+    let [error, setError] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (name === "" || description === "") {
+            setError("Please fill in all fields");
+        } else {
+            setError("");
+            alert("Playlist added");
+        }
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Playlist Name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+            />
+
+            <br /><br />
+
+            <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+            ></textarea>
+
+            {error && <p>{error}</p>}
+
+            <br />
+
+            <button type="submit">Add Playlist</button>
+        </form>
+    );
+}
+
+export default PlaylistForm;
+7.
+
+Question:
+Find and fix a bug in this code: a Zomato-style Add Review form allows users to submit a review, but if the textarea is empty, it still submits. Update the code so it prevents submission and shows a message if the review is blank.
+
+Answer:
+
+Bug:
+The form was submitting even when the review textarea was empty.
+
+Fix:
+
+import { useState } from "react";
+
+function ReviewForm() {
+    let [review, setReview] = useState("");
+    let [error, setError] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (review.trim() === "") {
+            setError("Review cannot be blank");
+            return;
+        }
+
+        setError("");
+        alert("Review submitted");
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <textarea
+                placeholder="Write your review"
+                value={review}
+                onChange={(event) => setReview(event.target.value)}
+            ></textarea>
+
+            {error && <p>{error}</p>}
+
+            <br />
+
+            <button type="submit">Add Review</button>
+        </form>
+    );
+}
+
+export default ReviewForm;
+8.
+
+Question:
+Find and fix a bug in this code: a Zomato-style Add Review form allows users to submit a review, but if the textarea is empty, it still submits. Update the code so it prevents submission and shows a message if the review is blank.
+
+Answer:
+
+Bug:
+The empty review was being submitted because there was no validation before submission.
+
+Fix:
+
+import { useState } from "react";
+
+function ReviewForm() {
+    let [review, setReview] = useState("");
+    let [message, setMessage] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (review.trim() === "") {
+            setMessage("Please enter a review");
+            return;
+        }
+
+        setMessage("Review submitted successfully");
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <textarea
+                value={review}
+                placeholder="Write your review"
+                onChange={(event) => setReview(event.target.value)}
+            ></textarea>
+
+            <p>{message}</p>
+
+            <button type="submit">Add Review</button>
+        </form>
+    );
+}
+
+export default ReviewForm;
+9.
+
+Question:
+Find and fix a bug in this code: the function addFollower(name) is supposed to add a name to the followers array, but sometimes null or empty names get added. Update the function so only valid, non-empty names are added.
+
+Answer:
+
+let followers = [];
+
+function addFollower(name) {
+    if (name !== null && name.trim() !== "") {
+        followers.push(name);
+    }
+}
+
+addFollower("Rahul");
+addFollower("");
+addFollower(null);
+addFollower("Aman");
+
+console.log(followers);
+
+This prevents null and empty names from being added to the array.
+
+10.
+
+Question:
+Test all buttons and form fields in your React app's main screen by clicking each one and entering different values, then make a checklist of at least 5 common bugs (such as double adds, empty fields, or UI glitches) and describe how you would fix each.
+
+Answer:
+
+Testing Checklist:
+
+Double Add Bug
+Bug: Product gets added twice when clicking Add to Cart multiple times.
+Fix: Check if the product already exists before adding it.
+Empty Field Bug
+Bug: Form submits when required fields are empty.
+Fix: Validate fields before submitting.
+Cart Count Bug
+Bug: Cart count does not update after adding a product.
+Fix: Update the cart state correctly using setCart().
+Button Not Working
+Bug: Clicking a button does not perform any action.
+Fix: Check the onClick event and make sure the correct function is connected.
+UI Glitch
+Bug: Error message or product card appears in the wrong place.
+Fix: Check the JSX structure and CSS styles.
+11.
+
+Question:
+Test all buttons and form fields in your React app's main screen by clicking each one and entering different values, then make a checklist of at least 5 common bugs (such as double adds, empty fields, or UI glitches) and describe how you would fix each.
+
+Answer:
+
+Testing Checklist:
+
+Duplicate Product
+Bug: Same product is added multiple times.
+Fix: Check the product ID before adding it.
+Blank Input
+Bug: User can submit an empty form.
+Fix: Add required field validation.
+Wrong Cart Count
+Bug: Cart count shows an incorrect number.
+Fix: Calculate the count from the cart state.
+Button Click Issue
+Bug: Button does not respond to clicks.
+Fix: Check the onClick handler.
+Error Message Issue
+Bug: Error message does not disappear after entering valid data.
+Fix: Clear the error state when the input becomes valid.
+12.
+
+Question:
+Test a Zomato-style review form in your app: fill out all fields, submit, then try submitting with missing or invalid data (like empty review or rating above 5). List any bugs or missing validation you find and fix at least one.
+
+Answer:
+
+Testing Result:
+
+Filled all fields and submitted → Review was submitted successfully.
+Left the review empty → Form should show an error.
+Entered rating above 5 → Validation was missing.
+Entered rating below 1 → Validation was missing.
+
+Bug Found:
+The rating field allowed values greater than 5.
+
+Fix:
+
+import { useState } from "react";
+
+function ReviewForm() {
+    let [review, setReview] = useState("");
+    let [rating, setRating] = useState("");
+    let [error, setError] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (review.trim() === "") {
+            setError("Review is required");
+            return;
+        }
+
+        if (rating < 1 || rating > 5) {
+            setError("Rating must be between 1 and 5");
+            return;
+        }
+
+        setError("");
+        alert("Review submitted");
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <textarea
+                placeholder="Write your review"
+                value={review}
+                onChange={(event) => setReview(event.target.value)}
+            ></textarea>
+
+            <br /><br />
+
+            <input
+                type="number"
+                placeholder="Rating 1-5"
+                value={rating}
+                onChange={(event) => setRating(event.target.value)}
+            />
+
+            {error && <p>{error}</p>}
+
+            <br />
+
+            <button type="submit">Add Review</button>
+        </form>
+    );
+}
+
+export default ReviewForm;

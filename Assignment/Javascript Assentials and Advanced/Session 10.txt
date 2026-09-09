@@ -1,0 +1,241 @@
+Session 10
+
+Tasks
+
+
+1.
+
+Question:
+Create a function formatWelcomeMessage(userName, followers) that returns a string like 'Hello Rahul, you have 1200 followers!' using template literals. Call this function with your own name and any follower count, then log the result.
+
+Answer:
+
+function formatWelcomeMessage(userName, followers) {
+    return `Hello ${userName}, you have ${followers} followers!`;
+}
+
+let message = formatWelcomeMessage("Zuber", 1200);
+
+console.log(message);
+
+2.
+
+Question:
+Create a function formatWelcomeMessage(userName, followers) that returns a string like 'Hello Rahul, you have 1200 followers!' using template literals. Call this function with your own name and any follower count, then log the result.
+
+Answer:
+
+function formatWelcomeMessage(userName, followers) {
+    return `Hello ${userName}, you have ${followers} followers!`;
+}
+
+let message = formatWelcomeMessage("Zuber", 1500);
+
+console.log(message);
+3.
+
+Question:
+Create a template literal that displays a welcome message like Spotify: 'Hello, ${userName}! You have ${playlistCount} playlists.' Assign userName and playlistCount variables and log the message to the console.
+
+Answer:
+
+let userName = "Zuber";
+let playlistCount = 5;
+
+let message = `Hello, ${userName}! You have ${playlistCount} playlists.`;
+
+console.log(message);
+4.
+
+Question:
+Write a function getDeliveryDetails that takes two parameters: address (string) and paymentMethod (string), both with default values ('Ahmedabad' and 'UPI'). Log a message using template literals showing both values. Call the function once with no arguments and once with custom values.
+
+Answer:
+
+function getDeliveryDetails(address = "Ahmedabad", paymentMethod = "UPI") {
+    console.log(`Delivery Address: ${address}, Payment Method: ${paymentMethod}`);
+}
+
+getDeliveryDetails();
+
+getDeliveryDetails("Mumbai", "Cash on Delivery");
+5.
+
+Question:
+Write a function getDeliveryDetails that takes two parameters: address (string) and paymentMethod (string), both with default values ('Ahmedabad' and 'UPI'). Log a message using template literals showing both values. Call the function once with no arguments and once with custom values.
+
+Answer:
+
+function getDeliveryDetails(address = "Ahmedabad", paymentMethod = "UPI") {
+    console.log(`Delivery Address: ${address}, Payment Method: ${paymentMethod}`);
+}
+
+getDeliveryDetails();
+
+getDeliveryDetails("Delhi", "Credit Card");
+6.
+
+Question:
+Write a function orderFood(item, quantity = 1) that returns a string like 'You ordered 2 Burgers.' Use default parameters so that if quantity is not passed, it defaults to 1.
+
+Answer:
+
+function orderFood(item, quantity = 1) {
+    return `You ordered ${quantity} ${item}.`;
+}
+
+console.log(orderFood("Pizza"));
+
+console.log(orderFood("Burger", 2));
+7.
+
+Question:
+Given an object representing a Zomato order: const order = { item: 'Pizza', price: 350, user: 'Amit' }, use object destructuring to extract item and price into variables, then log a message like 'Amit ordered Pizza for ₹350'.
+
+Answer:
+
+const order = {
+    item: "Pizza",
+    price: 350,
+    user: "Amit"
+};
+
+const { item, price, user } = order;
+
+console.log(`${user} ordered ${item} for ₹${price}`);
+8.
+
+Question:
+Given an object representing a Zomato order: const order = { item: 'Pizza', price: 350, user: 'Amit' }, use object destructuring to extract item and price into variables, then log a message like 'Amit ordered Pizza for ₹350'.
+
+Answer:
+
+const order = {
+    item: "Pizza",
+    price: 350,
+    user: "Amit"
+};
+
+const { item, price, user } = order;
+
+console.log(`${user} ordered ${item} for ₹${price}`);
+9.
+
+Question:
+Given this object: const movie = { title: 'Jawan', rating: 4.5, genre: 'Action' }, use object destructuring to extract title and rating into separate variables and log them as 'Movie: Jawan, Rating: 4.5'.
+
+Answer:
+
+const movie = {
+    title: "Jawan",
+    rating: 4.5,
+    genre: "Action"
+};
+
+const { title, rating } = movie;
+
+console.log(`Movie: ${title}, Rating: ${rating}`);
+10.
+
+Question:
+You have two arrays: const cricketFans = ['Virat', 'Rohit']; const footballFans = ['Messi', 'Ronaldo']; Use the spread operator to combine both arrays into a single array called allFans and log the result.
+
+Answer:
+
+const cricketFans = ["Virat", "Rohit"];
+
+const footballFans = ["Messi", "Ronaldo"];
+
+const allFans = [...cricketFans, ...footballFans];
+
+console.log(allFans);
+11.
+
+Question:
+You have two arrays: const cricketFans = ['Virat', 'Rohit']; const footballFans = ['Messi', 'Ronaldo']; Use the spread operator to combine both arrays into a single array called allFans and log the result.
+
+Answer:
+
+const cricketFans = ["Virat", "Rohit"];
+
+const footballFans = ["Messi", "Ronaldo"];
+
+const allFans = [...cricketFans, ...footballFans];
+
+console.log(allFans);
+12.
+
+Question:
+Use the spread operator to combine two arrays: your favorite Zomato dishes and your favorite Swiggy dishes, into a single array called allDishes, then log allDishes.
+
+Answer:
+
+let zomatoDishes = [
+    "Biryani",
+    "Pizza",
+    "Burger"
+];
+
+let swiggyDishes = [
+    "Pasta",
+    "Sandwich",
+    "Dosa"
+];
+
+let allDishes = [...zomatoDishes, ...swiggyDishes];
+
+console.log(allDishes);
+13.
+
+Question:
+Refactor this function to use an arrow function and rest parameters: function addToCart() { let total = 0; for(let i=0; i<arguments.length; i++) { total += arguments[i]; } return total; } The new function should be called addToCartArrow and accept any number of prices as arguments, returning their sum.
+
+Answer:
+
+const addToCartArrow = (...prices) => {
+    let total = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        total += prices[i];
+    }
+
+    return total;
+};
+
+console.log(addToCartArrow(100, 200, 300));
+14.
+
+Question:
+Refactor this function to use an arrow function and rest parameters: function addToCart() { let total = 0; for(let i=0; i<arguments.length; i++) { total += arguments[i]; } return total; } The new function should be called addToCartArrow and accept any number of prices as arguments, returning their sum.
+
+Answer:
+
+const addToCartArrow = (...prices) => {
+    let total = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        total += prices[i];
+    }
+
+    return total;
+};
+
+console.log(addToCartArrow(500, 250, 100, 150));
+15.
+
+Question:
+Write an arrow function called getFollowersSummary that takes any number of follower counts (using the rest operator), sums them, and returns a string like 'Total followers: 1200'. Call it with 3 sample numbers to test.
+
+Answer:
+
+const getFollowersSummary = (...followers) => {
+    let total = 0;
+
+    for (let i = 0; i < followers.length; i++) {
+        total += followers[i];
+    }
+
+    return `Total followers: ${total}`;
+};
+
+console.log(getFollowersSummary(400, 300, 500));

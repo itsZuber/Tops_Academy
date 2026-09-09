@@ -1,0 +1,285 @@
+Session 5
+
+Tasks
+
+
+
+
+Question:
+Create a function declaration called createSpotifyButton(label, color) that returns an HTML button element with the given label and background color, and display it on the page.
+
+Answer:
+
+function createSpotifyButton(label, color) {
+let button = document.createElement("button");
+button.innerText = label;
+button.style.backgroundColor = color;
+
+return button;
+
+}
+
+let spotifyButton = createSpotifyButton("Play Song", "green");
+
+document.body.appendChild(spotifyButton);
+
+
+
+
+Question:
+Create a function declaration called createSpotifyButton(label, color) that returns an HTML button element with the given label and background color, and display it on the page.
+
+Answer:
+
+function createSpotifyButton(label, color) {
+let button = document.createElement("button");
+button.innerText = label;
+button.style.backgroundColor = color;
+
+return button;
+
+}
+
+let spotifyButton = createSpotifyButton("Play Song", "green");
+
+document.body.appendChild(spotifyButton);
+
+
+
+
+Question:
+Declare a function expression called getGreeting that takes a user's name as a parameter and returns a message like 'Hello, Rahul!'.
+
+Answer:
+
+let getGreeting = function(name) {
+return "Hello, " + name + "!";
+};
+
+console.log(getGreeting("Zuber"));
+
+
+
+
+Question:
+Write a function expression named getDiscountedPrice that takes a price and a discount percent, and returns the final price after applying the discount (e.g., for Flipkart-style sale banners).
+
+Answer:
+
+let getDiscountedPrice = function(price, discountPercent) {
+let discount = price * discountPercent / 100;
+return price - discount;
+};
+
+console.log(getDiscountedPrice(1000, 20));
+
+
+
+
+Question:
+Write a function expression named getDiscountedPrice that takes a price and a discount percent, and returns the final price after applying the discount (e.g., for Flipkart-style sale banners).
+
+Answer:
+
+let getDiscountedPrice = function(price, discountPercent) {
+let discount = price * discountPercent / 100;
+return price - discount;
+};
+
+console.log(getDiscountedPrice(1500, 10));
+
+
+
+
+Question:
+Write an arrow function called formatFollowers that takes a number and returns it formatted as '1.5K' for 1500 or '2M' for 2000000, similar to how Instagram displays follower counts.
+
+Hint: Use conditional logic to check the number's size and format accordingly.
+
+Answer:
+
+let formatFollowers = (count) => {
+if (count >= 1000000) {
+return (count / 1000000).toFixed(1) + "M";
+} else if (count >= 1000) {
+return (count / 1000).toFixed(1) + "K";
+}
+
+return count;
+
+};
+
+console.log(formatFollowers(1500));
+console.log(formatFollowers(2000000));
+
+
+
+
+Question:
+Rewrite the following function as an arrow function:
+
+function formatFollowers(count) {
+if(count >= 1000) {
+return (count/1000).toFixed(1) + 'K';
+}
+return count;
+}
+
+Answer:
+
+let formatFollowers = (count) => {
+if (count >= 1000) {
+return (count / 1000).toFixed(1) + "K";
+}
+
+return count;
+
+};
+
+console.log(formatFollowers(1500));
+
+
+
+
+Question:
+Rewrite the following function as an arrow function:
+
+function formatFollowers(count) {
+if(count >= 1000) {
+return (count/1000).toFixed(1) + 'K';
+}
+return count;
+}
+
+Answer:
+
+let formatFollowers = (count) => {
+if (count >= 1000) {
+return (count / 1000).toFixed(1) + "K";
+}
+
+return count;
+
+};
+
+console.log(formatFollowers(2000));
+
+
+
+
+Question:
+Create a function declaration called createLikeButton(label, color) that returns a styled HTML button element with the given label and background color. Append the button to the document body.
+
+Answer:
+
+function createLikeButton(label, color) {
+let button = document.createElement("button");
+
+button.innerText = label;
+button.style.backgroundColor = color;
+button.style.color = "white";
+
+return button;
+
+}
+
+let likeButton = createLikeButton("Like", "blue");
+
+document.body.appendChild(likeButton);
+
+
+
+
+Question:
+Build a mini Zomato-style feature: write a function showMenuItem(name, price) that returns a styled HTML div with the food item's name and price, then call it for three different items and display them on the page.
+
+Hint: Use template literals and document.body.appendChild or innerHTML to add the divs.
+
+Answer:
+
+function showMenuItem(name, price) {
+let div = document.createElement("div");
+
+div.innerHTML = `<h3>${name}</h3><p>Price: ₹${price}</p>`;
+
+div.style.border = "1px solid black";
+div.style.padding = "10px";
+div.style.margin = "10px";
+
+return div;
+
+}
+
+document.body.appendChild(showMenuItem("Pizza", 250));
+document.body.appendChild(showMenuItem("Burger", 180));
+document.body.appendChild(showMenuItem("Biryani", 300));
+
+
+
+
+Question:
+Build a mini Zomato-style feature: write a function showMenuItem(name, price) that returns a styled HTML div with the food item's name and price, then call it for three different items and display them on the page.
+
+Hint: Use template literals and document.body.appendChild or innerHTML to add the divs.
+
+Answer:
+
+function showMenuItem(name, price) {
+let div = document.createElement("div");
+
+div.innerHTML = `<h3>${name}</h3><p>Price: ₹${price}</p>`;
+
+div.style.border = "1px solid black";
+div.style.padding = "10px";
+div.style.margin = "10px";
+
+return div;
+
+}
+
+document.body.appendChild(showMenuItem("Pasta", 220));
+document.body.appendChild(showMenuItem("Sandwich", 150));
+document.body.appendChild(showMenuItem("Fried Rice", 200));
+
+
+
+
+Question:
+Refactor the following code to use an arrow function instead of a function declaration:
+
+function double(x) {
+return x * 2;
+}
+
+Answer:
+
+let double = (x) => {
+return x * 2;
+};
+
+console.log(double(5));
+
+
+
+
+Question:
+Build a reusable function called createPlaylistButton(songName, themeColor) that returns a button element styled with the given color and displaying the song name. Use this function to create and display three buttons for your favorite Spotify tracks.
+
+Answer:
+
+function createPlaylistButton(songName, themeColor) {
+let button = document.createElement("button");
+
+button.innerText = songName;
+button.style.backgroundColor = themeColor;
+button.style.color = "white";
+button.style.margin = "5px";
+button.style.padding = "8px";
+
+return button;
+
+}
+
+document.body.appendChild(createPlaylistButton("Perfect", "green"));
+document.body.appendChild(createPlaylistButton("Kesariya", "orange"));
+document.body.appendChild(createPlaylistButton("Believer", "blue"));

@@ -1,0 +1,329 @@
+Session 15
+
+Tasks
+
+1.
+
+Question:
+Declare a JavaScript class named Playlist that has a constructor accepting two parameters: name and songs (an array). Create an instance for a Spotify playlist called 'Chill Vibes' with 3 song names.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+}
+
+let playlist = new Playlist("Chill Vibes", [
+    "Perfect",
+    "Love Story",
+    "Night Changes"
+]);
+
+console.log(playlist);
+2.
+
+Question:
+Declare a JavaScript class named Playlist that has a constructor accepting two parameters: name and songs (an array). Create an instance for a Spotify playlist called 'Chill Vibes' with 3 song names.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+}
+
+let playlist = new Playlist("Chill Vibes", [
+    "Believer",
+    "Shape of You",
+    "Faded"
+]);
+
+console.log(playlist);
+3.
+
+Question:
+Declare a JavaScript class named Playlist with a constructor that takes two parameters: name and songs (an array of song names). Create an instance for your favorite Spotify playlist and log it to the console.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+}
+
+let playlist = new Playlist("My Favorite Songs", [
+    "Perfect",
+    "Love Story",
+    "Until I Found You"
+]);
+
+console.log(playlist);
+4.
+
+Question:
+Add a method displayPlaylist() to the Playlist class that logs the playlist name and all song titles in a formatted string.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+
+    displayPlaylist() {
+        console.log("Playlist: " + this.name);
+        console.log("Songs: " + this.songs.join(", "));
+    }
+}
+
+let playlist = new Playlist("Chill Vibes", [
+    "Perfect",
+    "Love Story",
+    "Night Changes"
+]);
+
+playlist.displayPlaylist();
+5.
+
+Question:
+Add a method displayPlaylist() to the Playlist class that logs the playlist name and all song titles in a formatted string.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+
+    displayPlaylist() {
+        console.log("Playlist: " + this.name);
+        console.log("Songs: " + this.songs.join(", "));
+    }
+}
+
+let playlist = new Playlist("Workout Songs", [
+    "Believer",
+    "Thunder",
+    "On Top of the World"
+]);
+
+playlist.displayPlaylist();
+6.
+
+Question:
+Add a method getSongCount() to the Playlist class that returns the total number of songs in the playlist. Call this method on your instance and display the result.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+
+    getSongCount() {
+        return this.songs.length;
+    }
+}
+
+let playlist = new Playlist("Chill Vibes", [
+    "Perfect",
+    "Love Story",
+    "Night Changes"
+]);
+
+console.log("Total Songs: " + playlist.getSongCount());
+7.
+
+Question:
+Create a class called FlipkartProduct with properties: title, price, and rating. Write a method getDiscountedPrice(discountPercent) that returns the price after applying the given discount percentage.
+
+Answer:
+
+class FlipkartProduct {
+    constructor(title, price, rating) {
+        this.title = title;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    getDiscountedPrice(discountPercent) {
+        return this.price - (this.price * discountPercent / 100);
+    }
+}
+
+let product = new FlipkartProduct("Redmi Note 12 Pro", 18999, 4.5);
+
+console.log(product.getDiscountedPrice(10));
+8.
+
+Question:
+Create a class called FlipkartProduct with properties: title, price, and rating. Write a method getDiscountedPrice(discountPercent) that returns the price after applying the given discount percentage.
+
+Answer:
+
+class FlipkartProduct {
+    constructor(title, price, rating) {
+        this.title = title;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    getDiscountedPrice(discountPercent) {
+        return this.price - (this.price * discountPercent / 100);
+    }
+}
+
+let product = new FlipkartProduct("Samsung Galaxy M15", 15999, 4.3);
+
+console.log(product.getDiscountedPrice(20));
+9.
+
+Question:
+Create a class FlipkartProduct with properties: title, price, and rating. Add a method displayDetails() that prints all details in a formatted string like 'Redmi Note 12 Pro - ₹18999 - 4.5⭐'.
+
+Answer:
+
+class FlipkartProduct {
+    constructor(title, price, rating) {
+        this.title = title;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    displayDetails() {
+        console.log(this.title + " - ₹" + this.price + " - " + this.rating + "⭐");
+    }
+}
+
+let product = new FlipkartProduct("Redmi Note 12 Pro", 18999, 4.5);
+
+product.displayDetails();
+10.
+
+Question:
+Refactor the following code to use a class instead of a function constructor:
+
+function Movie(title, genre) {
+    this.title = title;
+    this.genre = genre;
+}
+
+Movie.prototype.display = function() {
+    console.log(this.title + ' - ' + this.genre);
+}
+
+Make sure your new class works the same way.
+
+Answer:
+
+class Movie {
+    constructor(title, genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+
+    display() {
+        console.log(this.title + " - " + this.genre);
+    }
+}
+
+let movie = new Movie("Jawan", "Action");
+
+movie.display();
+11.
+
+Question:
+Refactor the following code to use a class instead of a function constructor:
+
+function Movie(title, genre) {
+    this.title = title;
+    this.genre = genre;
+}
+
+Movie.prototype.display = function() {
+    console.log(this.title + ' - ' + this.genre);
+}
+
+Make sure your new class works the same way.
+
+Answer:
+
+class Movie {
+    constructor(title, genre) {
+        this.title = title;
+        this.genre = genre;
+    }
+
+    display() {
+        console.log(this.title + " - " + this.genre);
+    }
+}
+
+let movie = new Movie("3 Idiots", "Comedy");
+
+movie.display();
+12.
+
+Question:
+Extend the Playlist class by adding a method addSong(songName) that adds a new song to the songs array. Demonstrate by adding two songs and displaying the updated playlist.
+
+Answer:
+
+class Playlist {
+    constructor(name, songs) {
+        this.name = name;
+        this.songs = songs;
+    }
+
+    addSong(songName) {
+        this.songs.push(songName);
+    }
+
+    displayPlaylist() {
+        console.log("Playlist: " + this.name);
+        console.log("Songs: " + this.songs.join(", "));
+    }
+}
+
+let playlist = new Playlist("Chill Vibes", [
+    "Perfect",
+    "Love Story",
+    "Night Changes"
+]);
+
+playlist.addSong("Believer");
+playlist.addSong("Faded");
+
+playlist.displayPlaylist();
+13.
+
+Question:
+Refactor the FlipkartProduct class: rename the displayDetails() method to showProductInfo() and ensure it still works as before.
+
+Answer:
+
+class FlipkartProduct {
+    constructor(title, price, rating) {
+        this.title = title;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    showProductInfo() {
+        console.log(this.title + " - ₹" + this.price + " - " + this.rating + "⭐");
+    }
+}
+
+let product = new FlipkartProduct("Redmi Note 12 Pro", 18999, 4.5);
+
+product.showProductInfo();

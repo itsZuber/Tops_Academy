@@ -1,0 +1,335 @@
+Session 11
+
+Tasks
+
+
+1.
+
+Question:
+Create an HTML file with a <script> tag and use setTimeout to display a 'Loading your feed...' message after 2 seconds, then replace it with 'Feed loaded!' after another 2 seconds.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feed Loading</title>
+</head>
+<body>
+
+    <h2 id="feed"></h2>
+
+    <script>
+        let feed = document.getElementById("feed");
+
+        setTimeout(function() {
+            feed.innerHTML = "Loading your feed...";
+
+            setTimeout(function() {
+                feed.innerHTML = "Feed loaded!";
+            }, 2000);
+
+        }, 2000);
+    </script>
+
+</body>
+</html>
+
+2.
+
+Question:
+Create an HTML file with a <script> tag and use setTimeout to display a 'Loading your feed...' message after 2 seconds, then replace it with 'Feed loaded!' after another 2 seconds.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feed Loading</title>
+</head>
+<body>
+
+    <p id="message"></p>
+
+    <script>
+        let message = document.getElementById("message");
+
+        setTimeout(function() {
+            message.innerHTML = "Loading your feed...";
+
+            setTimeout(function() {
+                message.innerHTML = "Feed loaded!";
+            }, 2000);
+
+        }, 2000);
+    </script>
+
+</body>
+</html>
+3.
+
+Question:
+Create an HTML file with a <script> tag that logs 'Loading...' to the console, then after 2 seconds logs 'Content loaded!' using setTimeout.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Loading</title>
+</head>
+<body>
+
+    <script>
+        console.log("Loading...");
+
+        setTimeout(function() {
+            console.log("Content loaded!");
+        }, 2000);
+    </script>
+
+</body>
+</html>
+4.
+
+Question:
+Simulate a Zomato order status updater using callbacks: write a function placeOrder that takes a food item and a callback, waits 1 second using setTimeout, then calls the callback with the message 'Your [item] is being prepared'.
+
+Answer:
+
+function placeOrder(item, callback) {
+    setTimeout(function() {
+        callback("Your " + item + " is being prepared");
+    }, 1000);
+}
+
+placeOrder("Pizza", function(message) {
+    console.log(message);
+});
+5.
+
+Question:
+Simulate a Zomato order status updater using callbacks: write a function placeOrder that takes a food item and a callback, waits 1 second using setTimeout, then calls the callback with the message 'Your [item] is being prepared'.
+
+Answer:
+
+function placeOrder(item, callback) {
+    setTimeout(function() {
+        callback("Your " + item + " is being prepared");
+    }, 1000);
+}
+
+placeOrder("Biryani", function(message) {
+    console.log(message);
+});
+6.
+
+Question:
+Write a function fetchSongLyrics(song, callback) that simulates fetching lyrics from a server using setTimeout, then calls the callback with the lyrics string. Test it by logging the lyrics for any song title.
+
+Answer:
+
+function fetchSongLyrics(song, callback) {
+    setTimeout(function() {
+        let lyrics = "Lyrics for " + song + " are loaded.";
+        callback(lyrics);
+    }, 1000);
+}
+
+fetchSongLyrics("Perfect", function(lyrics) {
+    console.log(lyrics);
+});
+7.
+
+Question:
+Build a Promise called getFollowersCount that resolves after 1 second with a random number between 1000 and 5000, then use .then() to display 'You have X new followers' (like Instagram) in the console.
+
+Answer:
+
+let getFollowersCount = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        let followers = Math.floor(Math.random() * 4001) + 1000;
+        resolve(followers);
+    }, 1000);
+});
+
+getFollowersCount.then(function(followers) {
+    console.log("You have " + followers + " new followers");
+});
+8.
+
+Question:
+Build a Promise called getFollowersCount that resolves after 1 second with a random number between 1000 and 5000, then use .then() to display 'You have X new followers' (like Instagram) in the console.
+
+Answer:
+
+let getFollowersCount = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        let followers = Math.floor(Math.random() * 4001) + 1000;
+        resolve(followers);
+    }, 1000);
+});
+
+getFollowersCount.then(function(followers) {
+    console.log("You have " + followers + " new followers");
+});
+9.
+
+Question:
+Build a function getOrderStatus(orderId) that returns a Promise. Simulate a 1.5 second delay using setTimeout, then resolve with 'Order delivered' if orderId is even, or reject with 'Order not found' if odd. Use .then() and .catch() to handle both cases and log the result.
+
+Answer:
+
+function getOrderStatus(orderId) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            if (orderId % 2 === 0) {
+                resolve("Order delivered");
+            } else {
+                reject("Order not found");
+            }
+        }, 1500);
+    });
+}
+
+getOrderStatus(102)
+    .then(function(message) {
+        console.log(message);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+10.
+
+Question:
+Rewrite a Flipkart-style product search using both a callback version and a Promise version: given an array of products, simulate a 1 second delay before returning all products whose name includes the search term.
+
+Hint: Use setTimeout to simulate the delay in both approaches.
+
+Answer:
+
+let products = [
+    { name: "iPhone 15", price: 70000 },
+    { name: "Samsung Galaxy", price: 50000 },
+    { name: "Redmi Note", price: 15000 },
+    { name: "iPhone 14", price: 60000 }
+];
+
+function searchProductsCallback(products, searchTerm, callback) {
+    setTimeout(function() {
+        let result = [];
+
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                result.push(products[i]);
+            }
+        }
+
+        callback(result);
+    }, 1000);
+}
+
+searchProductsCallback(products, "iPhone", function(result) {
+    console.log("Callback Result:");
+    console.log(result);
+});
+
+
+function searchProductsPromise(products, searchTerm) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            let result = [];
+
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    result.push(products[i]);
+                }
+            }
+
+            resolve(result);
+        }, 1000);
+    });
+}
+
+searchProductsPromise(products, "Samsung")
+    .then(function(result) {
+        console.log("Promise Result:");
+        console.log(result);
+    });
+11.
+
+Question:
+Rewrite a Flipkart-style product search using both a callback version and a Promise version: given an array of products, simulate a 1 second delay before returning all products whose name includes the search term.
+
+Hint: Use setTimeout to simulate the delay in both approaches.
+
+Answer:
+
+let products = [
+    { name: "Laptop", price: 55000 },
+    { name: "HP Laptop", price: 60000 },
+    { name: "Dell Monitor", price: 15000 },
+    { name: "Laptop Bag", price: 2000 }
+];
+
+function searchProductsCallback(products, searchTerm, callback) {
+    setTimeout(function() {
+        let result = [];
+
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                result.push(products[i]);
+            }
+        }
+
+        callback(result);
+    }, 1000);
+}
+
+searchProductsCallback(products, "Laptop", function(result) {
+    console.log("Callback Result:");
+    console.log(result);
+});
+
+
+function searchProductsPromise(products, searchTerm) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            let result = [];
+
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    result.push(products[i]);
+                }
+            }
+
+            resolve(result);
+        }, 1000);
+    });
+}
+
+searchProductsPromise(products, "Monitor")
+    .then(function(result) {
+        console.log("Promise Result:");
+        console.log(result);
+    });
+12.
+
+Question:
+Refactor the following callback-based code to use Promises instead: setTimeout(function() { console.log('Payment successful!'); }, 1000); Ensure the new function returns a Promise and logs the message after 1 second.
+
+Hint: Use new Promise((resolve, reject) => { ... }) and resolve inside setTimeout.
+
+Answer:
+
+function makePayment() {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve("Payment successful!");
+        }, 1000);
+    });
+}
+
+makePayment().then(function(message) {
+    console.log(message);
+});

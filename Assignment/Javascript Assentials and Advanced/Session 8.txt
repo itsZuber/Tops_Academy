@@ -1,0 +1,521 @@
+Session 8
+
+Tasks
+
+
+1.
+
+Question:
+Create an array called playlists containing three objects, each representing a Spotify playlist with properties: name, creator, and numberOfSongs. Log the entire array to the console.
+
+Answer:
+
+let playlists = [
+    {
+        name: "My Favorites",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Workout Songs",
+        creator: "Arijit",
+        numberOfSongs: 18
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+console.log(playlists);
+2.
+
+Question:
+Create an array called playlists containing three objects, each representing a Spotify playlist with properties: name, creator, and numberOfSongs. Log the entire array to the console.
+
+Answer:
+
+let playlists = [
+    {
+        name: "My Favorites",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Workout Songs",
+        creator: "Arijit",
+        numberOfSongs: 18
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+console.log(playlists);
+3.
+
+Question:
+Create an array called playlists with 3 objects, each representing a Spotify playlist with properties: name, numberOfSongs, and genre. Log the entire array to the console.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        numberOfSongs: 25,
+        genre: "Bollywood"
+    },
+    {
+        name: "Rock Classics",
+        numberOfSongs: 20,
+        genre: "Rock"
+    },
+    {
+        name: "Chill Vibes",
+        numberOfSongs: 30,
+        genre: "Pop"
+    }
+];
+
+console.log(playlists);
+4.
+
+Question:
+Add a new playlist object to your playlists array using the push() method. The new playlist should have a unique name, creator, and numberOfSongs. Print the updated array.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+playlists.push({
+    name: "Late Night Songs",
+    creator: "Arijit",
+    numberOfSongs: 15
+});
+
+console.log(playlists);
+5.
+
+Question:
+Add a new playlist object to your playlists array using the push() method. The new playlist should have a unique name, creator, and numberOfSongs. Print the updated array.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+playlists.push({
+    name: "Travel Vibes",
+    creator: "Arijit",
+    numberOfSongs: 22
+});
+
+console.log(playlists);
+6.
+
+Question:
+Use the push() method to add a new playlist object to your playlists array with your favorite genre. Then, use pop() to remove the last playlist and log the updated array after each operation.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25,
+        genre: "Bollywood"
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20,
+        genre: "Rock"
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30,
+        genre: "Pop"
+    }
+];
+
+playlists.push({
+    name: "My Favorite Songs",
+    creator: "Zuber",
+    numberOfSongs: 35,
+    genre: "Bollywood"
+});
+
+console.log(playlists);
+
+playlists.pop();
+
+console.log(playlists);
+7.
+
+Question:
+Remove the last playlist from your playlists array using the pop() method and display the removed object in the console.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+let removedPlaylist = playlists.pop();
+
+console.log(removedPlaylist);
+8.
+
+Question:
+Remove the last playlist from your playlists array using the pop() method and display the removed object in the console.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Workout Songs",
+        creator: "Rahul",
+        numberOfSongs: 18
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+let removedPlaylist = playlists.pop();
+
+console.log(removedPlaylist);
+9.
+
+Question:
+Build an array called cart containing 4 objects, each representing a Flipkart product with properties: productName, price, and quantity. Write a loop to display each product's name and total price (price × quantity) in the console.
+
+Answer:
+
+let cart = [
+    {
+        productName: "Laptop",
+        price: 50000,
+        quantity: 1
+    },
+    {
+        productName: "Mouse",
+        price: 800,
+        quantity: 2
+    },
+    {
+        productName: "Keyboard",
+        price: 1500,
+        quantity: 1
+    },
+    {
+        productName: "Headphones",
+        price: 2000,
+        quantity: 2
+    }
+];
+
+for (let product of cart) {
+    let totalPrice = product.price * product.quantity;
+
+    console.log(product.productName + " - Total Price: " + totalPrice);
+}
+10.
+
+Question:
+Use the splice() method to remove the second playlist from your playlists array and insert a new playlist at that position. Print the resulting array.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+playlists.splice(1, 1, {
+    name: "Party Songs",
+    creator: "Arijit",
+    numberOfSongs: 40
+});
+
+console.log(playlists);
+11.
+
+Question:
+Use the splice() method to remove the second playlist from your playlists array and insert a new playlist at that position. Print the resulting array.
+
+Answer:
+
+let playlists = [
+    {
+        name: "Bollywood Hits",
+        creator: "Zuber",
+        numberOfSongs: 25
+    },
+    {
+        name: "Rock Classics",
+        creator: "Rahul",
+        numberOfSongs: 20
+    },
+    {
+        name: "Chill Vibes",
+        creator: "Spotify",
+        numberOfSongs: 30
+    }
+];
+
+playlists.splice(1, 1, {
+    name: "Travel Songs",
+    creator: "Zuber",
+    numberOfSongs: 28
+});
+
+console.log(playlists);
+12.
+
+Question:
+Given an array of objects called movies, where each object has properties: title, year, and a nested object rating with keys imdb and rottenTomatoes, write code to print each movie's title and its IMDb rating.
+
+Answer:
+
+let movies = [
+    {
+        title: "3 Idiots",
+        year: 2009,
+        rating: {
+            imdb: 8.4,
+            rottenTomatoes: 100
+        }
+    },
+    {
+        title: "Avengers: Endgame",
+        year: 2019,
+        rating: {
+            imdb: 8.4,
+            rottenTomatoes: 94
+        }
+    },
+    {
+        title: "Interstellar",
+        year: 2014,
+        rating: {
+            imdb: 8.7,
+            rottenTomatoes: 73
+        }
+    }
+];
+
+for (let movie of movies) {
+    console.log(movie.title + " - IMDb: " + movie.rating.imdb);
+}
+13.
+
+Question:
+Create an array called orders, where each order is an object with properties: orderId, items (an array of objects with itemName and price), and delivery (an object with address and status). Write a loop to display each order's orderId and total price of all items.
+
+Answer:
+
+let orders = [
+    {
+        orderId: 101,
+        items: [
+            {
+                itemName: "Pizza",
+                price: 300
+            },
+            {
+                itemName: "Burger",
+                price: 200
+            }
+        ],
+        delivery: {
+            address: "Ahmedabad",
+            status: "Delivered"
+        }
+    },
+    {
+        orderId: 102,
+        items: [
+            {
+                itemName: "Biryani",
+                price: 250
+            },
+            {
+                itemName: "Cold Drink",
+                price: 80
+            }
+        ],
+        delivery: {
+            address: "Ahmedabad",
+            status: "Out for Delivery"
+        }
+    }
+];
+
+for (let order of orders) {
+    let totalPrice = 0;
+
+    for (let item of order.items) {
+        totalPrice = totalPrice + item.price;
+    }
+
+    console.log(order.orderId + " - Total Price: " + totalPrice);
+}
+14.
+
+Question:
+Create an array called orders, where each order is an object with properties: orderId, items (an array of objects with itemName and price), and delivery (an object with address and status). Write a loop to display each order's orderId and total price of all items.
+
+Answer:
+
+let orders = [
+    {
+        orderId: 201,
+        items: [
+            {
+                itemName: "T-Shirt",
+                price: 700
+            },
+            {
+                itemName: "Jeans",
+                price: 1200
+            }
+        ],
+        delivery: {
+            address: "Ahmedabad",
+            status: "Delivered"
+        }
+    },
+    {
+        orderId: 202,
+        items: [
+            {
+                itemName: "Shoes",
+                price: 1500
+            },
+            {
+                itemName: "Watch",
+                price: 1000
+            }
+        ],
+        delivery: {
+            address: "Ahmedabad",
+            status: "Processing"
+        }
+    }
+];
+
+for (let order of orders) {
+    let totalPrice = 0;
+
+    for (let item of order.items) {
+        totalPrice = totalPrice + item.price;
+    }
+
+    console.log(order.orderId + " - Total Price: " + totalPrice);
+}
+15.
+
+Question:
+Create an array called favApps with 5 objects, each having title and url. Use splice() to remove the third app and insert a new app object for your most-used app at that position. Log the final array.
+
+Answer:
+
+let favApps = [
+    {
+        title: "Spotify",
+        url: "https://www.spotify.com"
+    },
+    {
+        title: "Instagram",
+        url: "https://www.instagram.com"
+    },
+    {
+        title: "YouTube",
+        url: "https://www.youtube.com"
+    },
+    {
+        title: "WhatsApp",
+        url: "https://www.whatsapp.com"
+    },
+    {
+        title: "Flipkart",
+        url: "https://www.flipkart.com"
+    }
+];
+
+favApps.splice(2, 1, {
+    title: "Google Chrome",
+    url: "https://www.google.com/chrome"
+});
+
+console.log(favApps);
