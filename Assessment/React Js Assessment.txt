@@ -1,0 +1,999 @@
+M1 - JavaScript Essentials And Advanced
+
+PROGRAM: ReactJS
+ASSESSMENT CODE: M1-A1
+STACK: JavaScript
+
+Question 1:
+
+You are building a food delivery app where each restaurant's details — name, cuisine type, and minimum order value — must remain constant throughout the session, but the currently selected dish should be updatable as the user browses the menu.
+
+Which declaration keyword (var, let, or const) would you use for each variable — the restaurant name, the minimum order value, and the currently selected dish — and why? Explain how scope and reassignment rules influence your choices.
+
+Answer:
+
+I would use const for the restaurant name and minimum order value because their values should not change. I would use let for the currently selected dish because its value can change when the user selects another dish.
+
+const and let are block-scoped. A const variable cannot be reassigned, while a let variable can be reassigned. var is function-scoped and can be redeclared, so I would prefer const and let in this situation.
+
+Example:
+
+const restaurantName = "Spice Garden";
+const minimumOrderValue = 200;
+
+let selectedDish = "Paneer Tikka";
+
+selectedDish = "Veg Burger";
+
+console.log(restaurantName);
+console.log(minimumOrderValue);
+console.log(selectedDish);
+
+Question 2:
+
+You are developing the delivery fee engine for a food delivery platform. Orders above Rs 500 qualify for free delivery; orders between Rs 200 and Rs 500 attract a Rs 40 fee; orders below Rs 200 attract a Rs 70 fee. Additionally, users flagged as 'VIP' always receive free delivery regardless of order amount.
+
+Write the conditional logic that determines the delivery fee. Justify whether you would use strict equality (===) or loose equality (==) when checking the user type, and explain why the order of your conditions matters.
+
+Answer:
+
+I would use if-else conditions. I would check the VIP user first because VIP users always get free delivery. After that, I would check the order amount.
+
+I would use strict equality (===) because it checks both value and data type. It is safer than loose equality (==).
+
+The order of conditions matters because VIP users must get free delivery even if their order amount is below Rs 200.
+
+Code:
+
+let orderAmount = 450;
+let userType = "VIP";
+let deliveryFee;
+
+if (userType === "VIP") {
+deliveryFee = 0;
+} else if (orderAmount > 500) {
+deliveryFee = 0;
+} else if (orderAmount >= 200) {
+deliveryFee = 40;
+} else {
+deliveryFee = 70;
+}
+
+console.log("Delivery Fee: Rs " + deliveryFee);
+
+Question 3:
+
+You are building the menu listing page for a food delivery app. All available dishes are stored in a JavaScript array. You need to display every dish name in the console and, separately, count how many dishes are marked as vegetarian.
+
+Which loop construct would you use for each task — displaying all dishes and counting vegetarian ones? Explain the practical difference between for-of and forEach in this context, and when you would prefer one over the other.
+
+Answer:
+
+I would use for-of to display every dish name because it is simple and easy to read.
+
+I can use forEach to check every dish and count the vegetarian dishes.
+
+The for-of loop directly gives each item from an array. forEach runs a function for every array item. I prefer for-of when I want simple looping and forEach when I want to perform an action for every item.
+
+Code:
+
+let dishes = [
+{ name: "Paneer Tikka", isVegetarian: true },
+{ name: "Chicken Biryani", isVegetarian: false },
+{ name: "Veg Burger", isVegetarian: true },
+{ name: "Chicken Roll", isVegetarian: false }
+];
+
+for (let dish of dishes) {
+console.log(dish.name);
+}
+
+let vegetarianCount = 0;
+
+dishes.forEach(function(dish) {
+if (dish.isVegetarian === true) {
+vegetarianCount++;
+}
+});
+
+console.log("Vegetarian Dishes: " + vegetarianCount);
+
+Question 4:
+
+You are writing the cart module for a food delivery app. The same tax calculation — 5% GST on food items and 18% GST on beverages — must run in the cart preview, the checkout summary, and the order confirmation screen.
+
+How would you structure this logic as a reusable function? Compare function declaration, function expression, and arrow function syntax — and explain which form you would choose for this shared utility and why, considering hoisting and readability.
+
+Answer:
+
+I would create one reusable function called calculateGST(). It can receive the category and price and return the GST amount.
+
+A function declaration is written using the function keyword and can be called before its declaration because of hoisting.
+
+A function expression stores a function inside a variable. It is not available before the variable is initialized.
+
+An arrow function is a shorter way to write a function.
+
+For this shared utility, I would choose a function declaration because it is easy to read and it also supports hoisting.
+
+Code:
+
+function calculateGST(category, price) {
+if (category === "Food") {
+return price * 0.05;
+} else if (category === "Beverage") {
+return price * 0.18;
+} else {
+return 0;
+}
+}
+
+console.log(calculateGST("Food", 200));
+console.log(calculateGST("Beverage", 100));
+
+Question 5:
+
+You are building the 'Place Order' button for a food delivery web app. Clicking the button must validate that the user has selected at least one item and entered a delivery address; if validation passes it should display a confirmation message without reloading the page.
+
+Which event type and attachment method would you use, and why? Explain what event.preventDefault() does and in which specific situation in this scenario it becomes necessary.
+
+Answer:
+
+I would use a click event on the Place Order button and attach it using addEventListener(). This keeps the JavaScript separate from the HTML and does not require inline onclick.
+
+event.preventDefault() stops the browser's default action. If the button is inside a form and the form is submitted, preventDefault() stops the page from reloading.
+
+Example:
+
+let placeOrderButton = document.getElementById("placeOrder");
+
+placeOrderButton.addEventListener("click", function(event) {
+event.preventDefault();
+
+console.log("Order placed successfully!");
+
+});
+
+Question 6:
+
+You are integrating a live restaurant list into a food delivery app by fetching data from a REST API. The fetch takes a few seconds, and the UI must show a 'Loading…' spinner while waiting, render the results when the data arrives, and display a user-friendly error message if the request fails.
+
+Compare using .then()/.catch() promise chaining with async/await syntax for this fetch call. Which approach would you choose to manage the loading state and the failure case cleanly, and why?
+
+Answer:
+
+Both .then()/.catch() and async/await can be used with fetch().
+
+.then() is used when the promise is successful and .catch() handles errors.
+
+async/await makes asynchronous code easier to read because it looks similar to normal step-by-step code. Errors can be handled using try/catch.
+
+I would choose async/await because it makes the loading, success, and error handling easier to understand.
+
+Example:
+
+async function getRestaurants() {
+console.log("Loading...");
+
+try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users");
+    let data = await response.json();
+
+    console.log(data);
+} catch (error) {
+    console.log("Something went wrong.");
+}
+
+}
+
+getRestaurants();
+
+TASK 1 — Restaurant Profile Card
+
+Question:
+
+Build a JavaScript program that constructs and logs a formatted restaurant profile using variables, template literals, and a ternary operator.
+
+Declare variables for restaurant name, cuisine type, average rating, and whether the restaurant is currently open. Use a template literal and ternary operator. Also serialize the restaurant details using JSON.stringify().
+
+Answer:
+
+JavaScript Code:
+
+const restaurantName = "Spice Garden";
+const cuisineType = "Indian";
+const averageRating = 4.5;
+const isOpen = true;
+
+const status = isOpen ? "Open Now" : "Closed";
+
+const profile = ${restaurantName} | ${cuisineType} | Rating: ${averageRating} | ${status};
+
+console.log(profile);
+
+const restaurantDetails = {
+restaurantName: restaurantName,
+cuisineType: cuisineType,
+averageRating: averageRating,
+isOpen: isOpen
+};
+
+console.log(JSON.stringify(restaurantDetails));
+
+Expected Console Output:
+
+Spice Garden | Indian | Rating: 4.5 | Open Now
+
+{"restaurantName":"Spice Garden","cuisineType":"Indian","averageRating":4.5,"isOpen"}
+
+TASK 2 — Menu Filter & Summary
+
+Question:
+
+Create an array of at least 6 dish objects containing name, price, category and isVegetarian. Use filter() to find vegetarian dishes, map() to create formatted strings, and reduce() to calculate the total price. Log the required results clearly.
+
+Answer:
+
+JavaScript Code:
+
+const dishes = [
+{
+name: "Paneer Tikka",
+price: 180,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Chicken Biryani",
+price: 250,
+category: "Food",
+isVegetarian: false
+},
+{
+name: "Veg Burger",
+price: 150,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Cold Coffee",
+price: 120,
+category: "Beverage",
+isVegetarian: true
+},
+{
+name: "Masala Dosa",
+price: 160,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Chicken Roll",
+price: 140,
+category: "Food",
+isVegetarian: false
+}
+];
+
+const vegetarianDishes = dishes.filter(function(dish) {
+return dish.isVegetarian === true;
+});
+
+const formattedMenu = dishes.map(function(dish) {
+return ${dish.name} - Rs ${dish.price};
+});
+
+const totalPrice = dishes.reduce(function(total, dish) {
+return total + dish.price;
+}, 0);
+
+console.log("Vegetarian Count: " + vegetarianDishes.length);
+console.log("Formatted Menu:", formattedMenu);
+console.log("Total Price: Rs " + totalPrice);
+
+TASK 3 — Live Order Form
+
+Question:
+
+Build an HTML page that lets a user type a dish name and quantity, then click an Add to Cart button. Attach a click event using addEventListener. Validate the fields, show an inline error if needed, add the item to a cart list, clear the fields, and use event.preventDefault() where appropriate.
+
+Answer:
+
+HTML Code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Live Order Form</title> </head> <body>
+
+<h2>Live Order Form</h2>
+
+<form>
+    <label>Dish Name:</label>
+    <input type="text" id="dishName">
+
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity">
+
+    <br><br>
+
+    <button type="submit" id="addButton">Add to Cart</button>
+
+    <p id="error"></p>
+</form>
+
+<h3>Cart</h3>
+<ul id="cartList"></ul>
+
+<script src="script.js"></script>
+
+</body> </html>
+
+JavaScript Code:
+
+const dishName = document.getElementById("dishName");
+const quantity = document.getElementById("quantity");
+const addButton = document.getElementById("addButton");
+const error = document.getElementById("error");
+const cartList = document.getElementById("cartList");
+
+addButton.addEventListener("click", function(event) {
+
+event.preventDefault();
+
+error.textContent = "";
+
+if (dishName.value === "" || quantity.value === "") {
+    error.textContent = "Please enter dish name and quantity.";
+    return;
+}
+
+const li = document.createElement("li");
+
+li.textContent = dishName.value + " - Quantity: " + quantity.value;
+
+cartList.appendChild(li);
+
+dishName.value = "";
+quantity.value = "";
+
+});
+
+TASK 4 — Order Tracker with Persistence
+
+Question:
+
+Build a JavaScript app that fetches a restaurant list from a public API, displays the restaurant names as clickable items, saves a favourite restaurant in localStorage, highlights it, restores it after reload, shows loading text, and displays an error in the DOM if the request fails.
+
+Answer:
+
+HTML Code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Order Tracker</title>
+
+<style>
+    .favourite {
+        font-weight: bold;
+    }
+
+    #error {
+        color: red;
+    }
+</style>
+
+</head> <body>
+
+<h2>Restaurant List</h2>
+
+<p id="loading">Loading restaurants...</p>
+
+<p id="error"></p>
+
+<ul id="restaurantList"></ul>
+
+<script src="script.js"></script>
+
+</body> </html>
+
+JavaScript Code:
+
+const restaurantList = document.getElementById("restaurantList");
+const loading = document.getElementById("loading");
+const error = document.getElementById("error");
+
+async function getRestaurants() {
+
+try {
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    );
+
+    if (!response.ok) {
+        throw new Error("Failed to load restaurants");
+    }
+
+    const restaurants = await response.json();
+
+    loading.textContent = "";
+
+    const favourite = localStorage.getItem("favouriteRestaurant");
+
+    restaurants.forEach(function(restaurant) {
+
+        const li = document.createElement("li");
+
+        li.textContent = restaurant.name;
+
+        if (restaurant.name === favourite) {
+            li.classList.add("favourite");
+        }
+
+        li.addEventListener("click", function() {
+
+            localStorage.setItem(
+                "favouriteRestaurant",
+                restaurant.name
+            );
+
+            const allItems =
+                document.querySelectorAll("#restaurantList li");
+
+            allItems.forEach(function(item) {
+                item.classList.remove("favourite");
+            });
+
+            li.classList.add("favourite");
+        });
+
+        restaurantList.appendChild(li);
+    });
+
+} catch (err) {
+
+    loading.textContent = "";
+
+    error.textContent =
+        "Sorry, restaurants could not be loaded.";
+}
+
+}
+
+getRestaurants();
+
+Question:
+
+Build a browser-based Interactive Food Delivery Menu App.
+
+The application must contain Browse Menu, View Cart and Clear Cart sections. It must dynamically display at least 6 dishes from a JavaScript array, allow users to add dishes to a cart, update the cart count, save the cart in localStorage, restore it after refresh, and fetch mock restaurant names using fetch() with async/await.
+
+Answer:
+
+HTML Code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Food Delivery Menu</title>
+
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    .card {
+        border: 1px solid gray;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .section {
+        margin-top: 20px;
+    }
+
+    .favourite {
+        font-weight: bold;
+    }
+
+    #error {
+        color: red;
+    }
+</style>
+
+</head>
+
+<body>
+
+<h1>Food Delivery App</h1>
+
+<h3>Restaurants</h3>
+
+<p id="loading">Loading restaurants...</p>
+
+<p id="error"></p>
+
+<select id="restaurantSelect"></select>
+
+<br><br>
+
+<button id="browseButton">Browse Menu</button>
+<button id="cartButton">View Cart</button>
+<button id="clearButton">Clear Cart</button>
+
+<p>Cart Items: <span id="cartCount">0</span></p>
+
+<div id="menuSection" class="section">
+
+    <h2>Browse Menu</h2>
+
+    <div id="menu"></div>
+
+</div>
+
+<div id="cartSection" class="section">
+
+    <h2>View Cart</h2>
+
+    <ul id="cartList"></ul>
+
+</div>
+
+<script src="script.js"></script>
+
+</body> </html>
+
+JavaScript Code:
+
+const dishes = [
+{
+name: "Paneer Tikka",
+price: 180,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Chicken Biryani",
+price: 250,
+category: "Food",
+isVegetarian: false
+},
+{
+name: "Veg Burger",
+price: 150,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Cold Coffee",
+price: 120,
+category: "Beverage",
+isVegetarian: true
+},
+{
+name: "Masala Dosa",
+price: 160,
+category: "Food",
+isVegetarian: true
+},
+{
+name: "Chicken Roll",
+price: 140,
+category: "Food",
+isVegetarian: false
+}
+];
+
+let cart = JSON.parse(localStorage.getItem("foodCart")) || [];
+
+const menu = document.getElementById("menu");
+const cartList = document.getElementById("cartList");
+const cartCount = document.getElementById("cartCount");
+
+const menuSection = document.getElementById("menuSection");
+const cartSection = document.getElementById("cartSection");
+
+const browseButton = document.getElementById("browseButton");
+const cartButton = document.getElementById("cartButton");
+const clearButton = document.getElementById("clearButton");
+
+const restaurantSelect =
+document.getElementById("restaurantSelect");
+
+const loading =
+document.getElementById("loading");
+
+const error =
+document.getElementById("error");
+
+function showMenu() {
+
+menuSection.style.display = "block";
+cartSection.style.display = "none";
+
+}
+
+function showCart() {
+
+menuSection.style.display = "none";
+cartSection.style.display = "block";
+
+displayCart();
+
+}
+
+browseButton.addEventListener("click", function() {
+showMenu();
+});
+
+cartButton.addEventListener("click", function() {
+showCart();
+});
+
+clearButton.addEventListener("click", function() {
+
+cart = [];
+
+localStorage.setItem(
+    "foodCart",
+    JSON.stringify(cart)
+);
+
+displayCart();
+updateCartCount();
+
+});
+
+function displayMenu() {
+
+menu.innerHTML = "";
+
+dishes.forEach(function(dish, index) {
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML =
+        "<h3>" + dish.name + "</h3>" +
+        "<p>Price: Rs " + dish.price + "</p>" +
+        "<p>Category: " + dish.category + "</p>" +
+        "<p>Vegetarian: " +
+        (dish.isVegetarian ? "Yes" : "No") +
+        "</p>" +
+        "<button onclick=\"addToCart(" +
+        index +
+        ")\">Add to Cart</button>";
+
+    menu.appendChild(card);
+});
+
+}
+
+function addToCart(index) {
+
+const dish = dishes[index];
+
+const existingDish = cart.find(function(item) {
+    return item.name === dish.name;
+});
+
+if (existingDish) {
+    existingDish.quantity++;
+} else {
+    cart.push({
+        name: dish.name,
+        price: dish.price,
+        quantity: 1
+    });
+}
+
+localStorage.setItem(
+    "foodCart",
+    JSON.stringify(cart)
+);
+
+updateCartCount();
+displayCart();
+
+}
+
+function displayCart() {
+
+cartList.innerHTML = "";
+
+cart.forEach(function(item) {
+
+    const li = document.createElement("li");
+
+    li.textContent =
+        item.name +
+        " - Quantity: " +
+        item.quantity +
+        " - Rs " +
+        (item.price * item.quantity);
+
+    cartList.appendChild(li);
+});
+
+}
+
+function updateCartCount() {
+
+let total = 0;
+
+cart.forEach(function(item) {
+    total = total + item.quantity;
+});
+
+cartCount.textContent = total;
+
+}
+
+async function loadRestaurants() {
+
+try {
+
+    loading.textContent = "Loading restaurants...";
+
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+    );
+
+    if (!response.ok) {
+        throw new Error("Restaurant loading failed");
+    }
+
+    const restaurants = await response.json();
+
+    loading.textContent = "";
+
+    restaurants.forEach(function(restaurant) {
+
+        const option = document.createElement("option");
+
+        option.textContent = restaurant.name;
+        option.value = restaurant.name;
+
+        restaurantSelect.appendChild(option);
+    });
+
+} catch (err) {
+
+    loading.textContent = "";
+
+    error.textContent =
+        "Unable to load restaurants.";
+}
+
+}
+
+displayMenu();
+displayCart();
+updateCartCount();
+showMenu();
+loadRestaurants();
+
+STEP 1 — BUILD WITH AI
+
+Question:
+
+Use an AI tool to help write a JavaScript program that fetches food items from:
+
+https://jsonplaceholder.typicode.com/posts
+
+Treat each post title as a dish name. Display the items in an HTML ul with an Add to Favourites button. Save favourite items to localStorage, reload and highlight them after refresh, show a loading indicator, and display a visible DOM error if the request fails.
+
+Answer:
+
+Exact Prompt Used:
+
+"Create a beginner-friendly JavaScript program using fetch() and async/await. Fetch data from https://jsonplaceholder.typicode.com/posts and treat each post title as a food dish name. Display the dish names inside an HTML ul. Add an Add to Favourites button next to each dish. Save favourite dishes in localStorage and load them again after page refresh. Highlight favourite dishes. Show a loading message while fetching and display an error message in the DOM if the request fails. Keep the code simple and beginner-friendly."
+
+AI ORIGINAL CODE:
+
+HTML Code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Food Favourites</title> </head> <body>
+
+<h2>Food Favourites</h2>
+
+<p id="loading">Loading...</p>
+
+<p id="error"></p>
+
+<ul id="foodList"></ul>
+
+<script src="script.js"></script>
+
+</body> </html>
+
+JavaScript Code:
+
+const foodList = document.getElementById("foodList");
+const loading = document.getElementById("loading");
+const error = document.getElementById("error");
+
+let favourites =
+JSON.parse(localStorage.getItem("favourites")) || [];
+
+async function getFoods() {
+
+try {
+
+    loading.textContent = "Loading...";
+
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+    );
+
+    const foods = await response.json();
+
+    loading.textContent = "";
+
+    foods.forEach(function(food) {
+
+        const li = document.createElement("li");
+
+        li.textContent = food.title + " ";
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = "Add to Favourites";
+
+        button.addEventListener("click", function() {
+
+            favourites.push(food.title);
+
+            localStorage.setItem(
+                "favourites",
+                JSON.stringify(favourites)
+            );
+
+            li.style.fontWeight = "bold";
+        });
+
+        if (favourites.includes(food.title)) {
+            li.style.fontWeight = "bold";
+        }
+
+        li.appendChild(button);
+
+        foodList.appendChild(li);
+    });
+
+} catch (err) {
+
+    error.textContent =
+        "Unable to load food items.";
+}
+
+}
+
+getFoods();
+
+CORRECTED VERSION:
+
+HTML Code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Food Favourites</title> </head> <body>
+
+<h2>Food Favourites</h2>
+
+<p id="loading">Loading...</p>
+
+<p id="error"></p>
+
+<ul id="foodList"></ul>
+
+<script src="script.js"></script>
+
+</body> </html>
+
+JavaScript Code:
+
+const foodList = document.getElementById("foodList");
+const loading = document.getElementById("loading");
+const error = document.getElementById("error");
+
+let favourites =
+JSON.parse(localStorage.getItem("favourites")) || [];
+
+async function getFoods() {
+
+try {
+
+    loading.textContent = "Loading...";
+    error.textContent = "";
+
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+    );
+
+    if (!response.ok) {
+        throw new Error("Request failed");
+    }
+
+    const foods = await response.json();
+
+    loading.textContent = "";
+
+    foods.forEach(function(food) {
+
+        const li = document.createElement("li");
+
+        li.textContent = food.title + " ";
+
+        const button =
+            document.createElement("button");
+
+        button.textContent =
+            favourites.includes(food.title)
+            ? "Remove Favourite"
+            : "Add to Favourites";
+
+        if (favourites.includes(food.title)) {
+            li.style.fontWeight = "bold";
+        }
+
+        button.addEventListener("click", function() {
+
+            if (favourites.includes(food.title)) {
+
+                favourites =
+                    favourites.filter(function(item) {
+                        return item !== food.title;
+                    });
+
+                li.style.fontWeight = "normal";
+
+                button.textContent =
+                    "Add to Favourites";
+
+            } else {
+
+                favourites.push(food.title);
+
+                li.style.fontWeight = "bold";
+
+                button.textContent =
+                    "Remove Favourite";
+            }
+
+            localStorage.setItem(
+                "favourites",
+                JSON.stringify(favourites)
+            );
+        });
+
+        li.appendChild(button);
+
+        foodList.appendChild(li);
+    });
+
+} catch (err) {
+
+    loading.textContent = "";
+
+    error.textContent =
+        "Unable to load food items. Please try again.";
+}
+
+}
+
+getFoods();
+
+3–4 Line Explanation:
+
+I tested the AI code and found that it did not check response.ok when the server returned an unsuccessful response.
+
+I added response.ok checking so failed HTTP responses are handled correctly.
+
+I also changed the favourite button so the user can remove a favourite instead of adding the same item multiple times.
+
+This makes the favourite feature easier to use and prevents duplicate favourite entries.

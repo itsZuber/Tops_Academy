@@ -1,0 +1,315 @@
+TOPS Technologies - Assessment File
+Database Management – SQL & PL/SQL
+Theme: Personal Expense Tracker DB
+
+Section A: Concept Application
+
+1.) Explain how relational databases help maintain accuracy in expense records.
+
+Answer:
+Relational databases store data in organized tables with relationships between them. In an expense tracker, users, categories, and expenses are stored separately and connected using keys. This reduces duplicate data and helps maintain accurate and consistent expense records.
+
+2.) Why are constraints important in personal finance data?
+
+Answer:
+Constraints help maintain the correctness and integrity of financial data. For example, a PRIMARY KEY ensures that every record has a unique ID, while a FOREIGN KEY ensures that an expense is linked to a valid user and category. Constraints prevent invalid or inconsistent data from being stored.
+
+3.) How does GROUP BY help analyze spending patterns?
+
+Answer:
+GROUP BY groups records having the same value. In an expense tracker, it can group expenses by category or user. Using GROUP BY with SUM(amount), we can calculate the total amount spent for each category or each user and easily analyze spending patterns.
+
+4.) Explain a scenario where rollback is required during expense entry.
+
+Answer:
+Suppose a user enters an expense and another related operation fails during the same transaction. ROLLBACK can be used to undo the changes made in that transaction. This prevents incomplete or incorrect expense data from being saved in the database.
+
+5.) How do views help users track monthly expenses efficiently?
+
+Answer:
+A view can store a frequently used SELECT query and present the required data in a simple format. For an expense tracker, a view can display useful user or expense information without requiring the user to write complex JOIN or GROUP BY queries every time.
+
+6.) Why use triggers for automatic category or balance updates?
+
+Answer:
+Triggers automatically execute when a specific database event such as INSERT, UPDATE, or DELETE occurs. In an expense tracker, a trigger can automatically perform related updates when an expense is added, modified, or deleted. This helps keep related data synchronized automatically.
+
+Section B: SQL Hands-On
+Given Database Schema
+
+users (
+user_id INT PRIMARY KEY,
+name VARCHAR(50),
+email VARCHAR(100),
+created_at DATE
+);
+categories (
+category_id INT PRIMARY KEY,
+category_name VARCHAR(50)
+);
+expenses (
+expense_id INT PRIMARY KEY,
+user_id INT,
+category_id INT,
+amount DECIMAL(10,2),
+expense_date DATE,
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+
+1.) DDL Understanding
+
+Question:
+Explain why foreign keys are used: Specifically, why must user_id in the expenses table correspond to a real ID in the users table?
+
+Answer:
+The user_id in the expenses table is a FOREIGN KEY that references the user_id in the users table. It ensures that every expense belongs to a valid user. This maintains referential integrity and prevents an expense from being created for a user who does not exist.
+
+Question:
+Mention one issue that would occur if foreign keys were removed. Describe the risk of "Orphaned Records".
+
+Answer:
+If foreign keys were removed, an expense could contain a user_id that does not exist in the users table. Such an expense would become an orphaned record. For example, if a user is deleted but their expense records remain, those expenses would no longer be connected to a valid user.
+
+2.) DML Operations
+
+Question:
+Insert 5 users into the users table with unique names and emails.
+
+Answer:
+
+INSERT INTO users (user_id, name, email, created_at)
+VALUES (1, 'Amit Shah', 'amit.shah@example.com', DATE '2026-09-01');
+
+INSERT INTO users (user_id, name, email, created_at)
+VALUES (2, 'Rahul Patel', 'rahul.patel@example.com', DATE '2026-09-02');
+
+INSERT INTO users (user_id, name, email, created_at)
+VALUES (3, 'Neha Mehta', 'neha.mehta@example.com', DATE '2026-09-03');
+
+INSERT INTO users (user_id, name, email, created_at)
+VALUES (4, 'Arjun Desai', 'arjun.desai@example.com', DATE '2026-09-04');
+
+INSERT INTO users (user_id, name, email, created_at)
+VALUES (5, 'Priya Shah', 'priya.shah@example.com', DATE '2026-09-05');
+
+Question:
+Insert 3 categories (e.g., 'Food', 'Rent', 'Entertainment').
+
+Answer:
+
+INSERT INTO categories (category_id, category_name)
+VALUES (1, 'Food');
+
+INSERT INTO categories (category_id, category_name)
+VALUES (2, 'Rent');
+
+INSERT INTO categories (category_id, category_name)
+VALUES (3, 'Entertainment');
+
+Question:
+Insert 10 expense records distributed across different users and categories.
+
+Answer:
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (1, 1, 1, 250.00, DATE '2026-09-01');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (2, 1, 2, 12000.00, DATE '2026-09-02');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (3, 2, 1, 450.00, DATE '2026-09-03');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (4, 2, 3, 800.00, DATE '2026-09-04');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (5, 3, 1, 300.00, DATE '2026-09-05');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (6, 3, 2, 10000.00, DATE '2026-09-06');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (7, 4, 3, 600.00, DATE '2026-09-07');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (8, 4, 1, 150.00, DATE '2026-09-08');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (9, 5, 2, 9000.00, DATE '2026-09-09');
+
+INSERT INTO expenses (expense_id, user_id, category_id, amount, expense_date)
+VALUES (10, 5, 3, 500.00, DATE '2026-09-10');
+
+Question:
+Update one incorrect expense. Use the UPDATE command to change the amount of a specific expense_id.
+
+Answer:
+
+UPDATE expenses
+SET amount = 350.00
+WHERE expense_id = 1;
+
+Question:
+Delete one expense. Remove a record where the amount is less than a specific value.
+
+Answer:
+
+DELETE FROM expenses
+WHERE amount < 200.00;
+
+3) Data Retrieval
+
+Question:
+Display all expenses with details: Show the expense_date, amount, name from users, and category_name from categories using INNER JOIN.
+
+Answer:
+
+SELECT
+e.expense_date,
+e.amount,
+u.name,
+c.category_name
+FROM expenses e
+INNER JOIN users u
+ON e.user_id = u.user_id
+INNER JOIN categories c
+ON e.category_id = c.category_id;
+
+Question:
+Show total expense amount per category. Use SUM(amount) and GROUP BY category_name.
+
+Answer:
+
+SELECT
+c.category_name,
+SUM(e.amount) AS total_expense
+FROM expenses e
+INNER JOIN categories c
+ON e.category_id = c.category_id
+GROUP BY c.category_name;
+
+Question:
+Display users sorted by total spending. List user names and their total sum of expenses, ordered from highest to lowest.
+
+Answer:
+
+SELECT
+u.name,
+SUM(e.amount) AS total_spending
+FROM users u
+INNER JOIN expenses e
+ON u.user_id = e.user_id
+GROUP BY u.name
+ORDER BY total_spending DESC;
+
+4.) Views
+
+Question:
+Create a view named ActiveUsersView. This view should list the name and email of any user who has logged more than 5 individual expense records.
+
+Answer:
+
+CREATE VIEW ActiveUsersView AS
+SELECT
+u.name,
+u.email
+FROM users u
+INNER JOIN expenses e
+ON u.user_id = e.user_id
+GROUP BY u.user_id, u.name, u.email
+HAVING COUNT(e.expense_id) > 5;
+
+Question:
+Query the view. Write a simple SELECT statement to show all data from ActiveUsersView.
+
+Answer:
+
+SELECT *
+FROM ActiveUsersView;
+
+Section C: Mini Project
+
+Mini Project: Expense Tracker DB
+
+Write CRUD queries.
+
+Answer:
+
+-- CREATE / INSERT
+INSERT INTO expenses
+(expense_id, user_id, category_id, amount, expense_date)
+VALUES
+(11, 1, 1, 400.00, DATE '2026-09-10');
+
+-- READ / SELECT
+SELECT *
+FROM expenses
+WHERE user_id = 1;
+
+-- UPDATE
+UPDATE expenses
+SET amount = 450.00
+WHERE expense_id = 11;
+
+-- DELETE
+DELETE FROM expenses
+WHERE expense_id = 11;
+
+Write a stored procedure to calculate monthly user expense.
+
+Answer:
+
+CREATE OR REPLACE PROCEDURE CalculateMonthlyExpense (
+p_user_id IN NUMBER,
+p_month IN NUMBER,
+p_year IN NUMBER
+)
+IS
+v_total_expense NUMBER(10,2);
+BEGIN
+SELECT NVL(SUM(amount), 0)
+INTO v_total_expense
+FROM expenses
+WHERE user_id = p_user_id
+AND EXTRACT(MONTH FROM expense_date) = p_month
+AND EXTRACT(YEAR FROM expense_date) = p_year;
+
+DBMS_OUTPUT.PUT_LINE(
+    'Total Monthly Expense: ' || v_total_expense
+);
+
+END;
+/
+
+To execute the procedure:
+
+BEGIN
+CalculateMonthlyExpense(1, 9, 2026);
+END;
+/
+
+Demonstrate COMMIT and ROLLBACK with example queries.
+
+Answer:
+
+-- COMMIT example
+
+INSERT INTO expenses
+(expense_id, user_id, category_id, amount, expense_date)
+VALUES
+(12, 2, 1, 300.00, DATE '2026-09-10');
+
+COMMIT;
+
+-- ROLLBACK example
+
+UPDATE expenses
+SET amount = 9999.00
+WHERE expense_id = 12;
+
+ROLLBACK;
+
+The COMMIT permanently saves the transaction changes. ROLLBACK cancels the changes made after the last COMMIT.
