@@ -1,0 +1,449 @@
+Mini Project 6
+
+Tasks
+
+Question 1:
+
+Create an HTML form called musicLinksForm that accepts Spotify, YouTube Music, and Apple Music profile URLs as input fields, and display the submitted links as styled preview cards below the form.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Links</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        form {
+            width: 400px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 300px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Music Links</h1>
+
+    <form id="musicLinksForm">
+
+        <input
+            type="url"
+            id="spotify"
+            placeholder="Spotify Profile URL"
+            required
+        >
+
+        <input
+            type="url"
+            id="youtube"
+            placeholder="YouTube Music Profile URL"
+            required
+        >
+
+        <input
+            type="url"
+            id="apple"
+            placeholder="Apple Music Profile URL"
+            required
+        >
+
+        <button type="submit">Add Links</button>
+
+    </form>
+
+    <div id="preview"></div>
+
+    <script>
+        document.getElementById("musicLinksForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            var spotify = document.getElementById("spotify").value;
+            var youtube = document.getElementById("youtube").value;
+            var apple = document.getElementById("apple").value;
+
+            document.getElementById("preview").innerHTML =
+                '<div class="card"><h3>Spotify</h3><p>' + spotify + '</p></div>' +
+                '<div class="card"><h3>YouTube Music</h3><p>' + youtube + '</p></div>' +
+                '<div class="card"><h3>Apple Music</h3><p>' + apple + '</p></div>';
+        });
+    </script>
+
+</body>
+</html>
+
+Question 2:
+
+Design a responsive UI for a personal 'Gamer Tag' bio link page that adapts to both mobile and desktop screens, showing the user's avatar, gaming alias, and buttons linking to their Twitch, Discord, and Steam profiles.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gamer Tag</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #222;
+            color: white;
+            margin: 0;
+        }
+
+        .gamer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .gamer img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        .gamer h1 {
+            margin: 15px;
+        }
+
+        .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: white;
+            background-color: #555;
+            padding: 12px 25px;
+            border-radius: 6px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .links a {
+                text-align: center;
+            }
+
+            .gamer {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gamer">
+
+        <img src="avatar.jpg" alt="Gamer Avatar">
+
+        <h1>ShadowGamer</h1>
+
+        <p>Welcome to my gaming world!</p>
+
+        <div class="links">
+
+            <a href="https://www.twitch.tv/" target="_blank">
+                Twitch
+            </a>
+
+            <a href="https://discord.com/" target="_blank">
+                Discord
+            </a>
+
+            <a href="https://store.steampowered.com/" target="_blank">
+                Steam
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+Question 3:
+
+Style the input form for adding social links so that each input field displays a platform icon inside the input box, similar to how Zomato shows icons in their search bar.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Links</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .input-box {
+            position: relative;
+            width: 350px;
+            margin: 10px 0;
+        }
+
+        .input-box img {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            left: 10px;
+            top: 9px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 10px 10px 45px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Add Social Links</h1>
+
+    <div class="input-box">
+
+        <img src="instagram.png" alt="Instagram">
+
+        <input
+            type="url"
+            placeholder="Instagram Profile URL"
+        >
+
+    </div>
+
+    <div class="input-box">
+
+        <img src="linkedin.png" alt="LinkedIn">
+
+        <input
+            type="url"
+            placeholder="LinkedIn Profile URL"
+        >
+
+    </div>
+
+    <div class="input-box">
+
+        <img src="spotify.png" alt="Spotify">
+
+        <input
+            type="url"
+            placeholder="Spotify Profile URL"
+        >
+
+    </div>
+
+    <div class="input-box">
+
+        <img src="youtube.png" alt="YouTube">
+
+        <input
+            type="url"
+            placeholder="YouTube Profile URL"
+        >
+
+    </div>
+
+</body>
+</html>
+
+Question 4:
+
+After submitting the form, show a preview card for each link with the platform logo, the username/handle extracted from the URL, and a 'Visit' button that opens the link in a new tab.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Link Preview</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input {
+            width: 350px;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 300px;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 2px solid;
+        }
+
+        .instagram {
+            border-color: #e1306c;
+        }
+
+        .linkedin {
+            border-color: #0077b5;
+        }
+
+        .spotify {
+            border-color: #1db954;
+        }
+
+        .youtube {
+            border-color: #ff0000;
+        }
+
+        .card img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Add Social Link</h1>
+
+    <form id="socialForm">
+
+        <input
+            type="url"
+            id="socialUrl"
+            placeholder="Enter social profile URL"
+            required
+        >
+
+        <button type="submit">
+            Add Link
+        </button>
+
+    </form>
+
+    <div id="preview"></div>
+
+    <script>
+
+        document.getElementById("socialForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            var url = document.getElementById("socialUrl").value;
+
+            var platform = "";
+            var logo = "";
+            var className = "";
+
+            if (url.includes("instagram.com")) {
+
+                platform = "Instagram";
+                logo = "instagram.png";
+                className = "instagram";
+
+            } else if (url.includes("linkedin.com")) {
+
+                platform = "LinkedIn";
+                logo = "linkedin.png";
+                className = "linkedin";
+
+            } else if (url.includes("spotify.com")) {
+
+                platform = "Spotify";
+                logo = "spotify.png";
+                className = "spotify";
+
+            } else if (url.includes("youtube.com")) {
+
+                platform = "YouTube";
+                logo = "youtube.png";
+                className = "youtube";
+
+            } else {
+
+                platform = "Social Profile";
+                logo = "social.png";
+                className = "";
+            }
+
+            var parts = url.split("/");
+            var username = parts[parts.length - 1];
+
+            if (username == "") {
+                username = parts[parts.length - 2];
+            }
+
+            document.getElementById("preview").innerHTML +=
+                '<div class="card ' + className + '">' +
+                '<img src="' + logo + '" alt="' + platform + '">' +
+                '<h3>' + platform + '</h3>' +
+                '<p>@' + username + '</p>' +
+                '<a href="' + url + '" target="_blank">Visit</a>' +
+                '</div>';
+
+            document.getElementById("socialForm").reset();
+
+        });
+
+    </script>
+
+</body>
+</html>
