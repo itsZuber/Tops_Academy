@@ -1,0 +1,269 @@
+Session 6
+
+Tasks
+
+Question 1:
+
+Create an HTML file that displays a Zomato-style restaurant card with a restaurant name, cuisine type, and rating. Use CSS to add margin, padding, and a visible border to the card so that each section is clearly separated.
+
+Answer:
+
+Create a file named restaurant-card.html:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Restaurant Card</title>
+
+<style>
+    .restaurant-card {
+        margin: 20px;
+        padding: 20px;
+        border: 2px solid black;
+    }
+
+    .restaurant-name {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+
+    .cuisine {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+
+    .rating {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+</style>
+
+</head> <body>
+
+<div class="restaurant-card">
+
+    <div class="restaurant-name">
+        <h2>Spice Restaurant</h2>
+    </div>
+
+    <div class="cuisine">
+        <p>Indian and Chinese Cuisine</p>
+    </div>
+
+    <div class="rating">
+        <p>Rating: 4.5/5</p>
+    </div>
+
+</div>
+
+</body> </html>
+
+Question 2:
+
+Design a Flipkart-style product tile with an image, product name, and price. Use different display properties (block, inline-block, none) to control the layout of the product name and price, and hide the price when a specific CSS class is added. Hint: Try toggling the class in your HTML to see the effect.
+
+Answer:
+
+Create a file named product-tile.html:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Product Tile</title>
+
+<style>
+    .product {
+        width: 250px;
+        border: 2px solid black;
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .product img {
+        display: block;
+        width: 200px;
+    }
+
+    .product-name {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .price {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .hide-price {
+        display: none;
+    }
+</style>
+
+</head> <body>
+
+<div class="product">
+
+    <img src="phone.jpg" alt="Smartphone">
+
+    <h2 class="product-name">Smartphone</h2>
+
+    <span class="price">₹15,999</span>
+
+</div>
+
+<div class="product">
+
+    <img src="laptop.jpg" alt="Laptop">
+
+    <h2 class="product-name">Laptop</h2>
+
+    <span class="price hide-price">₹45,999</span>
+
+</div>
+
+</body> </html>
+
+Question 3:
+
+Build a fixed-position WhatsApp chat notification badge at the bottom right corner of the screen. Use position: fixed and appropriate margin and padding to ensure it stays visible even when scrolling.
+
+Answer:
+
+Create a file named whatsapp-badge.html:
+
+<!DOCTYPE html>
+
+<html> <head> <title>WhatsApp Badge</title>
+
+<style>
+    .whatsapp-badge {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        margin: 10px;
+        padding: 15px;
+        background-color: green;
+        color: white;
+        border-radius: 10px;
+    }
+</style>
+
+</head> <body>
+
+<h1>My Website</h1>
+
+<p>Scroll the page to see the WhatsApp notification.</p>
+
+<div style="height: 1000px;">
+    <p>This is some page content.</p>
+</div>
+
+<div class="whatsapp-badge">
+    WhatsApp Chat
+</div>
+
+</body> </html>
+
+Question 4:
+
+Create a BookMyShow movie poster grid where each poster uses position: relative. Add a 'New' badge to the top-left corner of one poster using position: absolute, so it overlays the image correctly. Hint: Use top and left properties with position: absolute inside a relatively positioned parent.
+
+Answer:
+
+Create a file named movie-grid.html:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Movie Posters</title>
+
+<style>
+    .movie-grid {
+        display: inline-block;
+    }
+
+    .poster {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .poster img {
+        width: 200px;
+        height: 280px;
+    }
+
+    .new-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        background-color: red;
+        color: white;
+    }
+</style>
+
+</head> <body>
+
+<h1>Movie Posters</h1>
+
+<div class="movie-grid">
+
+    <div class="poster">
+        <img src="movie1.jpg" alt="Movie 1">
+
+        <span class="new-badge">New</span>
+    </div>
+
+    <div class="poster">
+        <img src="movie2.jpg" alt="Movie 2">
+    </div>
+
+    <div class="poster">
+        <img src="movie3.jpg" alt="Movie 3">
+    </div>
+
+</div>
+
+</body> </html>
+
+Question 5:
+
+Refactor your CSS for any one of the above tasks to reduce repeated margin and padding values by using a reusable CSS class. Explain in a comment how this improves maintainability.
+
+Answer:
+
+The reusable class can be used in the restaurant card from Question 1.
+
+Updated CSS:
+
+.common-spacing {
+margin: 10px;
+padding: 10px;
+}
+
+/* A reusable class reduces repeated CSS values and makes the code easier to maintain. */
+
+.restaurant-name,
+.cuisine,
+.rating {
+border: 1px solid gray;
+}
+
+Updated HTML:
+
+<div class="restaurant-card">
+
+<div class="restaurant-name common-spacing">
+    <h2>Spice Restaurant</h2>
+</div>
+
+<div class="cuisine common-spacing">
+    <p>Indian and Chinese Cuisine</p>
+</div>
+
+<div class="rating common-spacing">
+    <p>Rating: 4.5/5</p>
+</div>
+
+</div>

@@ -1,0 +1,167 @@
+Session 3
+
+Tasks
+
+Question 1:
+
+Create an HTML form for a Flipkart-style product review, including input fields for username, rating (as a dropdown from 1 to 5), and a textarea for the review message. Use appropriate labels for each field.
+
+Answer:
+
+Create a file named product-review.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Product Review</title> </head> <body>
+
+<h1>Product Review</h1>
+
+<form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br><br>
+
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating">
+        <option value="">Select Rating</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+
+    <label for="review">Review:</label>
+    <textarea id="review" name="review"></textarea>
+    <br><br>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+</body> </html>
+
+Question 2:
+
+Add HTML5 validation attributes to your review form so that username is required, rating must be selected, and the review message must be at least 20 characters long. Hint: Use required, minlength, and a default unselectable option for the dropdown.
+
+Answer:
+
+Update the form fields as follows:
+
+<form>
+
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+<br><br>
+
+<label for="rating">Rating:</label>
+<select id="rating" name="rating" required>
+    <option value="" disabled selected>Select Rating</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<br><br>
+
+<label for="review">Review:</label>
+<textarea id="review" name="review" minlength="20" required></textarea>
+<br><br>
+
+<button type="submit">Submit Review</button>
+
+</form>
+
+Question 3:
+
+Modify your form to use the POST method and, after submitting a test review, open the DevTools Network tab to preview the POST request data sent by your form. Hint: Look for the form submission request and expand the payload/details to see your input values.
+
+Answer:
+
+I modified the form to use the POST method.
+
+<form method="POST">
+
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+<br><br>
+
+<label for="rating">Rating:</label>
+<select id="rating" name="rating" required>
+    <option value="" disabled selected>Select Rating</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<br><br>
+
+<label for="review">Review:</label>
+<textarea id="review" name="review" minlength="20" required></textarea>
+<br><br>
+
+<button type="submit">Submit Review</button>
+
+</form>
+
+I opened Chrome DevTools by pressing F12 and selected the Network tab. After submitting a test review, I selected the form submission request and checked the Payload section to see the submitted username, rating, and review message.
+
+Question 4:
+
+Build a Zomato-style food order form with inputs for user name, a select dropdown for food item (at least 3 options), quantity (number input), and a textarea for delivery instructions. Ensure all fields are labeled and use required validation.
+
+Answer:
+
+Create a file named food-order.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Food Order Form</title> </head> <body>
+
+<h1>Food Order</h1>
+
+<form>
+
+    <label for="name">User Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+
+    <label for="food">Food Item:</label>
+    <select id="food" name="food" required>
+        <option value="" disabled selected>Select Food Item</option>
+        <option value="Biryani">Biryani</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Burger">Burger</option>
+    </select>
+    <br><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" required>
+    <br><br>
+
+    <label for="instructions">Delivery Instructions:</label>
+    <textarea id="instructions" name="instructions" required></textarea>
+    <br><br>
+
+    <button type="submit">Place Order</button>
+
+</form>
+
+</body> </html>
+
+Question 5:
+
+Add a disabled input field to your food order form that displays a fixed order ID (e.g., ORD12345) and explain in a comment why this field should be disabled for users.
+
+Answer:
+
+Add the following code inside the <form>:
+
+<!-- The order ID is fixed by the system, so users should not be allowed to change it. -->
+
+<label for="orderId">Order ID:</label>
+<input type="text" id="orderId" name="orderId" value="ORD12345" disabled>
+<br><br>

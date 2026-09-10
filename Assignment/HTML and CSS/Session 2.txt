@@ -1,0 +1,95 @@
+Session 2
+
+Tasks
+
+Question 1:
+
+Create a new HTML file called foodie-profile.html with the full HTML5 boilerplate structure (<!DOCTYPE html>, <html>, <head>, <body>), and set the title to 'My Foodie Profile'.
+
+Answer:
+
+Create a file named foodie-profile.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>My Foodie Profile</title> </head> <body>
+
+</body> </html>
+
+Question 2:
+
+Inside foodie-profile.html, add headings and paragraphs to introduce yourself as a food lover, including your favorite cuisine and a short story about your best meal.
+
+Answer:
+
+Add the following code inside the <body> tag:
+
+<h1>My Foodie Profile</h1>
+
+<h2>About Me</h2> <p>I am a food lover and I enjoy trying different types of food.</p>
+
+<h2>My Favorite Cuisine</h2> <p>My favorite cuisine is Indian cuisine because it has many different flavors and dishes.</p>
+
+<h2>My Best Meal</h2> <p>My best meal was a delicious biryani with raita and salad. I enjoyed the taste and the different flavors of the meal.</p>
+
+Question 3:
+
+Add an unordered list of your top 5 favorite dishes (like you'd see on Zomato), and a numbered list of 3 restaurants you want to try next.
+
+Answer:
+
+Add the following code inside the <body> tag:
+
+<h2>My Top 5 Favorite Dishes</h2>
+
+<ul> <li>Biryani</li> <li>Pizza</li> <li>Butter Chicken</li> <li>Paneer Tikka</li> <li>Dosa</li> </ul>
+
+<h2>Restaurants I Want to Try</h2>
+
+<ol> <li>Spice Restaurant</li> <li>Food House</li> <li>Urban Kitchen</li> </ol>
+
+Question 4:
+
+Insert an image of your favorite dish using the <img> tag, and make the image clickable so it opens the official website of that dish or restaurant in a new tab using an anchor (<a>) tag. Hint: Use target="_blank" in your anchor tag.
+
+Answer:
+
+Add the following code inside the <body> tag:
+
+<h2>My Favorite Dish</h2>
+
+<a href="https://www.zomato.com/" target="_blank"> <img src="biryani.jpg" alt="My Favorite Biryani" width="300"> </a>
+
+The image file should be named biryani.jpg and should be kept in the same folder as foodie-profile.html.
+
+Question 5:
+
+Create a table that compares 3 food delivery apps (e.g., Zomato, Swiggy, Uber Eats) with columns for App Name, Delivery Charges, and Rating. Fill in sample data for each.
+
+Answer:
+
+Add the following code inside the <body> tag:
+
+<h2>Food Delivery Apps Comparison</h2>
+
+<table border="1"> <tr> <th>App Name</th> <th>Delivery Charges</th> <th>Rating</th> </tr>
+
+<tr>
+    <td>Zomato</td>
+    <td>₹30</td>
+    <td>4.5</td>
+</tr>
+
+<tr>
+    <td>Swiggy</td>
+    <td>₹25</td>
+    <td>4.4</td>
+</tr>
+
+<tr>
+    <td>Uber Eats</td>
+    <td>₹35</td>
+    <td>4.2</td>
+</tr>
+
+</table>

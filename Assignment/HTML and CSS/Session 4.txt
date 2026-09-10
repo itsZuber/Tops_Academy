@@ -1,0 +1,153 @@
+Session 4
+
+Tasks
+
+Question 1:
+
+Create an HTML file that uses semantic tags to build a simple blog post layout with <header> for the blog title, <nav> for navigation links (Home, Explore, About), <article> for the main post content, and <footer> for copyright information.
+
+Answer:
+
+Create a file named blog.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>My Blog</title> </head> <body>
+
+<header>
+    <h1>My Food Blog</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">About</a>
+</nav>
+
+<article>
+    <h2>My Favorite Food</h2>
+    <p>Food is an important part of our daily life. I enjoy trying different dishes and exploring new flavors.</p>
+</article>
+
+<footer>
+    <p>Copyright 2026 My Food Blog</p>
+</footer>
+
+</body> </html>
+
+Question 2:
+
+Recreate a Zomato-style restaurant listing card using semantic HTML5 tags: use <article> for each restaurant, <header> for the restaurant name, and <footer> for rating and delivery time.
+
+Answer:
+
+Create a file named restaurant.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Restaurant List</title> </head> <body>
+
+<h1>Restaurant List</h1>
+
+<article>
+    <header>
+        <h2>Spice Restaurant</h2>
+    </header>
+
+    <p>Indian, Chinese and Fast Food</p>
+
+    <footer>
+        <p>Rating: 4.5 | Delivery Time: 30 minutes</p>
+    </footer>
+</article>
+
+<br>
+
+<article>
+    <header>
+        <h2>Food House</h2>
+    </header>
+
+    <p>Pizza, Burger and Italian Food</p>
+
+    <footer>
+        <p>Rating: 4.3 | Delivery Time: 25 minutes</p>
+    </footer>
+</article>
+
+</body> </html>
+
+Question 3:
+
+Build a Flipkart-style product page section with semantic tags: use <header> for the product title and image, <nav> for category breadcrumbs, <article> for product details and description, and <footer> for offers or warranty info.
+
+Answer:
+
+Create a file named product.html and write the following code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Product Page</title> </head> <body>
+
+<header>
+    <h1>Smartphone</h1>
+    <img src="phone.jpg" alt="Smartphone" width="250">
+</header>
+
+<nav>
+    <a href="#">Home</a> >
+    <a href="#">Mobiles</a> >
+    <a href="#">Smartphones</a>
+</nav>
+
+<article>
+    <h2>Smartphone Details</h2>
+    <p>This smartphone has a large display, good camera and long-lasting battery.</p>
+    <p>Price: ₹15,999</p>
+</article>
+
+<footer>
+    <p>Offer: 10% discount available</p>
+    <p>Warranty: 1 Year</p>
+</footer>
+
+</body> </html>
+
+Question 4:
+
+Given a non-semantic HTML snippet for a movie review (using only <div> and <span>), refactor it to use appropriate semantic tags like <header>, <nav>, <article>, and <footer> for improved accessibility and SEO.
+
+Answer:
+
+The non-semantic structure can be changed to the following semantic HTML:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Movie Review</title> </head> <body>
+
+<header>
+    <h1>Movie Review</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Movies</a>
+    <a href="#">Reviews</a>
+</nav>
+
+<article>
+    <header>
+        <h2>Movie Name</h2>
+    </header>
+
+    <p>This movie has a good story, interesting characters and enjoyable scenes.</p>
+
+    <p>Rating: 4 out of 5</p>
+</article>
+
+<footer>
+    <p>Copyright 2026 Movie Reviews</p>
+</footer>
+
+</body> </html>
+

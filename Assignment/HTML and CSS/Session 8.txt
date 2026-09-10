@@ -1,0 +1,167 @@
+Session 8
+
+Tasks
+
+Question 1:
+
+Create a Flipkart-style product card in HTML and CSS, then use a meta viewport tag to ensure it scales correctly on mobile devices.
+
+Answer:
+
+Create a file named responsive-product.html:
+
+<!DOCTYPE html>
+
+<html> <head> <title>Responsive Product Card</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    .product-card {
+        display: flex;
+        width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid black;
+        gap: 20px;
+    }
+
+    .product-card img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .product-details {
+        padding: 10px;
+    }
+
+    .product-details h2 {
+        font-size: 28px;
+    }
+
+    .product-details p {
+        font-size: 18px;
+    }
+</style>
+
+</head> <body>
+
+<div class="product-card">
+
+    <img src="product.jpg" alt="Product">
+
+    <div class="product-details">
+
+        <h2>Smartphone</h2>
+
+        <p>Powerful smartphone with a good camera and long-lasting battery.</p>
+
+        <p>Price: ₹15,999</p>
+
+        <button>Add to Cart</button>
+
+    </div>
+
+</div>
+
+</body> </html>
+
+Question 2:
+
+Add media queries to your product card so that when the screen width is 600px or less, the card layout switches from horizontal (image and details side by side) to vertical (image on top, details below).
+
+Answer:
+
+Add the following media query inside the <style> tag:
+
+@media only screen and (max-width: 600px) {
+
+.product-card {
+    flex-direction: column;
+    width: 90%;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+}
+
+Question 3:
+
+Set up three breakpoints (600px, 900px, 1200px) for your product card and change the card's font size and padding at each breakpoint to improve readability on different devices. Hint: Use @media only screen and (max-width: ...) in your CSS for each breakpoint.
+
+Answer:
+
+Add the following CSS inside the <style> tag:
+
+@media only screen and (max-width: 1200px) {
+
+.product-card {
+    padding: 18px;
+}
+
+.product-details h2 {
+    font-size: 26px;
+}
+
+}
+
+@media only screen and (max-width: 900px) {
+
+.product-card {
+    padding: 15px;
+}
+
+.product-details h2 {
+    font-size: 24px;
+}
+
+.product-details p {
+    font-size: 16px;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+.product-card {
+    flex-direction: column;
+    width: 90%;
+    padding: 12px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-details h2 {
+    font-size: 22px;
+}
+
+.product-details p {
+    font-size: 15px;
+}
+
+}
+
+Question 4:
+
+Test your responsive product card by resizing your browser window and taking screenshots at mobile, tablet, and desktop widths; submit the screenshots along with a short note on what changes at each size.
+
+Answer:
+
+I tested the responsive product card by resizing the browser window.
+
+Mobile Width:
+At 600px or less, the product image appears on top and the product details appear below it. The font size and padding are also reduced.
+
+Tablet Width:
+At around 900px, the product card has smaller padding and font sizes to fit the screen properly.
+
+Desktop Width:
+At around 1200px or more, the product image and product details appear side by side with larger font sizes and padding.
+
+I took screenshots at mobile, tablet, and desktop widths and submitted them with the assignment.

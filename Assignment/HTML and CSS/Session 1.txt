@@ -1,0 +1,83 @@
+Session 1
+
+Tasks
+
+
+QUESTION 1.) Open Instagram's home page in Chrome, right-click on a post image, and use Inspect Element to find the exact HTML tag and CSS class used for the image container. Write down the tag name and class.
+
+Answer:
+
+I opened Instagram's home page in Chrome and used Inspect Element on a post image.
+
+HTML Tag: div
+CSS Class: x1lliihq
+
+The exact class name can be different because Instagram changes its HTML and CSS classes frequently.
+
+QUESTION 2.) Create a simple HTML file named myprofile.html that displays your name, a short bio, and a profile picture using appropriate HTML tags (h1, p, img). Open it in your browser and view the result.
+
+Answer:
+
+I created a file named myprofile.html with the following HTML code:
+
+<!DOCTYPE html>
+
+<html> <head> <title>My Profile</title> </head> <body>
+
+<h1>Zuber Shaikh</h1>
+
+<p>I am learning software testing and web development.</p>
+
+<img src="profile.jpg" alt="My Profile Picture" width="200">
+
+</body> </html>
+
+I saved the file as myprofile.html and opened it in the browser to view the profile page.
+
+QUESTION 3.) Use Chrome DevTools to change the background color of your name (in myprofile.html) to any color you like, live in the browser, without editing the HTML file.
+
+Answer:
+
+I opened myprofile.html in Chrome and used Inspect Element to select the h1 tag.
+
+In the Styles section of Chrome DevTools, I added the following CSS:
+
+background-color: lightblue;
+
+The background color of my name changed immediately in the browser.
+
+I did not edit the original HTML file.
+
+QUESTION 4.) Draw a diagram or write a list showing the DOM structure (parent-child relationships) of your myprofile.html page. Include at least 3 levels (html > body > your content).
+
+Answer:
+
+DOM Structure:
+
+html
+|
+|-- head
+| |
+| |-- title
+|
+|-- body
+|
+|-- h1
+| |
+| |-- Zuber Shaikh
+|
+|-- p
+| |
+| |-- Short Bio
+|
+|-- img
+|
+|-- Profile Picture
+
+Parent-Child Relationship:
+
+html
+-> body
+-> h1
+-> p
+-> img
