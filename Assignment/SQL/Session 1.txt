@@ -1,0 +1,107 @@
+Question 1:
+
+Install MySQL Workbench on your computer, connect to the local MySQL server, and take a screenshot of the default databases shown in the Schemas panel.
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>MySQL Assignment</title>
+</head>
+
+<body>
+
+<h3>Question 1:</h3>
+
+<p>Install MySQL Workbench on your computer, connect to the local MySQL server, and take a screenshot of the default databases shown in the Schemas panel.</p>
+
+<p>Answer:</p>
+
+<p>I connected MySQL Workbench with the local MySQL server using XAMPP.</p>
+
+<p>The default databases are displayed in the Schemas panel.</p>
+
+<img src="schema pannel.png" alt="MySQL Workbench Schemas">
+
+</body>
+</html>
+
+
+Question 2:
+
+Create a new database called InstaClone in MySQL Workbench, then create a table named Users with columns: user_id (INT, primary key), username (VARCHAR), email (VARCHAR), and followers_count (INT).
+
+Answer:
+
+CREATE DATABASE InstaClone;
+
+USE InstaClone;
+
+CREATE TABLE Users (
+user_id INT PRIMARY KEY,
+username VARCHAR(100),
+email VARCHAR(100),
+followers_count INT
+);
+
+Question 3:
+
+Insert 3 sample users into the Users table you created, using realistic Instagram-style usernames and follower counts.
+
+Answer:
+
+INSERT INTO Users (user_id, username, email, followers_count)
+VALUES (1, 'zuber_tech', '[zuber@gmail.com](mailto:zuber@gmail.com)', 1250);
+
+INSERT INTO Users (user_id, username, email, followers_count)
+VALUES (2, 'rahul_photography', '[rahul@gmail.com](mailto:rahul@gmail.com)', 3500);
+
+INSERT INTO Users (user_id, username, email, followers_count)
+VALUES (3, 'sara_travels', '[sara@gmail.com](mailto:sara@gmail.com)', 5200);
+
+Question 4:
+
+Create another table in the InstaClone database called Posts with columns: post_id (INT, primary key), user_id (INT), caption (VARCHAR), and post_date (DATE). Add a foreign key from Posts.user_id to Users.user_id to establish a relationship.
+
+Answer:
+
+USE InstaClone;
+
+CREATE TABLE Posts (
+post_id INT PRIMARY KEY,
+user_id INT,
+caption VARCHAR(255),
+post_date DATE,
+FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+Question 5:
+
+Write a short comparison (3-4 lines each) of MySQL, PostgreSQL, Oracle, and SQLite, focusing on where each one is commonly used (for example: web apps, mobile apps, enterprise systems, etc.).
+
+Answer:
+
+MySQL:
+MySQL is a popular relational database management system.
+It is commonly used for websites and web applications.
+It is widely used with technologies such as PHP, Java, and Python.
+It is suitable for small, medium, and large web applications.
+
+PostgreSQL:
+PostgreSQL is an open-source relational database system.
+It is commonly used for web applications, data analysis, and complex applications.
+It provides advanced SQL features and supports large amounts of data.
+It is also widely used in enterprise and cloud applications.
+
+Oracle:
+Oracle Database is a powerful relational database management system.
+It is commonly used by large companies and enterprise systems.
+It is suitable for banking, finance, government, and other large organizations.
+It provides advanced features for security, performance, and large databases.
+
+SQLite:
+SQLite is a lightweight and serverless relational database.
+It is commonly used in mobile applications, desktop applications, and embedded systems.
+It stores the complete database in a single file.
+It is useful when a full database server is not required.
