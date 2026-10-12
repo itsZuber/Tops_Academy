@@ -3,29 +3,7 @@ Question 1:
 Install MySQL Workbench on your computer, connect to the local MySQL server, and take a screenshot of the default databases shown in the Schemas panel.
 
 Answer:
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>MySQL Assignment</title>
-</head>
-
-<body>
-
-<h3>Question 1:</h3>
-
-<p>Install MySQL Workbench on your computer, connect to the local MySQL server, and take a screenshot of the default databases shown in the Schemas panel.</p>
-
-<p>Answer:</p>
-
-<p>I connected MySQL Workbench with the local MySQL server using XAMPP.</p>
-
-<p>The default databases are displayed in the Schemas panel.</p>
-
-<img src="schema pannel.png" alt="MySQL Workbench Schemas">
-
-</body>
-</html>
+Screenshot: https://github.com/itsZuber/Tops_Academy/blob/master/Assignment/SQL/schema%20pannel.png
 
 
 Question 2:
