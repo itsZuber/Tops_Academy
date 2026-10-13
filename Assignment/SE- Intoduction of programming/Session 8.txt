@@ -1,1 +1,88 @@
-Question 1
+Question 1:
+Declare a function called getUserInitials that takes a user's full name (like 'Virat Kohli') and returns their initials in uppercase (e.g., 'VK'). Call this function with your favorite cricketer's name and print the result.
+
+Answer:
+
+function getUserInitials(fullName) {
+    let names = fullName.split(" ");
+    let initials = "";
+
+    for (let i = 0; i < names.length; i++) {
+        initials = initials + names[i][0];
+    }
+
+    return initials.toUpperCase();
+}
+
+console.log(getUserInitials("Virat Kohli"));
+
+
+Question 2:
+Create a function addToCart that takes a shopping cart array and a product name, adds the product to the cart, and prints the updated cart. Demonstrate how passing the cart array by reference allows changes to persist outside the function.
+
+Answer:
+
+function addToCart(cart, productName) {
+    cart.push(productName);
+    console.log(cart);
+}
+
+let shoppingCart = ["Shoes", "Watch"];
+
+addToCart(shoppingCart, "Headphones");
+
+console.log("Updated Cart:", shoppingCart);
+
+
+Question 3:
+Write two functions: increaseFollowersByValue and increaseFollowersByReference. Each should take a followers count and add 1000 to it, but one should use pass-by-value and the other pass-by-reference. Show how the original followers count changes (or doesn't) after calling each function.
+
+Answer:
+
+function increaseFollowersByValue(followers) {
+    followers = followers + 1000;
+    console.log("Inside value function:", followers);
+}
+
+function increaseFollowersByReference(user) {
+    user.followers = user.followers + 1000;
+    console.log("Inside reference function:", user.followers);
+}
+
+let followersCount = 5000;
+
+increaseFollowersByValue(followersCount);
+console.log("Original followers:", followersCount);
+
+let user = { followers: 5000 };
+
+increaseFollowersByReference(user);
+console.log("Updated followers:", user.followers);
+
+
+Question 4:
+Build a function formatPrice that takes a price in rupees and returns a string formatted like Flipkart's price tag (e.g., '₹1,599'). Use this function to display prices for three different products.
+
+Answer:
+
+function formatPrice(price) {
+    return "₹" + price.toLocaleString("en-IN");
+}
+
+console.log("Shoes: " + formatPrice(1599));
+console.log("Watch: " + formatPrice(2499));
+console.log("Headphones: " + formatPrice(999));
+
+
+Question 5:
+Refactor an existing function you wrote above to make it reusable for both product names and usernames (for example, a function that capitalizes the first letter of any string).
+
+Answer:
+
+function capitalizeFirstLetter(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+console.log(capitalizeFirstLetter("shoes"));
+console.log(capitalizeFirstLetter("zuber"));
+console.log(capitalizeFirstLetter("headphones"));
