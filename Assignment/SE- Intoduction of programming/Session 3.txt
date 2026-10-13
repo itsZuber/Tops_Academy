@@ -1,1 +1,74 @@
-Question 1
+Question 1:
+Declare variables for a Flipkart product: productName (as a string), price (float), and rating (double). Assign sample values and print each variable with its data type.
+
+Answer:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string productName = "Headphones";
+    float price = 1499.50;
+    double rating = 4.5;
+
+    cout << "Product Name: " << productName << " (string)" << endl;
+    cout << "Price: " << price << " (float)" << endl;
+    cout << "Rating: " << rating << " (double)" << endl;
+
+    return 0;
+}
+
+Question 2:
+Create a constant variable to store the GST rate (for example, 18%) and use it to calculate the final price of a Zomato order with a given base price.
+
+Answer:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const float GST_RATE = 18.0;
+    float basePrice = 500;
+    float gst = basePrice * GST_RATE / 100;
+    float finalPrice = basePrice + gst;
+
+    cout << "Base Price: " << basePrice << endl;
+    cout << "GST: " << gst << endl;
+    cout << "Final Price: " << finalPrice << endl;
+
+    return 0;
+}
+
+Question 3:
+Write a program that stores your favorite Spotify playlist's name (string), total number of songs (int), and average song duration in minutes (float). Print all values in a single formatted sentence.
+
+Answer:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string playlistName = "Chill Vibes";
+    int totalSongs = 25;
+    float averageDuration = 3.5;
+
+    cout << "My favorite playlist is " << playlistName
+         << ", it has " << totalSongs
+         << " songs, and the average song duration is "
+         << averageDuration << " minutes." << endl;
+
+    return 0;
+}
+
+Question 4:
+Identify and correct the invalid variable names from this list: 1stPlayer, player_age, $score, total-marks, userName.
+
+Answer:
+
+1. 1stPlayer – Invalid. Correct name: firstPlayer
+2. player_age – Valid.
+3. $score – Invalid. Correct name: score
+4. total-marks – Invalid. Correct name: totalMarks
+5. userName – Valid.
