@@ -1,1 +1,52 @@
-Question 1
+Question 1:
+Create a file called playlist.txt and write the names of your top 3 favorite songs from Spotify into it using write mode (w).
+
+Answer:
+
+file = open("playlist.txt", "w")
+
+file.write("Tum Hi Ho\n")
+file.write("Perfect\n")
+file.write("Night Changes\n")
+
+file.close()
+
+
+Question 2:
+Open playlist.txt in read mode (r) and display each song name on a separate line in the console.
+
+Answer:
+
+file = open("playlist.txt", "r")
+
+for song in file:
+    print(song.strip())
+
+file.close()
+
+
+Question 3:
+Add two more song names to playlist.txt without deleting the existing ones by opening the file in append mode (a).
+
+Answer:
+
+file = open("playlist.txt", "a")
+
+file.write("Love Me Like You Do\n")
+file.write("Let Me Love You\n")
+
+file.close()
+
+
+Question 4:
+Write a program that reads all song names from playlist.txt and prints only those that contain the word 'love' (case-insensitive). Use the 'in' keyword or equivalent string method for filtering.
+
+Answer:
+
+file = open("playlist.txt", "r")
+
+for song in file:
+    if "love" in song.lower():
+        print(song.strip())
+
+file.close()
