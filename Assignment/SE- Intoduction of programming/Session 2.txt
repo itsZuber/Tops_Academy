@@ -1,1 +1,54 @@
-Question 1
+Question 1:
+Install GCC on your computer and verify the installation by running gcc --version in your terminal or command prompt.
+
+Answer:
+Open Command Prompt or VS Code Terminal and run this command:
+
+gcc --version
+
+If GCC is installed correctly, it will display the GCC version information.
+
+Question 2:
+Open VS Code or DevC++ and create a new file named hello.c. Write a C program that prints 'Hello, Instagram World!' to the console.
+
+Answer:
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello, Instagram World!");
+    return 0;
+}
+
+Question 3:
+Identify and label the header, main function, and return statement in your hello.c program using comments.
+
+Answer:
+
+/* Header file */
+#include <stdio.h>
+
+/* Main function */
+int main() {
+    printf("Hello, Instagram World!");
+
+    /* Return statement */
+    return 0;
+}
+
+Question 4:
+Compile your hello.c file using the GCC command line (gcc hello.c -o hello) and run the output file to display the message in your terminal.
+
+Answer:
+
+Compile the program:
+
+gcc hello.c -o hello
+
+Run on Windows:
+
+hello.exe
+
+Output:
+
+Hello, Instagram World!
