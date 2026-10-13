@@ -1,1 +1,91 @@
-Question 1
+Question 1:
+Given the following buggy code meant to calculate the total price of a Zomato order, identify and fix the syntax and runtime errors.
+
+Answer:
+
+let items = ["Burger", "Pizza", "Fries"];
+let prices = [120, 250, 90];
+let total = 0;
+
+// Add each item price to the total
+for (let i = 0; i < items.length; i++) {
+    total += prices[i];
+}
+
+console.log("Total price is: " + total);
+
+// Output: Total price is: 460
+
+
+Question 2:
+Rewrite the following code to improve its indentation and add comments explaining each step, so that a beginner can understand what it does.
+
+Answer:
+
+// Check whether a number is even
+function isEven(num) {
+
+    // Check if the number is divisible by 2
+    if (num % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(isEven(4));
+
+
+Question 3:
+Write a function formatFollowersCount(count) that takes a number and returns a formatted string like Instagram: 1500 as '1.5K', 1200000 as '1.2M', and numbers below 1000 as-is. Add clear comments and use proper indentation.
+
+Answer:
+
+// Format follower counts into K or M
+function formatFollowersCount(count) {
+
+    // Convert millions into M
+    if (count >= 1000000) {
+        return (count / 1000000).toFixed(1) + "M";
+    }
+
+    // Convert thousands into K
+    else if (count >= 1000) {
+        return (count / 1000).toFixed(1) + "K";
+    }
+
+    // Return numbers below 1000 as they are
+    else {
+        return count.toString();
+    }
+}
+
+console.log(formatFollowersCount(1500));
+console.log(formatFollowersCount(1200000));
+console.log(formatFollowersCount(850));
+
+// Output:
+// 1.5K
+// 1.2M
+// 850
+
+
+Question 4:
+You are given a piece of JavaScript code that should print all even numbers from 1 to 10, but it doesn't work as expected. Find and fix the error, then rewrite the code with good indentation and at least one comment explaining the logic.
+
+Answer:
+
+for (let i = 1; i <= 10; i++) {
+
+    // Check whether the number is even
+    if (i % 2 == 0) {
+        console.log(i);
+    }
+}
+
+// Output:
+// 2
+// 4
+// 6
+// 8
+// 10
