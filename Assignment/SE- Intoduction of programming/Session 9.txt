@@ -1,1 +1,71 @@
-Question 1
+Question 1:
+Declare a 1D array called dailySteps with 7 elements to store your step count for each day of the week, assign sample values, and print each value using a loop.
+
+Answer:
+
+let dailySteps = [5000, 6500, 8000, 4500, 7000, 9000, 6000];
+
+for (let i = 0; i < dailySteps.length; i++) {
+    console.log(dailySteps[i]);
+}
+
+
+Question 2:
+Create a 2D array called playlistRatings to store ratings for 3 Spotify playlists over 5 days (rows = playlists, columns = days). Fill it with sample numbers and print the ratings for the second playlist.
+
+Answer:
+
+let playlistRatings = [
+    [4, 5, 3, 4, 5],
+    [5, 4, 5, 3, 4],
+    [3, 4, 4, 5, 5]
+];
+
+for (let i = 0; i < playlistRatings[1].length; i++) {
+    console.log(playlistRatings[1][i]);
+}
+
+
+Question 3:
+Build a function that takes a 1D array of 7 integers representing your daily Zomato order amounts and calculates the average spend for the week.
+
+Answer:
+
+function calculateAverageSpend(orderAmounts) {
+    let total = 0;
+
+    for (let i = 0; i < orderAmounts.length; i++) {
+        total = total + orderAmounts[i];
+    }
+
+    return total / orderAmounts.length;
+}
+
+let dailyOrders = [200, 350, 150, 400, 250, 300, 350];
+
+console.log("Average weekly spend: " + calculateAverageSpend(dailyOrders));
+
+
+Question 4:
+Given a 2D array called cricketScores where each row represents an IPL match and columns represent runs scored by each team, write code to print the highest score from each match.
+
+Answer:
+
+let cricketScores = [
+    [180, 165],
+    [145, 190],
+    [210, 205],
+    [175, 185]
+];
+
+for (let i = 0; i < cricketScores.length; i++) {
+    let highest = cricketScores[i][0];
+
+    for (let j = 1; j < cricketScores[i].length; j++) {
+        if (cricketScores[i][j] > highest) {
+            highest = cricketScores[i][j];
+        }
+    }
+
+    console.log("Match " + (i + 1) + " highest score: " + highest);
+}
