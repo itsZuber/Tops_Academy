@@ -1,1 +1,120 @@
-Question 1
+Question 1:
+Create a simple IPL Fan Bot that takes your favorite IPL team name as input and uses if-else-if statements to print a unique cheer message for each team (e.g., 'Go Mumbai Indians!', 'Chennai Super Kings for the win!'). If the team is not recognized, print 'Team not found!'
+
+Answer:
+
+let team = prompt("Enter your favorite IPL team:");
+
+if (team === "Mumbai Indians") {
+    console.log("Go Mumbai Indians!");
+}
+else if (team === "Chennai Super Kings") {
+    console.log("Chennai Super Kings for the win!");
+}
+else if (team === "Royal Challengers Bengaluru") {
+    console.log("Go RCB!");
+}
+else if (team === "Kolkata Knight Riders") {
+    console.log("Go KKR!");
+}
+else if (team === "Rajasthan Royals") {
+    console.log("Go Rajasthan Royals!");
+}
+else if (team === "Sunrisers Hyderabad") {
+    console.log("Go SRH!");
+}
+else if (team === "Punjab Kings") {
+    console.log("Go Punjab Kings!");
+}
+else if (team === "Delhi Capitals") {
+    console.log("Go Delhi Capitals!");
+}
+else if (team === "Gujarat Titans") {
+    console.log("Go Gujarat Titans!");
+}
+else if (team === "Lucknow Super Giants") {
+    console.log("Go Lucknow Super Giants!");
+}
+else {
+    console.log("Team not found!");
+}
+
+Question 2:
+Build a Zomato-style food suggestion tool: take the user's preferred meal time ('breakfast', 'lunch', 'dinner', or 'snack') and use a switch-case statement to suggest a popular dish for that time. If the input doesn't match any meal, suggest 'Try some fruits!'.
+
+Answer:
+
+let meal = prompt("Enter meal time (breakfast, lunch, dinner, snack):");
+
+switch (meal) {
+    case "breakfast":
+        console.log("Try some Poha!");
+        break;
+
+    case "lunch":
+        console.log("Try some Biryani!");
+        break;
+
+    case "dinner":
+        console.log("Try some Pizza!");
+        break;
+
+    case "snack":
+        console.log("Try some Samosa!");
+        break;
+
+    default:
+        console.log("Try some fruits!");
+}
+
+Question 3:
+Create a Flipkart discount calculator that asks the user for the total cart amount. Use nested if statements to check: if amount > 2000, apply 20% discount; else if amount > 1000, apply 10% discount; else, no discount. Print the final amount to pay.
+
+Answer:
+
+let amount = Number(prompt("Enter total cart amount:"));
+let discount = 0;
+
+if (amount > 2000) {
+    discount = amount * 20 / 100;
+}
+else {
+    if (amount > 1000) {
+        discount = amount * 10 / 100;
+    }
+    else {
+        discount = 0;
+    }
+}
+
+let finalAmount = amount - discount;
+
+console.log("Final amount to pay: " + finalAmount);
+
+Question 4:
+Write a program that takes a user's age and checks eligibility for three things using if-else statements: if age >= 18, print 'Eligible for Driving License'; if age >= 21, also print 'Eligible for Credit Card'; if age >= 25, also print 'Eligible for Car Rental'. Print all applicable messages for the given age.
+
+Answer:
+
+let age = Number(prompt("Enter your age:"));
+
+if (age >= 18) {
+    console.log("Eligible for Driving License");
+}
+else {
+    console.log("Not eligible for Driving License");
+}
+
+if (age >= 21) {
+    console.log("Eligible for Credit Card");
+}
+else {
+    console.log("Not eligible for Credit Card");
+}
+
+if (age >= 25) {
+    console.log("Eligible for Car Rental");
+}
+else {
+    console.log("Not eligible for Car Rental");
+}
