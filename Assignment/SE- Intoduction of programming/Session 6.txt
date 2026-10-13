@@ -1,1 +1,93 @@
-Question 1
+Question 1:
+Write a program that prints the numbers from 10 down to 1 using a for loop, similar to a countdown timer.
+
+Answer:
+
+for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}
+
+
+Question 2:
+Create a menu-driven console app that lets the user: 1) View your favorite 3 IPL teams, 2) Add a new team, 3) Exit. Use a while loop to keep showing the menu until the user chooses Exit.
+
+Answer:
+
+let teams = ["Mumbai Indians", "Chennai Super Kings", "Royal Challengers Bengaluru"];
+let choice = 0;
+
+while (choice !== 3) {
+    console.log("1. View IPL Teams");
+    console.log("2. Add New Team");
+    console.log("3. Exit");
+
+    choice = Number(prompt("Enter your choice:"));
+
+    if (choice === 1) {
+        console.log(teams);
+    }
+    else if (choice === 2) {
+        let newTeam = prompt("Enter new team name:");
+        teams.push(newTeam);
+        console.log("Team added successfully!");
+    }
+    else if (choice === 3) {
+        console.log("Exiting app...");
+    }
+    else {
+        console.log("Invalid choice!");
+    }
+}
+
+
+Question 3:
+Build a 'Guess the Song' game like Spotify — the program randomly picks a song name from a list and asks the user to guess it. Use a do-while loop so the user can keep guessing until they get it right.
+
+Answer:
+
+let songs = ["Shape of You", "Perfect", "Believer"];
+
+let randomIndex = Math.floor(Math.random() * songs.length);
+let selectedSong = songs[randomIndex];
+let guess;
+
+do {
+    guess = prompt("Guess the song: Shape of You, Perfect, or Believer");
+
+    if (guess === selectedSong) {
+        console.log("Correct! You guessed the song.");
+    }
+    else {
+        console.log("Wrong guess! Try again.");
+    }
+} while (guess !== selectedSong);
+
+
+Question 4:
+Explain with your own example the difference between entry-controlled and exit-controlled loops by writing a short code snippet for each (for/while vs do-while) and describing what happens if the loop condition is false at the start.
+
+Answer:
+
+Entry-Controlled Loop (while):
+
+let i = 5;
+
+while (i < 3) {
+    console.log(i);
+    i++;
+}
+
+Explanation:
+In an entry-controlled loop, the condition is checked before executing the loop body. If the condition is false at the start, the loop body will not execute even once.
+
+Exit-Controlled Loop (do-while):
+
+let j = 5;
+
+do {
+    console.log(j);
+    j++;
+} while (j < 3);
+
+Explanation:
+In an exit-controlled loop, the condition is checked after executing the loop body. Even if the condition is false at the start, the loop body executes at least once.
